@@ -1,0 +1,8 @@
+version: '3.3'
+
+services:
+    package:
+      container_name: package_name_dev
+      build: ./
+      volumes:
+        - .:/root/package_name

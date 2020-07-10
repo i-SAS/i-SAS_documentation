@@ -1,0 +1,25 @@
+[tool.poetry]
+name = "package_name"
+version = "0.0.1"
+description = "implemention of {package_name} for integrate Structural Analysis system"
+authors = ["Makito Kobayashi"]
+repository = "https://github.com/i-SAS/i-SAS_template"
+packages = [
+    { include = "package_name" },
+]
+
+[tool.poetry.dependencies]
+python = "^3.6"
+
+[tool.poetry.dev-dependencies]
+flake8 = "*"
+flake8-isort = "*"
+flake8-quotes = "*"
+ipython = "*"
+jupyter = "*"
+pep8-naming = "*"
+sphinx-rtd-theme = "*"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
