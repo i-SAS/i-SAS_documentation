@@ -7,7 +7,7 @@ Subpackages
 .. toctree::
    :maxdepth: 4
 
-   tests.package_name
+   tests.sensor_simulator
 
 Module contents
 ---------------

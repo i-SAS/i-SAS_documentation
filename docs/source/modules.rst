@@ -1,8 +1,8 @@
-package_name
-============
+i-SAS_SensorSimulator-template
+==============================
 
 .. toctree::
    :maxdepth: 4
 
-   package_name
+   sensor_simulator
    tests
