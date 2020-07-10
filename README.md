@@ -1,10 +1,10 @@
-# i-SAS_template
-implementation of {package_name} for integrate Structural Analysis System
+# i-SAS_documentation
+documentation for integrate Structural Analysis System
 
 ## 1. Clone
 ```
-$ git clone https://github.com/i-SAS/i-SAS_template
-$ cd i-SAS_template
+$ git clone https://github.com/i-SAS/i-SAS_documentation
+$ cd i-SAS_documentation
 ```
 
 ## 2. Docker build & run
@@ -23,11 +23,6 @@ Modify `pyproject.toml` and command
 #### Check coding conventions
 ```
 # flake8
-```
-
-#### Run test
-```
-# python -m unittest
 ```
 
 #### Update Document

@@ -1,12 +1,12 @@
 FROM python:3.8
 ENV DEBIAN_FRONTEND noninteractive
 
-ENV WORKDIR /root/package_name
+ENV WORKDIR /root/documentation
 WORKDIR $WORKDIR
 
 # poetry
 COPY pyproject.toml poetry.toml poetry.lock $WORKDIR/
-RUN mkdir $WORKDIR/package_name && touch $WORKDIR/package_name/__init__.py
+RUN mkdir $WORKDIR/documentation && touch $WORKDIR/documentation/__init__.py
 RUN pip install poetry
 RUN poetry install
 
@@ -16,4 +16,5 @@ RUN apt-get update && apt-get install -y \
  && apt-get clean \
  && rm -rf /var/lib/apt/lists/*
 
-CMD ["bash"]
+COPY . $WORKDIR
+RUN python $WORKDIR/documentation/bin/update_documentation.py

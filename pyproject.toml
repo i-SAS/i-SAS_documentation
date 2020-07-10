@@ -1,12 +1,9 @@
 [tool.poetry]
-name = "package_name"
+name = "documentation"
 version = "0.0.1"
-description = "implemention of {package_name} for integrate Structural Analysis system"
+description = "documentation for integrate Structural Analysis System"
 authors = ["Makito Kobayashi"]
-repository = "https://github.com/i-SAS/i-SAS_template"
-packages = [
-    { include = "package_name" },
-]
+repository = "https://github.com/i-SAS/i-SAS_documentation"
 
 [tool.poetry.dependencies]
 python = "^3.6"
