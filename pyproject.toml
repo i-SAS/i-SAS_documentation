@@ -7,6 +7,10 @@ repository = "https://github.com/i-SAS/i-SAS_documentation"
 
 [tool.poetry.dependencies]
 python = "^3.6"
+pandas = "*"
+pyyaml = "*"
+numpy = "*"
+scipy = "*"
 
 [tool.poetry.dev-dependencies]
 flake8 = "*"

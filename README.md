@@ -27,6 +27,5 @@ Modify `pyproject.toml` and command
 
 #### Update Document
 ```
-# sphinx-apidoc -f -o $WORKDIR/docs/source .
-# sphinx-build -b singlehtml $WORKDIR/docs/source $WORKDIR/docs/_build
+# python documentation/bin/update_documentation.py
 ```

@@ -1,1 +1,10 @@
-https://github.com/i-SAS/i-SAS_SensorSimulator-template
+[Interface]
+https://github.com/i-SAS/i-SAS_Interface
+[SensorSimulator]
+[SensorModeler]
+https://github.com/i-SAS/i-SAS_BasicSensorModeler
+[StructuralModeler]
+https://github.com/i-SAS/i-SAS_FiniteElementModeler
+[StructuralAnalysisSolver]
+https://github.com/i-SAS/i-SAS_iFEM-matlab
+[GUI]
