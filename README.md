@@ -8,6 +8,21 @@ $ cd i-SAS_documentation
 ```
 
 ## 2. Docker build & run
+Register your ssh public key on github.
+
+Run ssh-agent and register your ssh key.
+terminal for Mac
+```
+$ eval `ssh-agent`
+```
+git bash for Windows
+```
+$ eval $(ssh-agent)
+```
+```
+$ ssh-add ~/.ssh/id_rsa
+```
+Then, build and run docker image.
 ```
 $ docker-compose build
 $ docker-compose run --rm package
@@ -26,7 +41,7 @@ Modify `pyproject.toml` and command
 ```
 
 #### Update Document
+Note: You need to run ssh-agent in the container.
 ```
-# sphinx-apidoc -f -o $WORKDIR/docs/source .
-# sphinx-build -b singlehtml $WORKDIR/docs/source $WORKDIR/docs/_build
+# python documentation/bin/update_documentation.py
 ```

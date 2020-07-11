@@ -2,11 +2,15 @@
 name = "documentation"
 version = "0.0.1"
 description = "documentation for integrate Structural Analysis System"
-authors = ["Makito Kobayashi"]
+authors = ["Makito Kobayashi", "Kohei Mikami"]
 repository = "https://github.com/i-SAS/i-SAS_documentation"
 
 [tool.poetry.dependencies]
 python = "^3.6"
+pandas = "*"
+pyyaml = "*"
+numpy = "*"
+scipy = "*"
 
 [tool.poetry.dev-dependencies]
 flake8 = "*"

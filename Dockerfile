@@ -16,5 +16,4 @@ RUN apt-get update && apt-get install -y \
  && apt-get clean \
  && rm -rf /var/lib/apt/lists/*
 
-COPY . $WORKDIR
-RUN python $WORKDIR/documentation/bin/update_documentation.py
+CMD ["bash"]

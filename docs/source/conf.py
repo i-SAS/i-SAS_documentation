@@ -16,13 +16,17 @@ import os
 import sys
 
 sys.path.insert(0, os.path.abspath('../../'))
+sys.path.insert(0, os.path.abspath('../../tmp/i-SAS_Interface'))
+sys.path.insert(0, os.path.abspath('../../tmp/i-SAS_BasicSensorModeler'))
+sys.path.insert(0, os.path.abspath('../../tmp/i-SAS_FiniteElementModeler'))
+sys.path.insert(0, os.path.abspath('../../tmp/i-SAS_iFEM-matlab'))
 
 
 # -- Project information -----------------------------------------------------
 
-project = 'package_name'
-copyright = '2020, Makito Kobayashi'
-author = 'Makito Kobayashi'
+project = 'i-SAS documentation'
+copyright = '2020, i-SAS SC'
+author = 'i-SAS SC'
 
 # The short X.Y version
 version = ''
@@ -39,7 +43,7 @@ release = 'v0.0.1'
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
-extensions = ['sphinx.ext.autodoc', 'sphinx.ext.napoleon'
+extensions = ['sphinx.ext.autodoc', 'sphinx.ext.napoleon', 'sphinx.ext.githubpages'
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -64,7 +68,7 @@ language = None
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
 # This pattern also affects html_static_path and html_extra_path.
-exclude_patterns = ['tests.package_name.rst','tests.rst']
+
 
 # The name of the Pygments (syntax highlighting) style to use.
 pygments_style = None
@@ -138,10 +142,10 @@ latex_elements = {
 
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
-man_pages = [
-    (master_doc, 'package_name', 'package_name Documentation',
-     [author], 1)
-]
+# man_pages = [
+#     (master_doc, 'finite_element_modeler', 'finite_element_modeler Documentation',
+#      [author], 1)
+# ]
 
 
 # -- Options for Texinfo output ----------------------------------------------
@@ -172,3 +176,11 @@ epub_title = project
 
 # A list of files that should not be packed into the epub file.
 epub_exclude_files = ['search.html']
+
+autodoc_default_options = {
+    'member-order': 'bysource',
+    'special-members': '__init__, __call__',
+    'undoc-members': True
+}
+
+exclude_patterns = ['tests']
