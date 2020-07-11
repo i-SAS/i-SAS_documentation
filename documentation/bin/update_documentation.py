@@ -24,6 +24,16 @@ def initialize(filename, extension):
 
 def main():
     """update documents"""
+
+    # clear files which are created automatically before.
+    existing = glob('/root/documentation/docs/*')
+    existing = [_ for _ in existing if _.rsplit('/', 1)[1] not in ('Makefile', 'make.bat', 'source')]
+    for _existing in existing:
+        if os.path.isfile(_existing):
+            os.remove(_existing)
+        else:
+            shutil.rmtree(_existing)
+
     with PACKAGE_LIST_PATH.open('r') as f:
         lines = f.read().splitlines()
 
@@ -45,7 +55,7 @@ def main():
         repository_name = repository_path.rsplit('/', 1)[1]
         print(repository_name)
         # git clone
-        subprocess.run(['git', 'clone', repository_path])
+        subprocess.run(['git', 'clone', '--depth', '1', repository_path])
 
         # add document name to index.rst
         folders = glob(f'{TMP_PATH}/{repository_name}/**/')
@@ -60,8 +70,9 @@ def main():
                     print(f'folder named {script_folder} is not exist.')
         else:
             script_folder = folders[0]
-        with open(f'{DOCS_PATH}/{group}_index.rst', 'a') as f:
-            f.write(f'\n   {script_folder}')
+        if group != 'Interface':
+            with open(f'{DOCS_PATH}/{group}_index.rst', 'a') as f:
+                f.write(f'\n   {script_folder}')
 
         # create .rst file automatically
         # subprocess.run(['sphinx-apidoc', '-f', '-o', DOCS_PATH, str(TMP_PATH / repository_name)])
