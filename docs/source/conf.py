@@ -17,9 +17,17 @@ import sys
 
 sys.path.insert(0, os.path.abspath('../../'))
 sys.path.insert(0, os.path.abspath('../../tmp/i-SAS_Interface'))
+sys.path.insert(0, os.path.abspath('../../tmp/i-SAS_SensorSimulator-template'))
+sys.path.insert(0, os.path.abspath('../../tmp/i-SAS_PointSensor'))
+sys.path.insert(0, os.path.abspath('../../tmp/i-SAS_SensorModeler-template'))
 sys.path.insert(0, os.path.abspath('../../tmp/i-SAS_BasicSensorModeler'))
+sys.path.insert(0, os.path.abspath('../../tmp/i-SAS_StructuralModeler-template'))
 sys.path.insert(0, os.path.abspath('../../tmp/i-SAS_FiniteElementModeler'))
+sys.path.insert(0, os.path.abspath('../../tmp/i-SAS_StructuralAnalysisSolver-template'))
 sys.path.insert(0, os.path.abspath('../../tmp/i-SAS_iFEM-matlab'))
+sys.path.insert(0, os.path.abspath('../../tmp/i-SAS_Visualizer-template'))
+sys.path.insert(0, os.path.abspath('../../tmp/i-SAS_BasicVisualizer'))
+sys.path.insert(0, os.path.abspath('../../tmp/i-SAS_ShipVisualizer'))
 
 
 # -- Project information -----------------------------------------------------

@@ -1,6 +1,7 @@
 import os
 import shutil
 import subprocess
+from getpass import getpass
 from glob import glob
 from pathlib import Path
 
@@ -20,7 +21,6 @@ def initialize(filename, extension):
         _ = f.readlines()
     with open(f'{DOCS_PATH}/{filename}.{extension}', 'w') as f:
         f.writelines(_)
-
 
 def main():
     """update documents"""
@@ -46,20 +46,29 @@ def main():
 
     TMP_PATH.mkdir(parents=True, exist_ok=True)
     os.chdir(TMP_PATH)
+
+    username = input('Username for "https://github.com":')
+    password = getpass(f'Username for "https://{username}@github.com":')
     for repository_path in lines:
         if repository_path[0] == '[' and repository_path[-1] == ']':
             group = repository_path[1:-1]
             continue
-        elif 'http' not in repository_path:
+        elif 'https' not in repository_path or '' == repository_path:
             continue
         repository_name = repository_path.rsplit('/', 1)[1]
         print(repository_name)
         # git clone
-        subprocess.run(['git', 'clone', '--depth', '1', repository_path])
+        repository_path_ = f'https://{username}:{password}@{repository_path[8:]}'
+        if 'Visualizer' in repository_path or 'Interface' in repository_path:
+            subprocess.run(['git', 'clone', '-b', 'feature/after_demo', '--depth', '1', repository_path_])
+        else:
+            subprocess.run(['git', 'clone', '-b', 'master', '--depth', '1', repository_path_])
 
         # add document name to index.rst
         folders = glob(f'{TMP_PATH}/{repository_name}/**/')
         folders = [_.rsplit('/', 2)[1] for _ in folders if _.rsplit('/', 2)[1] not in ('docs', 'cfg', 'tests')]
+        if repository_name == 'i-SAS_iFEM-matlab':
+            folders = ['ifem_matlab']
         if len(folders) != 1:
             print(f'Could not specified script folder of {repository_name}.')
             for i in range(100):
@@ -76,7 +85,7 @@ def main():
 
         # create .rst file automatically
         # subprocess.run(['sphinx-apidoc', '-f', '-o', DOCS_PATH, str(TMP_PATH / repository_name)])
-        # create.rst file manually
+        # create .rst file manually
         modules = glob(f'{TMP_PATH}/{repository_name}/{script_folder}/*.py')
         modules = [_.rsplit('/', 1)[1][:-3] for _ in modules]
         modules = [_ for _ in modules if '__' not in _]

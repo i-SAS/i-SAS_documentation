@@ -1,7 +1,8 @@
 ========================================
 Welcome to i-SAS documentation!
 ========================================
-
+This is the documents of i-SAS (integrated-Structural Analysis System).
+i-SAS consists of Interface and Subpackages.
 
 .. toctree::
    :maxdepth: 4

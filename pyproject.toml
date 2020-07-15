@@ -11,6 +11,9 @@ pandas = "*"
 pyyaml = "*"
 numpy = "*"
 scipy = "*"
+pyside2 = "*"
+matplotlib = "*"
+
 
 [tool.poetry.dev-dependencies]
 flake8 = "*"

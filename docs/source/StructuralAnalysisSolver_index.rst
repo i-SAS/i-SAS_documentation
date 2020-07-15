@@ -7,4 +7,5 @@ Structural Analysis Solver
    :caption: Contents:
    :numbered:
 
+   structural_analysis_solver
    ifem_matlab
