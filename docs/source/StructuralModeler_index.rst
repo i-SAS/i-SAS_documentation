@@ -7,4 +7,5 @@ Structural Modeler
    :caption: Contents:
    :numbered:
 
+   structural_modeler
    finite_element_modeler

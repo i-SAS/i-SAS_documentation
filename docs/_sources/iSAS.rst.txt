@@ -42,3 +42,11 @@ structural_analysis
    :undoc-members:
    :show-inheritance:
 
+gui
+--------------------------------------------------
+
+.. automodule:: iSAS.gui
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
