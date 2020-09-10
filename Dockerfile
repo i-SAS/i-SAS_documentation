@@ -16,4 +16,23 @@ RUN apt-get update && apt-get install -y \
  && apt-get clean \
  && rm -rf /var/lib/apt/lists/*
 
+# Qt
+ENV QT_VERSION 5.12
+RUN apt-get update && apt-get install -y --no-install-recommends \
+        cmake \
+        git \
+        gcc \
+        libclang-dev \
+        libdbus-1-dev \
+        libgl-dev \
+        libxkbcommon-dev \
+        libxkbcommon-x11-dev \
+    && \
+    apt-get clean  && \
+    rm -rf /var/lib/apt/lists/*
+RUN git clone git://code.qt.io/qt/qt5.git && \
+    cd qt5 && \
+    git checkout $QT_VERSION && \
+    perl init-repository
+
 CMD ["bash"]
