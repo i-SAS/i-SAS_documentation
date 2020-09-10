@@ -287,6 +287,11 @@ list of instances of i-SAS_SensorModeler Subpackages.</p>
 <em class="property">class </em><code class="sig-prename descclassname">iSAS.base_interface.</code><code class="sig-name descname">BaseInterface</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">project_name</span></em>, <em class="sig-param"><span class="n">datadrive</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iSAS.base_interface.BaseInterface" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Abstaract Base Class for i-SAS Interface</p>
+<dl class="py attribute">
+<dt id="iSAS.base_interface.BaseInterface.time_series_count">
+<code class="sig-name descname">time_series_count</code><em class="property"> = {}</em><a class="headerlink" href="#iSAS.base_interface.BaseInterface.time_series_count" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 <dl class="py method">
 <dt id="iSAS.base_interface.BaseInterface.interface_name">
 <em class="property">abstract property </em><code class="sig-name descname">interface_name</code><a class="headerlink" href="#iSAS.base_interface.BaseInterface.interface_name" title="Permalink to this definition">¶</a></dt>
@@ -384,6 +389,21 @@ list of instances of i-SAS_SensorModeler Subpackages.</p>
 </dd></dl>
 
 <dl class="py method">
+<dt id="iSAS.base_interface.BaseInterface.import_time_series">
+<code class="sig-name descname">import_time_series</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">system_name</span></em>, <em class="sig-param"><span class="n">data_name</span></em>, <em class="sig-param"><span class="n">from_</span><span class="o">=</span><span class="default_value">'file'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iSAS.base_interface.BaseInterface.import_time_series" title="Permalink to this definition">¶</a></dt>
+<dd><p>import time series</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>system_name</strong> (<em>str</em>) – system name. e.g. sensing_system</p></li>
+<li><p><strong>data_name</strong> (<em>str</em>) – data name.</p></li>
+<li><p><strong>from</strong> (<em>str</em><em>, </em><em>optional</em>) – import from this. ‘file’ or ‘db’. The default, ‘file’</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
 <dt id="iSAS.base_interface.BaseInterface.export_sensor_list">
 <code class="sig-name descname">export_sensor_list</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">to</span><span class="o">=</span><span class="default_value">'file'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iSAS.base_interface.BaseInterface.export_sensor_list" title="Permalink to this definition">¶</a></dt>
 <dd><p>export sensor list</p>
@@ -444,6 +464,22 @@ If None, run for all structural_models. The default, None</p></li>
 <li><p><strong>sensor_name</strong> (<em>str</em><em> or </em><em>list</em><em>[</em><em>str</em><em>]</em><em>, </em><em>optional</em>) – sensor name. If None, run for all sensors. The default, None</p></li>
 <li><p><strong>structural_model_name</strong> (<em>str</em><em> or </em><em>list</em><em>[</em><em>str</em><em>]</em><em>, </em><em>optional</em>) – structural model name.
 If None, run for all structural_models. The default, None</p></li>
+<li><p><strong>to</strong> (<em>str</em><em>, </em><em>optional</em>) – export from this. ‘file’ or ‘db’. The default, ‘file’</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="iSAS.base_interface.BaseInterface.export_time_series">
+<code class="sig-name descname">export_time_series</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data</span></em>, <em class="sig-param"><span class="n">system_name</span></em>, <em class="sig-param"><span class="n">data_name</span></em>, <em class="sig-param"><span class="n">to</span><span class="o">=</span><span class="default_value">'file'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iSAS.base_interface.BaseInterface.export_time_series" title="Permalink to this definition">¶</a></dt>
+<dd><p>export time series</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<em>dict</em>) – data to be exported.</p></li>
+<li><p><strong>system_name</strong> (<em>str</em>) – system name. e.g. sensing_system</p></li>
+<li><p><strong>data_name</strong> (<em>str</em>) – data name.</p></li>
 <li><p><strong>to</strong> (<em>str</em><em>, </em><em>optional</em>) – export from this. ‘file’ or ‘db’. The default, ‘file’</p></li>
 </ul>
 </dd>
@@ -541,7 +577,7 @@ If None, run for all structural_models. The default, None</p></li>
 <dl class="py method">
 <dt id="iSAS.gui.GUI.__init__">
 <code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">project_name</span></em>, <em class="sig-param"><span class="n">mode</span><span class="o">=</span><span class="default_value">'gui'</span></em>, <em class="sig-param"><span class="n">datadrive</span><span class="o">=</span><span class="default_value">'/root/datadrive/'</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iSAS.gui.GUI.__init__" title="Permalink to this definition">¶</a></dt>
-<dd><p>initialization of StructuralAnalysis class</p>
+<dd><p>initialization of gui class</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -560,7 +596,7 @@ If None, run for all structural_models. The default, None</p></li>
 <dd><p>set content</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>contents</strong> (<em>dict</em><em>(</em><em>)</em>) – key is tab name anf value is lists consist of instances of i-SAS_GUI Subpackages.</p>
+<dd class="field-odd"><p><strong>contents</strong> (<em>dict</em>) – key is tab name anf value is lists consist of instances of i-SAS_GUI Subpackages.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -591,13 +627,13 @@ If None, run for all structural_models. The default, None</p></li>
 </dd></dl>
 
 <dl class="py class">
-<dt id="iSAS.gui.GUI_Qt">
-<em class="property">class </em><code class="sig-prename descclassname">iSAS.gui.</code><code class="sig-name descname">GUI_Qt</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">project_name</span></em>, <em class="sig-param"><span class="n">cfg</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iSAS.gui.GUI_Qt" title="Permalink to this definition">¶</a></dt>
+<dt id="iSAS.gui.GUIQt">
+<em class="property">class </em><code class="sig-prename descclassname">iSAS.gui.</code><code class="sig-name descname">GUIQt</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">project_name</span></em>, <em class="sig-param"><span class="n">cfg</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iSAS.gui.GUIQt" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">PySide2.QtWidgets.QWidget</span></code></p>
-<p>gui class for gui by Qt</p>
+<p>gui class for gui by using Qt</p>
 <dl class="py method">
-<dt id="iSAS.gui.GUI_Qt.__init__">
-<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">project_name</span></em>, <em class="sig-param"><span class="n">cfg</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iSAS.gui.GUI_Qt.__init__" title="Permalink to this definition">¶</a></dt>
+<dt id="iSAS.gui.GUIQt.__init__">
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">project_name</span></em>, <em class="sig-param"><span class="n">cfg</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iSAS.gui.GUIQt.__init__" title="Permalink to this definition">¶</a></dt>
 <dd><p>initialization of GUI class</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -611,24 +647,34 @@ If None, run for all structural_models. The default, None</p></li>
 </dd></dl>
 
 <dl class="py method">
-<dt id="iSAS.gui.GUI_Qt.set_content">
-<code class="sig-name descname">set_content</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">contents</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iSAS.gui.GUI_Qt.set_content" title="Permalink to this definition">¶</a></dt>
-<dd><p>set content</p>
+<dt id="iSAS.gui.GUIQt.set_model">
+<code class="sig-name descname">set_model</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">models</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iSAS.gui.GUIQt.set_model" title="Permalink to this definition">¶</a></dt>
+<dd><p>set model</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>contents</strong> (<em>dict</em>) – key is tab name anf value is lists consist of instances of i-SAS_GUI Subpackages.</p>
+<dd class="field-odd"><p><strong>models</strong> (<em>dict</em>) – structural models</p>
 </dd>
 </dl>
-<p class="rubric">Examples</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">inst</span> <span class="o">=</span> <span class="n">GUI</span><span class="p">(</span><span class="s1">&#39;project_name&#39;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">inst</span><span class="o">.</span><span class="n">set_content</span><span class="p">({</span><span class="s1">&#39;tab_name&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">vis_class</span><span class="p">(</span><span class="s1">&#39;fig_name&#39;</span><span class="p">,</span> <span class="p">(</span><span class="n">height_ratio</span><span class="p">,</span> <span class="n">width_ratio</span><span class="p">))]})</span>
-</pre></div>
-</div>
 </dd></dl>
 
 <dl class="py method">
-<dt id="iSAS.gui.GUI_Qt.start">
-<code class="sig-name descname">start</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">interval</span><span class="o">=</span><span class="default_value">1000</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iSAS.gui.GUI_Qt.start" title="Permalink to this definition">¶</a></dt>
+<dt id="iSAS.gui.GUIQt.set_content">
+<code class="sig-name descname">set_content</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">contents</span></em>, <em class="sig-param"><span class="n">instances</span></em>, <em class="sig-param"><span class="n">positions</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iSAS.gui.GUIQt.set_content" title="Permalink to this definition">¶</a></dt>
+<dd><p>set content</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>contents</strong> (<em>dict</em>) – key is tab name anf value is lists consist of instances of i-SAS_GUI Subpackages.</p></li>
+<li><p><strong>instances</strong> (<em>list</em>) – list of visualizer class instances</p></li>
+<li><p><strong>positions</strong> (<em>list</em>) – positions of each figures</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="iSAS.gui.GUIQt.start">
+<code class="sig-name descname">start</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">interval</span><span class="o">=</span><span class="default_value">1000</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iSAS.gui.GUIQt.start" title="Permalink to this definition">¶</a></dt>
 <dd><p>start updating</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -638,26 +684,26 @@ If None, run for all structural_models. The default, None</p></li>
 </dd></dl>
 
 <dl class="py method">
-<dt id="iSAS.gui.GUI_Qt.restart">
-<code class="sig-name descname">restart</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iSAS.gui.GUI_Qt.restart" title="Permalink to this definition">¶</a></dt>
+<dt id="iSAS.gui.GUIQt.restart">
+<code class="sig-name descname">restart</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iSAS.gui.GUIQt.restart" title="Permalink to this definition">¶</a></dt>
 <dd><p>restart updating</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="iSAS.gui.GUI_Qt.stop">
-<code class="sig-name descname">stop</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iSAS.gui.GUI_Qt.stop" title="Permalink to this definition">¶</a></dt>
+<dt id="iSAS.gui.GUIQt.stop">
+<code class="sig-name descname">stop</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iSAS.gui.GUIQt.stop" title="Permalink to this definition">¶</a></dt>
 <dd><p>stop updating</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="iSAS.gui.GUI_Qt.terminate">
-<code class="sig-name descname">terminate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iSAS.gui.GUI_Qt.terminate" title="Permalink to this definition">¶</a></dt>
+<dt id="iSAS.gui.GUIQt.terminate">
+<code class="sig-name descname">terminate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iSAS.gui.GUIQt.terminate" title="Permalink to this definition">¶</a></dt>
 <dd><p>close window</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt id="iSAS.gui.GUI_Qt.staticMetaObject">
-<code class="sig-name descname">staticMetaObject</code><em class="property"> = &lt;PySide2.QtCore.QMetaObject object&gt;</em><a class="headerlink" href="#iSAS.gui.GUI_Qt.staticMetaObject" title="Permalink to this definition">¶</a></dt>
+<dt id="iSAS.gui.GUIQt.staticMetaObject">
+<code class="sig-name descname">staticMetaObject</code><em class="property"> = &lt;PySide2.QtCore.QMetaObject object&gt;</em><a class="headerlink" href="#iSAS.gui.GUIQt.staticMetaObject" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>

@@ -41,7 +41,6 @@ Modify `pyproject.toml` and command
 ```
 
 #### Update Document
-Note: You need to run ssh-agent in the container.
 ```
 # python documentation/bin/update_documentation.py
 ```

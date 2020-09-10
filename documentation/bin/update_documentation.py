@@ -22,6 +22,7 @@ def initialize(filename, extension):
     with open(f'{DOCS_PATH}/{filename}.{extension}', 'w') as f:
         f.writelines(_)
 
+
 def main():
     """update documents"""
 
@@ -47,8 +48,8 @@ def main():
     TMP_PATH.mkdir(parents=True, exist_ok=True)
     os.chdir(TMP_PATH)
 
-    username = input('Username for "https://github.com":')
-    password = getpass(f'Username for "https://{username}@github.com":')
+    username = input('Please input Username for "https://github.com":')
+    password = getpass(f'Please input Password for "https://{username}@github.com":')
     for repository_path in lines:
         if repository_path[0] == '[' and repository_path[-1] == ']':
             group = repository_path[1:-1]
@@ -59,10 +60,8 @@ def main():
         print(repository_name)
         # git clone
         repository_path_ = f'https://{username}:{password}@{repository_path[8:]}'
-        if 'Visualizer' in repository_path or 'Interface' in repository_path:
-            subprocess.run(['git', 'clone', '-b', 'feature/after_demo', '--depth', '1', repository_path_])
-        else:
-            subprocess.run(['git', 'clone', '-b', 'master', '--depth', '1', repository_path_])
+        tag_name = 'v0.0.1'
+        subprocess.run(['git', 'clone', '-b', tag_name, '--depth', '1', repository_path_])
 
         # add document name to index.rst
         folders = glob(f'{TMP_PATH}/{repository_name}/**/')
