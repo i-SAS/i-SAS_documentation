@@ -1,0 +1,1453 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>4. i-SAS_iFEM &mdash; i-SAS documentation v0.0.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="5. i-SAS_NastranManager" href="nastran_manager.html" />
+    <link rel="prev" title="3. i-SAS_RBFInterpolator" href="rbf_interpolator.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> i-SAS documentation
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Interface:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="iSAS.html">i-SAS_Interface</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Subpackages:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="SensorSimulator_index.html">Sensor Simulator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SensorModeler_index.html">Sensor Modeler</a></li>
+<li class="toctree-l1"><a class="reference internal" href="StructuralModeler_index.html">Structural Modeler</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="AnalysisSolver_index.html">Analysis Solver</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="analysis_solver.html">1. i-SAS_AnalysisSolver-template</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ifem_matlab.html">2. i-SAS_iFEM-matlab</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rbf_interpolator.html">3. i-SAS_RBFInterpolator</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">4. i-SAS_iFEM</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#module-ifem.base">4.1. base</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-ifem.fem">4.2. fem</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-ifem.ifem">4.3. ifem</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-ifem.interface">4.4. interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-ifem.interface_fem">4.5. interface_fem</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-ifem.interface_ifem">4.6. interface_ifem</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="nastran_manager.html">5. i-SAS_NastranManager</a></li>
+<li class="toctree-l2"><a class="reference internal" href="directional_wave_spectra_estimator.html">6. i-SAS_DirectionalWaveSpectraEstimator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sensor_postprocessor.html">7. i-SAS_SensorPostprocessor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="response_kalman_filter.html">8. i-SAS_ResponseKalmanFilter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fem_utils.html">9. i-SAS_FEM_Utils</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Visualizer_index.html">Visualizer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="GUIController_index.html">GUIController</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">i-SAS documentation</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="AnalysisSolver_index.html">Analysis Solver</a> &raquo;</li>
+        
+      <li><span class="section-number">4. </span>i-SAS_iFEM</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/ifem.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="i-sas-ifem">
+<h1><span class="section-number">4. </span>i-SAS_iFEM<a class="headerlink" href="#i-sas-ifem" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-ifem.base">
+<span id="base"></span><h2><span class="section-number">4.1. </span>base<a class="headerlink" href="#module-ifem.base" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="ifem.base.Base">
+<em class="property">class </em><code class="sig-prename descclassname">ifem.base.</code><code class="sig-name descname">Base</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">input_names</span></em>, <em class="sig-param"><span class="n">output_names</span></em>, <em class="sig-param"><span class="n">structural_model_name</span></em>, <em class="sig-param"><span class="n">cfg</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ifem.base.Base" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Abstract class for FEM and iFEM</p>
+<dl class="py attribute">
+<dt id="ifem.base.Base.ANALYSIS_TYPE">
+<code class="sig-name descname">ANALYSIS_TYPE</code><a class="headerlink" href="#ifem.base.Base.ANALYSIS_TYPE" title="Permalink to this definition">¶</a></dt>
+<dd><p>the analysys type.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="ifem.base.Base.REQUIRED_INPUTS">
+<code class="sig-name descname">REQUIRED_INPUTS</code><a class="headerlink" href="#ifem.base.Base.REQUIRED_INPUTS" title="Permalink to this definition">¶</a></dt>
+<dd><p>the required inputs name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>list[str]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="ifem.base.Base.MERGE_TYPE">
+<code class="sig-name descname">MERGE_TYPE</code><a class="headerlink" href="#ifem.base.Base.MERGE_TYPE" title="Permalink to this definition">¶</a></dt>
+<dd><p>the type of matrix to be merged</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>list[str]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="ifem.base.Base.structural_model_name">
+<code class="sig-name descname">structural_model_name</code><a class="headerlink" href="#ifem.base.Base.structural_model_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>structural model name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="ifem.base.Base.input">
+<code class="sig-name descname">input</code><a class="headerlink" href="#ifem.base.Base.input" title="Permalink to this definition">¶</a></dt>
+<dd><p>inputs.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>dict[str, DataFrame]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="ifem.base.Base.cfg">
+<code class="sig-name descname">cfg</code><a class="headerlink" href="#ifem.base.Base.cfg" title="Permalink to this definition">¶</a></dt>
+<dd><p>config.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>dict[str]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="ifem.base.Base.elems">
+<code class="sig-name descname">elems</code><a class="headerlink" href="#ifem.base.Base.elems" title="Permalink to this definition">¶</a></dt>
+<dd><p>list of elem(solid_1, shell_iqs4 and so on) instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>list[elem]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="ifem.base.Base.node_dof">
+<code class="sig-name descname">node_dof</code><a class="headerlink" href="#ifem.base.Base.node_dof" title="Permalink to this definition">¶</a></dt>
+<dd><p>node degrees of freedom (dof) per node. 1-D array of shape <code class="docutils literal notranslate"><span class="pre">(node_num)</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>ndarray[np.int64]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="ifem.base.Base.node_dof_elem">
+<code class="sig-name descname">node_dof_elem</code><a class="headerlink" href="#ifem.base.Base.node_dof_elem" title="Permalink to this definition">¶</a></dt>
+<dd><p>node degrees of freedom (dof) per element. 1-D array of shape <code class="docutils literal notranslate"><span class="pre">(elem_num)</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>ndarray[np.int64]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="ifem.base.Base.total_node_dof">
+<code class="sig-name descname">total_node_dof</code><a class="headerlink" href="#ifem.base.Base.total_node_dof" title="Permalink to this definition">¶</a></dt>
+<dd><p>the sum of all node degrees of freedom (dof).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="ifem.base.Base.node_id2node_idx">
+<code class="sig-name descname">node_id2node_idx</code><a class="headerlink" href="#ifem.base.Base.node_id2node_idx" title="Permalink to this definition">¶</a></dt>
+<dd><p>a dictionary that maps the node_id to the index after reordering the node.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>dict[int, int]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="ifem.base.Base.node_idx2dof_idx">
+<code class="sig-name descname">node_idx2dof_idx</code><a class="headerlink" href="#ifem.base.Base.node_idx2dof_idx" title="Permalink to this definition">¶</a></dt>
+<dd><p>a dictionary that maps the index after reordering the node to an index that has a dof value of the node.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>dict[int, list[int]]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="ifem.base.Base.elem_id2elem_idx">
+<code class="sig-name descname">elem_id2elem_idx</code><a class="headerlink" href="#ifem.base.Base.elem_id2elem_idx" title="Permalink to this definition">¶</a></dt>
+<dd><p>a dictionary that maps the elem_id to the index after reordering the elements.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>dict[int, int]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="ifem.base.Base.shell_idx">
+<code class="sig-name descname">shell_idx</code><a class="headerlink" href="#ifem.base.Base.shell_idx" title="Permalink to this definition">¶</a></dt>
+<dd><p>## to be written</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="ifem.base.Base.k_matrix">
+<code class="sig-name descname">k_matrix</code><a class="headerlink" href="#ifem.base.Base.k_matrix" title="Permalink to this definition">¶</a></dt>
+<dd><p>merged Kmatrix.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>csr_matrix</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="ifem.base.Base.u_vector">
+<code class="sig-name descname">u_vector</code><a class="headerlink" href="#ifem.base.Base.u_vector" title="Permalink to this definition">¶</a></dt>
+<dd><p>the value of the node degrees of freedom (dof). 2-D array of shape <code class="docutils literal notranslate"><span class="pre">(total_node_dof,</span> <span class="pre">1)</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>csc_matrix</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="ifem.base.Base.bound">
+<code class="sig-name descname">bound</code><a class="headerlink" href="#ifem.base.Base.bound" title="Permalink to this definition">¶</a></dt>
+<dd><p>the value of constraint.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>nddarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="ifem.base.Base.bound_idx">
+<code class="sig-name descname">bound_idx</code><a class="headerlink" href="#ifem.base.Base.bound_idx" title="Permalink to this definition">¶</a></dt>
+<dd><p>bound_idx[i] is True if i-th node degrees of freedom (dof) is bound, False otherwise.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>nddarray[bool]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="ifem.base.Base.postprocess_matrix">
+<code class="sig-name descname">postprocess_matrix</code><a class="headerlink" href="#ifem.base.Base.postprocess_matrix" title="Permalink to this definition">¶</a></dt>
+<dd><p>dict of postprocessed matrix.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="id0">
+<code class="sig-name descname">ANALYSIS_TYPE</code><em class="property"> = None</em><a class="headerlink" href="#id0" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="id1">
+<code class="sig-name descname">MERGE_TYPE</code><em class="property"> = ['node_dof', 'node_dim', 'elem_dim']</em><a class="headerlink" href="#id1" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="id2">
+<code class="sig-name descname">REQUIRED_INPUTS</code><em class="property"> = ['fe_node', 'fe_elem', 'fe_connection', 'fe_constraint']</em><a class="headerlink" href="#id2" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="ifem.base.Base.CONNECTION_MAGIC_NUMBER">
+<code class="sig-name descname">CONNECTION_MAGIC_NUMBER</code><em class="property"> = [0]</em><a class="headerlink" href="#ifem.base.Base.CONNECTION_MAGIC_NUMBER" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="ifem.base.Base.__init__">
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">input_names</span></em>, <em class="sig-param"><span class="n">output_names</span></em>, <em class="sig-param"><span class="n">structural_model_name</span></em>, <em class="sig-param"><span class="n">cfg</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ifem.base.Base.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>constructor</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>input_names</strong> (<em>dict</em>) – dict whose keys are names of input quantity and values are names of input data.</p></li>
+<li><p><strong>output_names</strong> (<em>dict</em>) – dict whose keys are names of output quantity and values are names of output data.</p></li>
+<li><p><strong>structural_model_name</strong> (<em>str</em><em>, </em><em>optional</em>) – structural model name.</p></li>
+<li><p><strong>cfg</strong> (<em>dict</em>) – config.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="ifem.base.Base.set_elems">
+<em class="property">static </em><code class="sig-name descname">set_elems</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">structural_model</span></em>, <em class="sig-param"><span class="n">gcs_rotation</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ifem.base.Base.set_elems" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize elems and set variables.
+:param structural_model: structural model data in i-SAS format.
+:type structural_model: dict
+:param gcs_rotation: use gcs rotation or not.
+:type gcs_rotation: bool</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>list of elem(solid_1, shell_iqs4 and so on) instance.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>elems (list[elem])</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="ifem.base.Base.calc_node_dof">
+<em class="property">static </em><code class="sig-name descname">calc_node_dof</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">elems</span></em>, <em class="sig-param"><span class="n">node_num</span></em>, <em class="sig-param"><span class="n">node_id</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ifem.base.Base.calc_node_dof" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate node degrees of freedom (dof) per node and element.
+:param elems: list of elem(solid_1, shell_iqs4 and so on) instance.
+:type elems: list[elem]
+:param node_num: the number of node.
+:type node_num: int
+:param node_id: the list of node_id
+:type node_id: list[int]</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><p>node degrees of freedom (dof) per node. 1-D array of shape <code class="docutils literal notranslate"><span class="pre">(node_num)</span></code>
+node_dof_elem (ndarray[np.int64]): node degrees of freedom (dof) per element.</p>
+<blockquote>
+<div><p>1-D array of shape <code class="docutils literal notranslate"><span class="pre">(elem_num)</span></code></p>
+</div></blockquote>
+</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>node_dof (ndarray[np.int64])</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="ifem.base.Base.calc_node_idx2dof_idx">
+<em class="property">static </em><code class="sig-name descname">calc_node_idx2dof_idx</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">node_dof</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ifem.base.Base.calc_node_idx2dof_idx" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make a dictionary that maps the index after reordering the node to an index that has a dof value of the node.
+:param node_dof: node degrees of freedom (dof) per node. 1-D array of shape <code class="docutils literal notranslate"><span class="pre">(node_num)</span></code>
+:type node_dof: ndarray[np.int64]</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><dl class="simple">
+<dt>a dictionary that maps the index after reordering the node to an</dt><dd><p>index that has a dof value of the node.</p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>node_idx2dof_idx (dict[int, list[int]])</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="ifem.base.Base.merge_matrix">
+<code class="sig-name descname">merge_matrix</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">matrices</span></em>, <em class="sig-param"><span class="n">type_row</span></em>, <em class="sig-param"><span class="n">type_col</span></em>, <em class="sig-param"><span class="n">dim</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">valid_idx</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ifem.base.Base.merge_matrix" title="Permalink to this definition">¶</a></dt>
+<dd><p>Merge each element’s matrices according to type_name.
+:param matrices: list of matrix. matrices[i] contains the i-th element matrix.
+:type matrices: list[ndarray]
+:param type_row: type_name of row. Type is one of ‘node_dof’, ‘node_dim’, ‘elem_dim’.
+:type type_row: str
+:param type_col: type_name of colomn. Type is one of ‘node_dof’, ‘node_dim’, ‘elem_dim’.
+:type type_col: str
+:param dim: the dimension of each element or node.</p>
+<blockquote>
+<div><p>This is used if the type_name contains ‘node_dim’ or ‘elem_dim’.</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>valid_idx</strong> (<em>list</em><em>[</em><em>int</em><em>]</em>) – the index of matrices that are used to merge.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>merged matrix. Row and column lengths are calculated based on type_name.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>merged_matrix (csr_matrix)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="ifem.base.Base.get_rc_num">
+<code class="sig-name descname">get_rc_num</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">type_name</span></em>, <em class="sig-param"><span class="n">dim</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ifem.base.Base.get_rc_num" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get row or colomn lengths of merged matrix according to type_name.
+:param type_name: type_name. Type is one of ‘node_dof’, ‘node_dim’, and ‘elem_dim’.
+:type type_name: str
+:param dim: the dimension of each element or node.</p>
+<blockquote>
+<div><p>This is used if the type_name contains ‘node_dim’ or ‘elem_dim’.</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>row or colomn lengths of merged matrix.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>rc_num (int)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="ifem.base.Base.get_el_num">
+<code class="sig-name descname">get_el_num</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">type_row</span></em>, <em class="sig-param"><span class="n">type_col</span></em>, <em class="sig-param"><span class="n">dim</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ifem.base.Base.get_el_num" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the number of elements in the matrix for each element
+:param type_row: type_name of row. Type is one of ‘node_dof’, ‘node_dim’, ‘elem_dim’.
+:type type_row: str
+:param type_col: type_name of colomn. Type is one of ‘node_dof’, ‘node_dim’, ‘elem_dim’.
+:type type_col: str
+:param dim: the dimension of each element or node.</p>
+<blockquote>
+<div><p>This is used if the type_name contains ‘node_dim’ or ‘elem_dim’.</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>the number of elements in the matrix for each element.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>el_num (ndarray)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="ifem.base.Base.get_rc">
+<code class="sig-name descname">get_rc</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">type_name</span></em>, <em class="sig-param"><span class="n">i</span></em>, <em class="sig-param"><span class="n">idx</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">dim</span><span class="o">=</span><span class="default_value">3</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ifem.base.Base.get_rc" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the index of row or colomn of self.elements[i].
+:param type_name: type_name. Type is one of ‘node_dof’, ‘node_dim’, and ‘elem_dim’.
+:type type_name: str
+:param i: index of self.elements.
+:type i: int
+:param idx: index when type_name is ‘node_dof’
+:type idx: ndarray[int]
+:param dim: the dimension of each element or node.</p>
+<blockquote>
+<div><p>This is used if the type_name contains ‘node_dim’ or ‘elem_dim’.</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>the index of row or colomn of self.elements[i].</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>rc (ndarray[int])</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="ifem.base.Base.merge_vector">
+<code class="sig-name descname">merge_vector</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">matrices</span></em>, <em class="sig-param"><span class="n">dim</span></em>, <em class="sig-param"><span class="n">valid_idx</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ifem.base.Base.merge_vector" title="Permalink to this definition">¶</a></dt>
+<dd><p>Merge each element’s matrices according to type_name.
+:param matrices: list of matrix. matrices[i] contains the i-th element matrix.
+:type matrices: list[ndarray]
+:param dim: the dimension of each element or node.
+:type dim: int
+:param valid_idx: the index of matrices that are used to merge.
+:type valid_idx: list[int]</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>merged vector. 2-D array of shape <code class="docutils literal notranslate"><span class="pre">(node_num*dim,</span> <span class="pre">1)</span></code></p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>merged_vector (csr_matrix)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="ifem.base.Base.load_structural_model">
+<code class="sig-name descname">load_structural_model</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">structural_model</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ifem.base.Base.load_structural_model" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load structural model.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="ifem.base.Base.check_structural_model">
+<code class="sig-name descname">check_structural_model</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">structural_model</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ifem.base.Base.check_structural_model" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check that the required input is included.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="ifem.base.Base.set_bound">
+<code class="sig-name descname">set_bound</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ifem.base.Base.set_bound" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the element’s constraints to the instance.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="ifem.base.Base.calc_d_matrix_elem">
+<code class="sig-name descname">calc_d_matrix_elem</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ifem.base.Base.calc_d_matrix_elem" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate the Dmatrix of each element.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="ifem.base.Base.calc_postprocess_matrix">
+<code class="sig-name descname">calc_postprocess_matrix</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">result_fields</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">update</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ifem.base.Base.calc_postprocess_matrix" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute the matrix needed to obtain the result.
+:param result_fields: the field of results wanted to be obtained.
+:type result_fields: set
+:param update: True if self.postprocess_matrix is needed to update, False otherwise.
+:type update: bool</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="ifem.base.Base.postprocess">
+<code class="sig-name descname">postprocess</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">u_vector</span></em>, <em class="sig-param"><span class="n">result_fields</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ifem.base.Base.postprocess" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute the result.
+:param result_fields: the field of results wanted to be obtained.
+:type result_fields: set</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="ifem.base.Base.set_coord_sys">
+<code class="sig-name descname">set_coord_sys</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ifem.base.Base.set_coord_sys" title="Permalink to this definition">¶</a></dt>
+<dd><p>To create the output_metadata, set the appropriate coordinate system corresponding to the key in output_names.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="ifem.base.Base.make_structural_model_connections">
+<code class="sig-name descname">make_structural_model_connections</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ifem.base.Base.make_structural_model_connections" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make analysis_structural_model_connections.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="ifem.base.Base.load_input_info">
+<code class="sig-name descname">load_input_info</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">output_metadata</span></em>, <em class="sig-param"><span class="n">structural_model_connections</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ifem.base.Base.load_input_info" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load information about the data to process the data
+:param output_metadata: output metadata.
+:type output_metadata: pd.DataFrame
+:param structural_model_connections: connections between data and structural model.
+:type structural_model_connections: dict</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="ifem.base.Base.get_data_name_dim">
+<code class="sig-name descname">get_data_name_dim</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ifem.base.Base.get_data_name_dim" title="Permalink to this definition">¶</a></dt>
+<dd><p>Createa a dict in which the data_name is a key and the dimension is value.
+:returns: a dict in which the data_name is a key and the dimension is value.
+:rtype: data_name_dim (dict)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="ifem.base.Base.get_data_name_data_type">
+<code class="sig-name descname">get_data_name_data_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ifem.base.Base.get_data_name_data_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Createa a dict in which the data_name is a key and the data type.
+:returns: a dict in which the data_name is a key and the data type.
+:rtype: data_name_data_type (dict)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="ifem.base.Base.load_info">
+<code class="sig-name descname">load_info</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data_name_dim</span></em>, <em class="sig-param"><span class="n">data_name_data_type</span></em>, <em class="sig-param"><span class="n">output_metadata</span></em>, <em class="sig-param"><span class="n">structural_model_connections</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ifem.base.Base.load_info" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load information about input data.
+:param data_name_dim: a dict in which the data_name is a key and the dimension is value.
+:type data_name_dim: dict
+:param data_name_data_type: a dict in which the data_name is a key and the data type.
+:type data_name_data_type: dict
+:param output_metadata: output metadata.
+:type output_metadata: pd.DataFrame
+:param structural_model_connections: connections between data and structural model.
+:type structural_model_connections: dict</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>a dict in which the data_name is a key and the information about the data.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>data_name_data_info (dict)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="ifem.base.Base.load_output_info">
+<code class="sig-name descname">load_output_info</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model_connections</span></em>, <em class="sig-param"><span class="n">data_type</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ifem.base.Base.load_output_info" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load output information.
+:param model_connections: connections between data and structural model.
+:type model_connections: pd.DataFrame
+:param data_type: data type.
+:type data_type: str</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="ifem.base.Base.check_connection">
+<code class="sig-name descname">check_connection</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self_connection</span></em>, <em class="sig-param"><span class="n">connection</span></em>, <em class="sig-param"><span class="n">data_type</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ifem.base.Base.check_connection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test whether their contents are equal when given analysis_structural_model_connection for different
+dimensions of the same data type.
+:param self_connection: analysis_structural_model_connection already set.
+:type self_connection: pd.DataFrame
+:param connection: analysis_structural_model_connection given.
+:type connection: pd.DataFrame
+:param data_type: data type.
+:type data_type: str</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="ifem.base.Base.solve">
+<code class="sig-name descname">solve</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">k_matrix</span></em>, <em class="sig-param"><span class="n">f_vector</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ifem.base.Base.solve" title="Permalink to this definition">¶</a></dt>
+<dd><p>Solving the linear equation of Ku = F to find the value of u vector.
+:param k_matrix: Kmatrix or iKmatrix. 2-D array of shape <code class="docutils literal notranslate"><span class="pre">(total_node_dof,</span> <span class="pre">total_node_dof)</span></code>
+:type k_matrix: csr_matrix
+:param f_vector: force vector or iFvector. 2-D array of shape <code class="docutils literal notranslate"><span class="pre">(total_node_dof,</span> <span class="pre">1)</span></code>
+:type f_vector: csc_matrix</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><dl class="simple">
+<dt>displacement of each degree of freedom of nodes.</dt><dd><p>2-D array of shape <code class="docutils literal notranslate"><span class="pre">(total_node_dof,</span> <span class="pre">1)</span></code></p>
+</dd>
+</dl>
+<p>f_vector (ndarray): force vector or iFvector. 2-D array of shape <code class="docutils literal notranslate"><span class="pre">(total_node_dof,</span> <span class="pre">1)</span></code></p>
+</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>u_vector (ndarray)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="ifem.base.Base.arrange_data">
+<code class="sig-name descname">arrange_data</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ifem.base.Base.arrange_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Arrange the data along the time resolution.
+:param data: data calculated before
+:type data: dict</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>the data along the time resolution
+start_time_stamps (list[int]): start time stamps used in data
+end_time_stamps (list[int]): end time stamps used in data</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>time_data (dict)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="ifem.base.Base.set_output_transformer">
+<code class="sig-name descname">set_output_transformer</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ifem.base.Base.set_output_transformer" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="ifem.base.Base.transform_output">
+<code class="sig-name descname">transform_output</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">output</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ifem.base.Base.transform_output" title="Permalink to this definition">¶</a></dt>
+<dd><p>transform coordinate system of output
+:param output: The value of output where the global coordinate system is expected is also the</p>
+<blockquote>
+<div><p>value of the local coordinate system</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>transformed result.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>output (dict)</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-ifem.fem">
+<span id="fem"></span><h2><span class="section-number">4.2. </span>fem<a class="headerlink" href="#module-ifem.fem" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="ifem.fem.Fem">
+<em class="property">class </em><code class="sig-prename descclassname">ifem.fem.</code><code class="sig-name descname">Fem</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">input_names</span></em>, <em class="sig-param"><span class="n">output_names</span></em>, <em class="sig-param"><span class="n">structural_model_name</span></em>, <em class="sig-param"><span class="n">cfg</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ifem.fem.Fem" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#ifem.base.Base" title="ifem.base.Base"><code class="xref py py-class docutils literal notranslate"><span class="pre">ifem.base.Base</span></code></a></p>
+<dl class="py attribute">
+<dt id="ifem.fem.Fem.ANALYSIS_TYPE">
+<code class="sig-name descname">ANALYSIS_TYPE</code><em class="property"> = 'FEM'</em><a class="headerlink" href="#ifem.fem.Fem.ANALYSIS_TYPE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="ifem.fem.Fem.__init__">
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">input_names</span></em>, <em class="sig-param"><span class="n">output_names</span></em>, <em class="sig-param"><span class="n">structural_model_name</span></em>, <em class="sig-param"><span class="n">cfg</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ifem.fem.Fem.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>constructor</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>input_names</strong> (<em>dict</em>) – dict whose keys are names of input quantity and values are names of input data.</p></li>
+<li><p><strong>output_names</strong> (<em>dict</em>) – dict whose keys are names of output quantity and values are names of output data.</p></li>
+<li><p><strong>structural_model_name</strong> (<em>str</em><em>, </em><em>optional</em>) – structural model name.</p></li>
+<li><p><strong>cfg</strong> (<em>dict</em>) – config.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="ifem.fem.Fem.calc_k_matrix">
+<code class="sig-name descname">calc_k_matrix</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ifem.fem.Fem.calc_k_matrix" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate the Kmatrix of each element and merge them.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="ifem.fem.Fem.calc_k_matrix_elem">
+<code class="sig-name descname">calc_k_matrix_elem</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ifem.fem.Fem.calc_k_matrix_elem" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate the Kmatrix of each element.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="ifem.fem.Fem.merge_k_matrix">
+<code class="sig-name descname">merge_k_matrix</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ifem.fem.Fem.merge_k_matrix" title="Permalink to this definition">¶</a></dt>
+<dd><p>Merge the Kmatrices of each element.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="ifem.fem.Fem.calc_f_coef">
+<code class="sig-name descname">calc_f_coef</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ifem.fem.Fem.calc_f_coef" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate the coefficients on the surface force and the coefficients on the volume force of each element and
+merge them.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="ifem.fem.Fem.calc_f_coef_elem">
+<code class="sig-name descname">calc_f_coef_elem</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ifem.fem.Fem.calc_f_coef_elem" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate the coefficients on the surface force and the coefficients on the volume force of each element.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="ifem.fem.Fem.merge_f_coef">
+<code class="sig-name descname">merge_f_coef</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ifem.fem.Fem.merge_f_coef" title="Permalink to this definition">¶</a></dt>
+<dd><p>Merge the coefficients on the surface force and the coefficients on the volume force in each element.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="ifem.fem.Fem.calc_f_vector">
+<code class="sig-name descname">calc_f_vector</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ifem.fem.Fem.calc_f_vector" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute a force vector with surface loads, body loads, and point loads.
+:param data: information about the load at a specific time.
+:type data: dict</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>force vector. 2-D array of shape <code class="docutils literal notranslate"><span class="pre">(total_node_dof,</span> <span class="pre">1)</span></code></p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>f_vector (csc_matrix)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="ifem.fem.Fem.calc_ft_vector">
+<code class="sig-name descname">calc_ft_vector</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ifem.fem.Fem.calc_ft_vector" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute a force vector with surface loads.
+:param data: information about the load at a specific time.
+:type data: dict</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>force vector of surface loads. 2-D array of shape <code class="docutils literal notranslate"><span class="pre">(total_node_dof,</span> <span class="pre">1)</span></code></p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>ft_vector (csc_matrix)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="ifem.fem.Fem.calc_fg_vector">
+<code class="sig-name descname">calc_fg_vector</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ifem.fem.Fem.calc_fg_vector" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute a force vector with body loads.
+:param data: information about the load at a specific time.
+:type data: dict</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>force vector of body loads. 2-D array of shape <code class="docutils literal notranslate"><span class="pre">(total_node_dof,</span> <span class="pre">1)</span></code></p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>fg_vector (csc_matrix)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="ifem.fem.Fem.calc_fp_vector">
+<code class="sig-name descname">calc_fp_vector</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ifem.fem.Fem.calc_fp_vector" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute a force vector with point loads.
+:param data: information about the load at a specific time.
+:type data: dict</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>force vector of point loads. 2-D array of shape <code class="docutils literal notranslate"><span class="pre">(total_node_dof,</span> <span class="pre">1)</span></code></p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>fp_vector (csc_matrix)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="ifem.fem.Fem.calc_force_t">
+<code class="sig-name descname">calc_force_t</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ifem.fem.Fem.calc_force_t" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute a force vector with surface loads for each surface on elems.
+:param data: information about the load at a specific time.
+:type data: dict</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><dl class="simple">
+<dt>a force vector with surface loads for each surface on elems.</dt><dd><p>each force vector is 2-D array of shape <code class="docutils literal notranslate"><span class="pre">(total_elems</span> <span class="pre">*</span> <span class="pre">3,</span> <span class="pre">1)</span></code></p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>force_t (dict)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="ifem.fem.Fem.calc_force_g">
+<code class="sig-name descname">calc_force_g</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ifem.fem.Fem.calc_force_g" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute a force vector with body loads on the elements.
+:returns: a force with body loads on the elements. 2-D array of shape <code class="docutils literal notranslate"><span class="pre">(total_elems</span> <span class="pre">*</span> <span class="pre">3,</span> <span class="pre">1)</span></code>
+:rtype: force_g (csc_matrix)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="ifem.fem.Fem.set_model">
+<code class="sig-name descname">set_model</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">output_metadata</span></em>, <em class="sig-param"><span class="n">sensors</span></em>, <em class="sig-param"><span class="n">structural_models</span></em>, <em class="sig-param"><span class="n">structural_model_connections</span></em>, <em class="sig-param"><span class="n">streaming</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ifem.fem.Fem.set_model" title="Permalink to this definition">¶</a></dt>
+<dd><p>set model and calculate intermediate values</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>output_metadata</strong> (<em>pd.DataFrame</em>) – output metadata.</p></li>
+<li><p><strong>sensors</strong> (<em>dict</em>) – sensors.</p></li>
+<li><p><strong>structural_models</strong> (<em>dict</em>) – structural models.</p></li>
+<li><p><strong>structural_model_connections</strong> (<em>dict</em>) – connections between data and structural model.</p></li>
+<li><p><strong>streaming</strong> (<em>bool</em>) – if true, run as structural_analysis.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="ifem.fem.Fem.__call__">
+<code class="sig-name descname">__call__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ifem.fem.Fem.__call__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate various values based on the data.
+:param data: data calculated before
+:type data: dict</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><p>calculated result.
+used_timestamp (dict):</p>
+<blockquote>
+<div><p>used timestamp for each input data. Dict has two keys, ‘s’ as strating timestamp and ‘e’ as end time
+stamp, and the value is 1d-array of the timestamp used to caclulate output, whose length is the same
+as the length of output.</p>
+</div></blockquote>
+</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>results (dict)</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-ifem.ifem">
+<span id="ifem"></span><h2><span class="section-number">4.3. </span>ifem<a class="headerlink" href="#module-ifem.ifem" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="ifem.ifem.IFem">
+<em class="property">class </em><code class="sig-prename descclassname">ifem.ifem.</code><code class="sig-name descname">IFem</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">input_names</span></em>, <em class="sig-param"><span class="n">output_names</span></em>, <em class="sig-param"><span class="n">structural_model_name</span></em>, <em class="sig-param"><span class="n">cfg</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ifem.ifem.IFem" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#ifem.base.Base" title="ifem.base.Base"><code class="xref py py-class docutils literal notranslate"><span class="pre">ifem.base.Base</span></code></a></p>
+<dl class="py attribute">
+<dt id="ifem.ifem.IFem.ANALYSIS_TYPE">
+<code class="sig-name descname">ANALYSIS_TYPE</code><em class="property"> = 'iFEM'</em><a class="headerlink" href="#ifem.ifem.IFem.ANALYSIS_TYPE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="ifem.ifem.IFem.__init__">
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">input_names</span></em>, <em class="sig-param"><span class="n">output_names</span></em>, <em class="sig-param"><span class="n">structural_model_name</span></em>, <em class="sig-param"><span class="n">cfg</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ifem.ifem.IFem.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>constructor</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>input_names</strong> (<em>dict</em>) – dict whose keys are names of input quantity and values are names of input data.</p></li>
+<li><p><strong>output_names</strong> (<em>dict</em>) – dict whose keys are names of output quantity and values are names of output data.</p></li>
+<li><p><strong>structural_model_name</strong> (<em>str</em><em>, </em><em>optional</em>) – structural model name.</p></li>
+<li><p><strong>cfg</strong> (<em>dict</em>) – config.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="ifem.ifem.IFem.calc_i_k_matrix">
+<code class="sig-name descname">calc_i_k_matrix</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ifem.ifem.IFem.calc_i_k_matrix" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate the iKmatrix of each element and merge them.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="ifem.ifem.IFem.calc_i_k_matrix_elem">
+<code class="sig-name descname">calc_i_k_matrix_elem</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ifem.ifem.IFem.calc_i_k_matrix_elem" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate the iKmatrix of each element.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="ifem.ifem.IFem.merge_i_k_matrix">
+<code class="sig-name descname">merge_i_k_matrix</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ifem.ifem.IFem.merge_i_k_matrix" title="Permalink to this definition">¶</a></dt>
+<dd><p>Merge the iKmatrices of each element.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="ifem.ifem.IFem.calc_i_f_coef">
+<code class="sig-name descname">calc_i_f_coef</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ifem.ifem.IFem.calc_i_f_coef" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate the iFcoef of each element and merge them.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="ifem.ifem.IFem.calc_i_f_coef_elem">
+<code class="sig-name descname">calc_i_f_coef_elem</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ifem.ifem.IFem.calc_i_f_coef_elem" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate the iFcoef of each element.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="ifem.ifem.IFem.merge_i_f_coef">
+<code class="sig-name descname">merge_i_f_coef</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ifem.ifem.IFem.merge_i_f_coef" title="Permalink to this definition">¶</a></dt>
+<dd><p>Merge the the iFcoef of each element.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="ifem.ifem.IFem.calc_i_f_vector">
+<code class="sig-name descname">calc_i_f_vector</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ifem.ifem.IFem.calc_i_f_vector" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute iFvector.
+:param data: information about the strain at a specific time.
+:type data: dict</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>iFvector. 2-D array of shape <code class="docutils literal notranslate"><span class="pre">(total_node_dof,</span> <span class="pre">1)</span></code></p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>i_f_vector (csr_matrix)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="ifem.ifem.IFem.calc_strain">
+<code class="sig-name descname">calc_strain</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ifem.ifem.IFem.calc_strain" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute strain.
+:param data: information about the strain at a specific time.
+:type data: dict</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>strain values on elems. 2-D array of shape <code class="docutils literal notranslate"><span class="pre">(total_elems</span> <span class="pre">*</span> <span class="pre">6,</span> <span class="pre">1)</span></code></p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>strain (csc_matrix)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="ifem.ifem.IFem.calc_strain_sep">
+<code class="sig-name descname">calc_strain_sep</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ifem.ifem.IFem.calc_strain_sep" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute strain.
+:param data: information about the strain at a specific time.
+:type data: dict</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>separated strain values on elems. 1-D array of shape <code class="docutils literal notranslate"><span class="pre">(total_elems</span> <span class="pre">*</span> <span class="pre">3)</span></code>
+strain_sep_k (ndarray): separated strain values on elems. 1-D array of shape <code class="docutils literal notranslate"><span class="pre">(total_elems</span> <span class="pre">*</span> <span class="pre">3)</span></code>
+strain_sep_g (ndarray): separated strain values on elems. 1-D array of shape <code class="docutils literal notranslate"><span class="pre">(total_elems</span> <span class="pre">*</span> <span class="pre">2)</span></code></p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>strain_sep_e (ndarray)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="ifem.ifem.IFem.load_strain_sep">
+<code class="sig-name descname">load_strain_sep</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data</span></em>, <em class="sig-param"><span class="n">strain_key</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ifem.ifem.IFem.load_strain_sep" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load strain information.
+:param data: information about the strain at a specific time.
+:type data: dict
+:param strain_key: the name of the key of the strain.
+:type strain_key: str</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>strain values on elems. 2-D array of shape <code class="docutils literal notranslate"><span class="pre">(6,</span> <span class="pre">total_elems)</span></code>
+r3 (ndarray): r3 values of elems. 2-D array of shape <code class="docutils literal notranslate"><span class="pre">(total_elems)</span></code></p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>strain_sep (ndarray)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="ifem.ifem.IFem.set_model">
+<code class="sig-name descname">set_model</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">output_metadata</span></em>, <em class="sig-param"><span class="n">sensors</span></em>, <em class="sig-param"><span class="n">structural_models</span></em>, <em class="sig-param"><span class="n">structural_model_connections</span></em>, <em class="sig-param"><span class="n">streaming</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ifem.ifem.IFem.set_model" title="Permalink to this definition">¶</a></dt>
+<dd><p>set model and calculate intermediate values</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>output_metadata</strong> (<em>pd.DataFrame</em>) – output metadata.</p></li>
+<li><p><strong>sensors</strong> (<em>dict</em>) – sensors.</p></li>
+<li><p><strong>structural_models</strong> (<em>dict</em>) – structural models.</p></li>
+<li><p><strong>structural_model_connections</strong> (<em>dict</em>) – connections between data and structural model.</p></li>
+<li><p><strong>streaming</strong> (<em>bool</em>) – if true, run as structural_analysis.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="ifem.ifem.IFem.set_input_transformer">
+<code class="sig-name descname">set_input_transformer</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data_type</span></em>, <em class="sig-param"><span class="n">elem_ids</span></em>, <em class="sig-param"><span class="n">coord_sys</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ifem.ifem.IFem.set_input_transformer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set coordinate system transformer of input strain
+:param data_type: data type.
+:type data_type: str
+:param elem_ids: id of elements.
+:type elem_ids: list
+:param coord_sys: coordinate system.
+:type coord_sys: str</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="ifem.ifem.IFem.transform_input">
+<code class="sig-name descname">transform_input</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ifem.ifem.IFem.transform_input" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="ifem.ifem.IFem.__call__">
+<code class="sig-name descname">__call__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ifem.ifem.IFem.__call__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate various values based on the data.
+:param data: data calculated before
+:type data: dict</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><p>calculated result.
+used_timestamp (dict):</p>
+<blockquote>
+<div><p>used timestamp for each input data. Dict has two keys, ‘s’ as strating timestamp and ‘e’ as end time
+stamp, and the value is 1d-array of the timestamp used to caclulate output, whose length is the same
+as the length of output.</p>
+</div></blockquote>
+</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>results (dict)</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-ifem.interface">
+<span id="interface"></span><h2><span class="section-number">4.4. </span>interface<a class="headerlink" href="#module-ifem.interface" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="ifem.interface.Interface">
+<em class="property">class </em><code class="sig-prename descclassname">ifem.interface.</code><code class="sig-name descname">Interface</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">instance_name</span></em>, <em class="sig-param"><span class="n">input_names</span></em>, <em class="sig-param"><span class="n">output_names</span></em>, <em class="sig-param"><span class="n">structural_model_name</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ifem.interface.Interface" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>interface class of analysis solver</p>
+<dl class="py attribute">
+<dt id="ifem.interface.Interface.package_name">
+<code class="sig-name descname">package_name</code><em class="property"> = None</em><a class="headerlink" href="#ifem.interface.Interface.package_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="ifem.interface.Interface.structural_model_required">
+<code class="sig-name descname">structural_model_required</code><em class="property"> = False</em><a class="headerlink" href="#ifem.interface.Interface.structural_model_required" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="ifem.interface.Interface.__init__">
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">instance_name</span></em>, <em class="sig-param"><span class="n">input_names</span></em>, <em class="sig-param"><span class="n">output_names</span></em>, <em class="sig-param"><span class="n">structural_model_name</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ifem.interface.Interface.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>initialization of interface class of analysis solver</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>instance_name</strong> (<em>str</em>) – instance name.</p></li>
+<li><p><strong>input_names</strong> (<em>dict</em>) – dict whose keys are names of input quantity and values are names of input data.</p></li>
+<li><p><strong>output_names</strong> (<em>dict</em>) – dict whose keys are names of output quantity and values are names of output data.</p></li>
+<li><p><strong>structural_model_name</strong> (<em>str</em><em>, </em><em>optional</em>) – structural model name.</p></li>
+<li><p><strong>**kwargs</strong> – Arbitrary keyword arguments.</p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">input_names</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;strain&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;rosette_strain_x&#39;</span><span class="p">,</span> <span class="s1">&#39;rosette_strain_y&#39;</span><span class="p">,</span> <span class="s1">&#39;rosette_strain_xy&#39;</span><span class="p">]}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">output_names</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;displacement&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;analysis_displacement_z&#39;</span><span class="p">],</span> <span class="s1">&#39;stress&#39;</span><span class="p">:[</span><span class="s1">&#39;analysis_stress_x&#39;</span><span class="p">]}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">interface</span> <span class="o">=</span> <span class="n">Interface</span><span class="p">(</span><span class="n">input_names</span><span class="p">,</span> <span class="n">output_names</span><span class="p">,</span> <span class="s1">&#39;beam&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt id="ifem.interface.Interface.set_project">
+<em class="property">abstract </em><code class="sig-name descname">set_project</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">project_name</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ifem.interface.Interface.set_project" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>project_name</strong> (<em>str</em>) – project name.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="ifem.interface.Interface.set_model">
+<code class="sig-name descname">set_model</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">output_metadata</span></em>, <em class="sig-param"><span class="n">sensors</span></em>, <em class="sig-param"><span class="n">structural_models</span></em>, <em class="sig-param"><span class="n">structural_model_connections</span></em>, <em class="sig-param"><span class="n">streaming</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ifem.interface.Interface.set_model" title="Permalink to this definition">¶</a></dt>
+<dd><p>set structural model</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>output_metadata</strong> (<em>pd.DataFrame</em>) – output metadata.</p></li>
+<li><p><strong>sensors</strong> (<em>dict</em>) – sensors.</p></li>
+<li><p><strong>structural_models</strong> (<em>dict</em>) – structural models.</p></li>
+<li><p><strong>structural_model_connections</strong> (<em>dict</em>) – connections between data and structural model.</p></li>
+<li><p><strong>streaming</strong> (<em>bool</em><em>, </em><em>optional</em>) – if true, run as structural_analysis.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><p>containing followings</p>
+<blockquote>
+<div><p>dict: information on instance of this model.
+pandas.DataFrame: output metadata of this model.
+dict: connections between output data of this model and structural model.</p>
+</div></blockquote>
+</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>tuple</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="ifem.interface.Interface.__call__">
+<code class="sig-name descname">__call__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">input_data</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ifem.interface.Interface.__call__" title="Permalink to this definition">¶</a></dt>
+<dd><p>calculate quantity of state</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>input_data</strong> (<em>dict</em>) – data calculated before</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>containing:</dt><dd><p>dict: analysis data.
+pandas.DataFrame: timestamp used. The length is the same as analysis data.</p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>tuple</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="ifem.interface.Interface.exit">
+<code class="sig-name descname">exit</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ifem.interface.Interface.exit" title="Permalink to this definition">¶</a></dt>
+<dd><p>exit solver</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-ifem.interface_fem">
+<span id="interface-fem"></span><h2><span class="section-number">4.5. </span>interface_fem<a class="headerlink" href="#module-ifem.interface_fem" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="ifem.interface_fem.InterfaceFem">
+<em class="property">class </em><code class="sig-prename descclassname">ifem.interface_fem.</code><code class="sig-name descname">InterfaceFem</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">instance_name</span></em>, <em class="sig-param"><span class="n">input_names</span></em>, <em class="sig-param"><span class="n">output_names</span></em>, <em class="sig-param"><span class="n">structural_model_name</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ifem.interface_fem.InterfaceFem" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#ifem.interface.Interface" title="ifem.interface.Interface"><code class="xref py py-class docutils literal notranslate"><span class="pre">ifem.interface.Interface</span></code></a></p>
+<dl class="py attribute">
+<dt id="ifem.interface_fem.InterfaceFem.package_name">
+<code class="sig-name descname">package_name</code><em class="property"> = 'fem'</em><a class="headerlink" href="#ifem.interface_fem.InterfaceFem.package_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="ifem.interface_fem.InterfaceFem.__init__">
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">instance_name</span></em>, <em class="sig-param"><span class="n">input_names</span></em>, <em class="sig-param"><span class="n">output_names</span></em>, <em class="sig-param"><span class="n">structural_model_name</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ifem.interface_fem.InterfaceFem.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>initialization of interface class of analysis solver</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>instance_name</strong> (<em>str</em>) – instance name.</p></li>
+<li><p><strong>input_names</strong> (<em>dict</em>) – dict whose keys are names of input quantity and values are names of input data.</p></li>
+<li><p><strong>output_names</strong> (<em>dict</em>) – dict whose keys are names of output quantity and values are names of output data.</p></li>
+<li><p><strong>structural_model_name</strong> (<em>str</em><em>, </em><em>optional</em>) – structural model name.</p></li>
+<li><p><strong>**kwargs</strong> – Arbitrary keyword arguments.</p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">input_names</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;strain&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;rosette_strain_x&#39;</span><span class="p">,</span> <span class="s1">&#39;rosette_strain_y&#39;</span><span class="p">,</span> <span class="s1">&#39;rosette_strain_xy&#39;</span><span class="p">]}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">output_names</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;displacement&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;analysis_displacement_z&#39;</span><span class="p">],</span> <span class="s1">&#39;stress&#39;</span><span class="p">:[</span><span class="s1">&#39;analysis_stress_x&#39;</span><span class="p">]}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">interface</span> <span class="o">=</span> <span class="n">Interface</span><span class="p">(</span><span class="n">input_names</span><span class="p">,</span> <span class="n">output_names</span><span class="p">,</span> <span class="s1">&#39;beam&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt id="ifem.interface_fem.InterfaceFem.set_project">
+<code class="sig-name descname">set_project</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">project_name</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ifem.interface_fem.InterfaceFem.set_project" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>project_name</strong> (<em>str</em>) – project name.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-ifem.interface_ifem">
+<span id="interface-ifem"></span><h2><span class="section-number">4.6. </span>interface_ifem<a class="headerlink" href="#module-ifem.interface_ifem" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="ifem.interface_ifem.InterfaceIFem">
+<em class="property">class </em><code class="sig-prename descclassname">ifem.interface_ifem.</code><code class="sig-name descname">InterfaceIFem</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">instance_name</span></em>, <em class="sig-param"><span class="n">input_names</span></em>, <em class="sig-param"><span class="n">output_names</span></em>, <em class="sig-param"><span class="n">structural_model_name</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ifem.interface_ifem.InterfaceIFem" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#ifem.interface.Interface" title="ifem.interface.Interface"><code class="xref py py-class docutils literal notranslate"><span class="pre">ifem.interface.Interface</span></code></a></p>
+<dl class="py attribute">
+<dt id="ifem.interface_ifem.InterfaceIFem.package_name">
+<code class="sig-name descname">package_name</code><em class="property"> = 'ifem'</em><a class="headerlink" href="#ifem.interface_ifem.InterfaceIFem.package_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="ifem.interface_ifem.InterfaceIFem.__init__">
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">instance_name</span></em>, <em class="sig-param"><span class="n">input_names</span></em>, <em class="sig-param"><span class="n">output_names</span></em>, <em class="sig-param"><span class="n">structural_model_name</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ifem.interface_ifem.InterfaceIFem.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>initialization of interface class of analysis solver</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>instance_name</strong> (<em>str</em>) – instance name.</p></li>
+<li><p><strong>input_names</strong> (<em>dict</em>) – dict whose keys are names of input quantity and values are names of input data.</p></li>
+<li><p><strong>output_names</strong> (<em>dict</em>) – dict whose keys are names of output quantity and values are names of output data.</p></li>
+<li><p><strong>structural_model_name</strong> (<em>str</em><em>, </em><em>optional</em>) – structural model name.</p></li>
+<li><p><strong>**kwargs</strong> – Arbitrary keyword arguments.</p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">input_names</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;strain&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;rosette_strain_x&#39;</span><span class="p">,</span> <span class="s1">&#39;rosette_strain_y&#39;</span><span class="p">,</span> <span class="s1">&#39;rosette_strain_xy&#39;</span><span class="p">]}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">output_names</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;displacement&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;analysis_displacement_z&#39;</span><span class="p">],</span> <span class="s1">&#39;stress&#39;</span><span class="p">:[</span><span class="s1">&#39;analysis_stress_x&#39;</span><span class="p">]}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">interface</span> <span class="o">=</span> <span class="n">Interface</span><span class="p">(</span><span class="n">input_names</span><span class="p">,</span> <span class="n">output_names</span><span class="p">,</span> <span class="s1">&#39;beam&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt id="ifem.interface_ifem.InterfaceIFem.set_project">
+<code class="sig-name descname">set_project</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">project_name</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ifem.interface_ifem.InterfaceIFem.set_project" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>project_name</strong> (<em>str</em>) – project name.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="nastran_manager.html" class="btn btn-neutral float-right" title="5. i-SAS_NastranManager" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="rbf_interpolator.html" class="btn btn-neutral float-left" title="3. i-SAS_RBFInterpolator" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2021, i-SAS SC
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

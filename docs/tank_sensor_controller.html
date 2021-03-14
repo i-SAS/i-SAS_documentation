@@ -1,0 +1,355 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>2. i-SAS_TankSensorController &mdash; i-SAS documentation v0.0.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> i-SAS documentation
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Interface:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="iSAS.html">i-SAS_Interface</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Subpackages:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="SensorSimulator_index.html">Sensor Simulator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SensorModeler_index.html">Sensor Modeler</a></li>
+<li class="toctree-l1"><a class="reference internal" href="StructuralModeler_index.html">Structural Modeler</a></li>
+<li class="toctree-l1"><a class="reference internal" href="AnalysisSolver_index.html">Analysis Solver</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Visualizer_index.html">Visualizer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="GUIController_index.html">GUIController</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">i-SAS documentation</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li><span class="section-number">2. </span>i-SAS_TankSensorController</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/tank_sensor_controller.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="i-sas-tanksensorcontroller">
+<h1><span class="section-number">2. </span>i-SAS_TankSensorController<a class="headerlink" href="#i-sas-tanksensorcontroller" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-tank_sensor_controller.interface">
+<span id="interface"></span><h2><span class="section-number">2.1. </span>interface<a class="headerlink" href="#module-tank_sensor_controller.interface" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="tank_sensor_controller.interface.Interface">
+<em class="property">class </em><code class="sig-prename descclassname">tank_sensor_controller.interface.</code><code class="sig-name descname">Interface</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">instance_name</span></em>, <em class="sig-param"><span class="n">output_data_names</span></em>, <em class="sig-param"><span class="n">sensor_name</span></em>, <em class="sig-param"><span class="n">file_name</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#tank_sensor_controller.interface.Interface" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>interface class</p>
+<dl class="py attribute">
+<dt id="tank_sensor_controller.interface.Interface.package_name">
+<code class="sig-name descname">package_name</code><em class="property"> = 'tank_sensor_controller'</em><a class="headerlink" href="#tank_sensor_controller.interface.Interface.package_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="tank_sensor_controller.interface.Interface.__init__">
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">instance_name</span></em>, <em class="sig-param"><span class="n">output_data_names</span></em>, <em class="sig-param"><span class="n">sensor_name</span></em>, <em class="sig-param"><span class="n">file_name</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#tank_sensor_controller.interface.Interface.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>initialization of Interface class</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>instance_name</strong> (<em>str</em>) – name of instance.</p></li>
+<li><p><strong>output_data_names</strong> (<em>dict</em>) – names of output data.</p></li>
+<li><p><strong>sensor_name</strong> (<em>list</em>) – sensor names which are corresponed to keys of output_data_names.</p></li>
+<li><p><strong>file_name</strong> (<em>str</em>) – data file name.</p></li>
+<li><p><strong>**kwargs</strong> – Arbitrary keyword arguments.</p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">instance_name</span> <span class="o">=</span> <span class="s1">&#39;test_instance&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">output_data_names</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;measurement_strain&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;ch_01&#39;</span><span class="p">,</span> <span class="s1">&#39;ch_02&#39;</span><span class="p">],</span>
+<span class="go">                         &#39;measurement_acceleration&#39;: [&#39;ch_10&#39;]}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sensor_name</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;strain_rosette&#39;</span><span class="p">,</span> <span class="s1">&#39;acceleration&#39;</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">file_name</span> <span class="o">=</span> <span class="s1">&#39;measurement.csv&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">_instance</span> <span class="o">=</span> <span class="n">TankSensorController</span><span class="p">(</span><span class="n">instance_name</span><span class="p">,</span> <span class="n">output_data_names</span><span class="p">,</span> <span class="n">sensor_name</span><span class="p">,</span> <span class="n">file_name</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt id="tank_sensor_controller.interface.Interface.set_project">
+<code class="sig-name descname">set_project</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">project_name</span></em><span class="sig-paren">)</span><a class="headerlink" href="#tank_sensor_controller.interface.Interface.set_project" title="Permalink to this definition">¶</a></dt>
+<dd><p>set project</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>project_name</strong> (<em>str</em>) – project name.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="tank_sensor_controller.interface.Interface.set_model">
+<code class="sig-name descname">set_model</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">sensors</span></em><span class="sig-paren">)</span><a class="headerlink" href="#tank_sensor_controller.interface.Interface.set_model" title="Permalink to this definition">¶</a></dt>
+<dd><p>set model</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>sensors</strong> (<em>dict</em>) – sensor information.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>static data to be exported.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="tank_sensor_controller.interface.Interface.__call__">
+<code class="sig-name descname">__call__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tank_sensor_controller.interface.Interface.__call__" title="Permalink to this definition">¶</a></dt>
+<dd><p>get measurement data</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>measurement data.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="tank_sensor_controller.interface.Interface.exit">
+<code class="sig-name descname">exit</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tank_sensor_controller.interface.Interface.exit" title="Permalink to this definition">¶</a></dt>
+<dd><p>exit simulator</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-tank_sensor_controller.model">
+<span id="model"></span><h2><span class="section-number">2.2. </span>model<a class="headerlink" href="#module-tank_sensor_controller.model" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="tank_sensor_controller.model.Model">
+<em class="property">class </em><code class="sig-prename descclassname">tank_sensor_controller.model.</code><code class="sig-name descname">Model</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">output_data_names</span></em>, <em class="sig-param"><span class="n">file_name</span></em>, <em class="sig-param"><span class="n">cfg</span></em><span class="sig-paren">)</span><a class="headerlink" href="#tank_sensor_controller.model.Model" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>model class</p>
+<dl class="py method">
+<dt id="tank_sensor_controller.model.Model.__init__">
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">output_data_names</span></em>, <em class="sig-param"><span class="n">file_name</span></em>, <em class="sig-param"><span class="n">cfg</span></em><span class="sig-paren">)</span><a class="headerlink" href="#tank_sensor_controller.model.Model.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>constructor</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>output_data_names</strong> (<em>dict</em>) – names of output data.</p></li>
+<li><p><strong>file_name</strong> (<em>str</em>) – data file name.</p></li>
+<li><p><strong>cfg</strong> (<em>dict</em>) – config.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="tank_sensor_controller.model.Model.set_model">
+<code class="sig-name descname">set_model</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">sensors</span></em><span class="sig-paren">)</span><a class="headerlink" href="#tank_sensor_controller.model.Model.set_model" title="Permalink to this definition">¶</a></dt>
+<dd><p>set model and setup sensor</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>sensors</strong> (<em>dict</em>) – sensor information.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="tank_sensor_controller.model.Model.__call__">
+<code class="sig-name descname">__call__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tank_sensor_controller.model.Model.__call__" title="Permalink to this definition">¶</a></dt>
+<dd><p>get measurement data</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>measurement data.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="tank_sensor_controller.model.Model.exit">
+<code class="sig-name descname">exit</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tank_sensor_controller.model.Model.exit" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2021, i-SAS SC
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

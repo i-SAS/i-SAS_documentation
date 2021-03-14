@@ -21,7 +21,7 @@ sys.path.insert(0, os.path.abspath('../../'))
 # -- Project information -----------------------------------------------------
 
 project = 'i-SAS documentation'
-copyright = '2020, i-SAS SC'
+copyright = '2021, i-SAS SC'
 author = 'i-SAS SC'
 
 # The short X.Y version

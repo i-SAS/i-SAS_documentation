@@ -19,21 +19,33 @@ sys.path.insert(0, os.path.abspath('../../'))
 sys.path.insert(0, os.path.abspath('../../tmp/i-SAS_Interface'))
 sys.path.insert(0, os.path.abspath('../../tmp/i-SAS_SensorSimulator-template'))
 sys.path.insert(0, os.path.abspath('../../tmp/i-SAS_PointSensor'))
+sys.path.insert(0, os.path.abspath('../../tmp/i-SAS_SensorController-template'))
+sys.path.insert(0, os.path.abspath('../../tmp/i-SAS_TankSensorController'))
+sys.path.insert(0, os.path.abspath('../../tmp/i-SAS_NMRISensorController'))
 sys.path.insert(0, os.path.abspath('../../tmp/i-SAS_SensorModeler-template'))
 sys.path.insert(0, os.path.abspath('../../tmp/i-SAS_BasicSensorModeler'))
 sys.path.insert(0, os.path.abspath('../../tmp/i-SAS_StructuralModeler-template'))
 sys.path.insert(0, os.path.abspath('../../tmp/i-SAS_FiniteElementModeler'))
-sys.path.insert(0, os.path.abspath('../../tmp/i-SAS_StructuralAnalysisSolver-template'))
+sys.path.insert(0, os.path.abspath('../../tmp/i-SAS_AnalysisSolver-template'))
 sys.path.insert(0, os.path.abspath('../../tmp/i-SAS_iFEM-matlab'))
+sys.path.insert(0, os.path.abspath('../../tmp/i-SAS_RBFInterpolator'))
+sys.path.insert(0, os.path.abspath('../../tmp/i-SAS_iFEM'))
+sys.path.insert(0, os.path.abspath('../../tmp/i-SAS_NastranManager'))
+sys.path.insert(0, os.path.abspath('../../tmp/i-SAS_DirectionalWaveSpectraEstimator'))
+sys.path.insert(0, os.path.abspath('../../tmp/i-SAS_SensorPostprocessor'))
+sys.path.insert(0, os.path.abspath('../../tmp/i-SAS_ResponseKalmanFilter'))
+sys.path.insert(0, os.path.abspath('../../tmp/i-SAS_FEM_Utils'))
 sys.path.insert(0, os.path.abspath('../../tmp/i-SAS_Visualizer-template'))
 sys.path.insert(0, os.path.abspath('../../tmp/i-SAS_BasicVisualizer'))
 sys.path.insert(0, os.path.abspath('../../tmp/i-SAS_ShipVisualizer'))
+sys.path.insert(0, os.path.abspath('../../tmp/i-SAS_GUIController-template'))
+sys.path.insert(0, os.path.abspath('../../tmp/i-SAS_BasicGUIController'))
 
 
 # -- Project information -----------------------------------------------------
 
 project = 'i-SAS documentation'
-copyright = '2020, i-SAS SC'
+copyright = '2021, i-SAS SC'
 author = 'i-SAS SC'
 
 # The short X.Y version

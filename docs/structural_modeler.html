@@ -99,8 +99,9 @@
 <li class="toctree-l2"><a class="reference internal" href="finite_element_modeler.html">2. i-SAS_FiniteElementModeler</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="StructuralAnalysisSolver_index.html">Structural Analysis Solver</a></li>
-<li class="toctree-l1"><a class="reference internal" href="GUI_index.html">GUI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="AnalysisSolver_index.html">Analysis Solver</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Visualizer_index.html">Visualizer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="GUIController_index.html">GUIController</a></li>
 </ul>
 
             
@@ -174,7 +175,7 @@
 <span id="interface"></span><h2><span class="section-number">1.1. </span>interface<a class="headerlink" href="#module-structural_modeler.interface" title="Permalink to this headline">¶</a></h2>
 <dl class="py class">
 <dt id="structural_modeler.interface.InterfaceModeler">
-<em class="property">class </em><code class="sig-prename descclassname">structural_modeler.interface.</code><code class="sig-name descname">InterfaceModeler</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#structural_modeler.interface.InterfaceModeler" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">structural_modeler.interface.</code><code class="sig-name descname">InterfaceModeler</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">structural_model_name</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#structural_modeler.interface.InterfaceModeler" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>interface class of modeler</p>
 <dl class="py attribute">
@@ -184,11 +185,14 @@
 
 <dl class="py method">
 <dt id="structural_modeler.interface.InterfaceModeler.__init__">
-<em class="property">abstract </em><code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#structural_modeler.interface.InterfaceModeler.__init__" title="Permalink to this definition">¶</a></dt>
+<em class="property">abstract </em><code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">structural_model_name</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#structural_modeler.interface.InterfaceModeler.__init__" title="Permalink to this definition">¶</a></dt>
 <dd><p>initialization of interface class of modeler</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>**kwargs</strong> – Arbitrary keyword arguments.</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>structural_model_name</strong> (<em>str</em>) – structural model name.</p></li>
+<li><p><strong>**kwargs</strong> – Arbitrary keyword arguments.</p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
@@ -210,8 +214,7 @@
 <dd><p>get structural model</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>structural model whose keys are model component type.
-str: model type.</p>
+<dd class="field-odd"><p>structural model. The key is structural model name.</p>
 </dd>
 <dt class="field-even">Return type</dt>
 <dd class="field-even"><p>dict</p>
@@ -223,16 +226,17 @@ str: model type.</p>
 
 <dl class="py class">
 <dt id="structural_modeler.interface.InterfaceCreator">
-<em class="property">class </em><code class="sig-prename descclassname">structural_modeler.interface.</code><code class="sig-name descname">InterfaceCreator</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">geometry_setting</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#structural_modeler.interface.InterfaceCreator" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">structural_modeler.interface.</code><code class="sig-name descname">InterfaceCreator</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">structural_model_name</span></em>, <em class="sig-param"><span class="n">geometry_setting</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#structural_modeler.interface.InterfaceCreator" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#structural_modeler.interface.InterfaceModeler" title="structural_modeler.interface.InterfaceModeler"><code class="xref py py-class docutils literal notranslate"><span class="pre">structural_modeler.interface.InterfaceModeler</span></code></a></p>
 <p>interface class of creator</p>
 <dl class="py method">
 <dt id="structural_modeler.interface.InterfaceCreator.__init__">
-<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">geometry_setting</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#structural_modeler.interface.InterfaceCreator.__init__" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">structural_model_name</span></em>, <em class="sig-param"><span class="n">geometry_setting</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#structural_modeler.interface.InterfaceCreator.__init__" title="Permalink to this definition">¶</a></dt>
 <dd><p>initialization of interface class of creator</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
+<li><p><strong>structural_model_name</strong> (<em>str</em>) – structural model name.</p></li>
 <li><p><strong>geometry_setting</strong> (<em>dict</em>) – geometry setting data</p></li>
 <li><p><strong>**kwargs</strong> – Arbitrary keyword arguments.</p></li>
 </ul>
@@ -255,16 +259,17 @@ str: model type.</p>
 
 <dl class="py class">
 <dt id="structural_modeler.interface.InterfaceImporter">
-<em class="property">class </em><code class="sig-prename descclassname">structural_modeler.interface.</code><code class="sig-name descname">InterfaceImporter</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">filename</span></em>, <em class="sig-param"><span class="n">data_format</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#structural_modeler.interface.InterfaceImporter" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">structural_modeler.interface.</code><code class="sig-name descname">InterfaceImporter</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">structural_model_name</span></em>, <em class="sig-param"><span class="n">filename</span></em>, <em class="sig-param"><span class="n">data_format</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#structural_modeler.interface.InterfaceImporter" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#structural_modeler.interface.InterfaceModeler" title="structural_modeler.interface.InterfaceModeler"><code class="xref py py-class docutils literal notranslate"><span class="pre">structural_modeler.interface.InterfaceModeler</span></code></a></p>
 <p>interface class of importer</p>
 <dl class="py method">
 <dt id="structural_modeler.interface.InterfaceImporter.__init__">
-<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">filename</span></em>, <em class="sig-param"><span class="n">data_format</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#structural_modeler.interface.InterfaceImporter.__init__" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">structural_model_name</span></em>, <em class="sig-param"><span class="n">filename</span></em>, <em class="sig-param"><span class="n">data_format</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#structural_modeler.interface.InterfaceImporter.__init__" title="Permalink to this definition">¶</a></dt>
 <dd><p>initialization of interface class of importer</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
+<li><p><strong>structural_model_name</strong> (<em>str</em>) – structural model name.</p></li>
 <li><p><strong>filename</strong> (<em>str</em>) – filename of import file.</p></li>
 <li><p><strong>data_format</strong> (<em>str</em>) – ‘isas’, ‘nastran’, or ‘ansys’</p></li>
 <li><p><strong>**kwargs</strong> – Arbitrary keyword arguments.</p></li>
@@ -288,16 +293,17 @@ str: model type.</p>
 
 <dl class="py class">
 <dt id="structural_modeler.interface.InterfaceConverter">
-<em class="property">class </em><code class="sig-prename descclassname">structural_modeler.interface.</code><code class="sig-name descname">InterfaceConverter</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">input_model</span></em>, <em class="sig-param"><span class="n">model_type</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#structural_modeler.interface.InterfaceConverter" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">structural_modeler.interface.</code><code class="sig-name descname">InterfaceConverter</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">structural_model_name</span></em>, <em class="sig-param"><span class="n">input_model</span></em>, <em class="sig-param"><span class="n">model_type</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#structural_modeler.interface.InterfaceConverter" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#structural_modeler.interface.InterfaceModeler" title="structural_modeler.interface.InterfaceModeler"><code class="xref py py-class docutils literal notranslate"><span class="pre">structural_modeler.interface.InterfaceModeler</span></code></a></p>
 <p>interface class of converter</p>
 <dl class="py method">
 <dt id="structural_modeler.interface.InterfaceConverter.__init__">
-<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">input_model</span></em>, <em class="sig-param"><span class="n">model_type</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#structural_modeler.interface.InterfaceConverter.__init__" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">structural_model_name</span></em>, <em class="sig-param"><span class="n">input_model</span></em>, <em class="sig-param"><span class="n">model_type</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#structural_modeler.interface.InterfaceConverter.__init__" title="Permalink to this definition">¶</a></dt>
 <dd><p>initialization of interface class of converter</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
+<li><p><strong>structural_model_name</strong> (<em>str</em>) – structural model name.</p></li>
 <li><p><strong>input_model</strong> (<em>dict</em>) – original model.</p></li>
 <li><p><strong>model_type</strong> (<em>str</em>) – model type after conversion. ‘point_cloud’, ‘fe’, or ‘graph’</p></li>
 <li><p><strong>**kwargs</strong> – Arbitrary keyword arguments.</p></li>
@@ -347,7 +353,7 @@ str: model type.</p>
 <dd><p>create model</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>created model whose keys are model component type.</p>
+<dd class="field-odd"><p>created model whose keys are model component type and ‘model_type’.</p>
 </dd>
 <dt class="field-even">Return type</dt>
 <dd class="field-even"><p>dict</p>
@@ -383,7 +389,7 @@ str: model type.</p>
 <dd><p>import model</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>imported model whose keys are model component type.</p>
+<dd class="field-odd"><p>created model whose keys are model component type and ‘model_type’.</p>
 </dd>
 <dt class="field-even">Return type</dt>
 <dd class="field-even"><p>dict</p>
@@ -419,7 +425,7 @@ str: model type.</p>
 <dd><p>convert model to other type</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>converted model whose keys are model component type.</p>
+<dd class="field-odd"><p>created model whose keys are model component type and ‘model_type’.</p>
 </dd>
 <dt class="field-even">Return type</dt>
 <dd class="field-even"><p>dict</p>
@@ -453,7 +459,7 @@ str: model type.</p>
   <div role="contentinfo">
     <p>
         
-        &copy; Copyright 2020, i-SAS SC
+        &copy; Copyright 2021, i-SAS SC
 
     </p>
   </div>

@@ -99,8 +99,9 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="StructuralModeler_index.html">Structural Modeler</a></li>
-<li class="toctree-l1"><a class="reference internal" href="StructuralAnalysisSolver_index.html">Structural Analysis Solver</a></li>
-<li class="toctree-l1"><a class="reference internal" href="GUI_index.html">GUI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="AnalysisSolver_index.html">Analysis Solver</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Visualizer_index.html">Visualizer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="GUIController_index.html">GUIController</a></li>
 </ul>
 
             
@@ -174,7 +175,7 @@
 <span id="interface"></span><h2><span class="section-number">2.1. </span>interface<a class="headerlink" href="#module-basic_sensor_modeler.interface" title="Permalink to this headline">¶</a></h2>
 <dl class="py class">
 <dt id="basic_sensor_modeler.interface.Interface">
-<em class="property">class </em><code class="sig-prename descclassname">basic_sensor_modeler.interface.</code><code class="sig-name descname">Interface</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">sensor_setting</span></em>, <em class="sig-param"><span class="n">structural_model_name</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#basic_sensor_modeler.interface.Interface" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">basic_sensor_modeler.interface.</code><code class="sig-name descname">Interface</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">sensor_name</span></em>, <em class="sig-param"><span class="n">sensor_setting</span></em>, <em class="sig-param"><span class="n">structural_model_name</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#basic_sensor_modeler.interface.Interface" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>interface class</p>
 <dl class="py attribute">
@@ -184,11 +185,12 @@
 
 <dl class="py method">
 <dt id="basic_sensor_modeler.interface.Interface.__init__">
-<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">sensor_setting</span></em>, <em class="sig-param"><span class="n">structural_model_name</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#basic_sensor_modeler.interface.Interface.__init__" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">sensor_name</span></em>, <em class="sig-param"><span class="n">sensor_setting</span></em>, <em class="sig-param"><span class="n">structural_model_name</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#basic_sensor_modeler.interface.Interface.__init__" title="Permalink to this definition">¶</a></dt>
 <dd><p>initialization of Interface class</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
+<li><p><strong>sensor_name</strong> (<em>str</em>) – sensor name.</p></li>
 <li><p><strong>sensor_setting</strong> (<em>dict</em>) – sensor setting data.</p></li>
 <li><p><strong>structural_model_name</strong> (<em>str</em><em>, </em><em>optional</em>) – structural model name. The default, None</p></li>
 <li><p><strong>**kwargs</strong> – Arbitrary keyword arguments.</p></li>
@@ -210,13 +212,13 @@
 
 <dl class="py method">
 <dt id="basic_sensor_modeler.interface.Interface.set_model">
-<code class="sig-name descname">set_model</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">structural_models</span></em>, <em class="sig-param"><span class="n">structural_model_list</span></em><span class="sig-paren">)</span><a class="headerlink" href="#basic_sensor_modeler.interface.Interface.set_model" title="Permalink to this definition">¶</a></dt>
-<dd><p>set sensor</p>
+<code class="sig-name descname">set_model</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">sensors</span></em>, <em class="sig-param"><span class="n">structural_models</span></em><span class="sig-paren">)</span><a class="headerlink" href="#basic_sensor_modeler.interface.Interface.set_model" title="Permalink to this definition">¶</a></dt>
+<dd><p>set model</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
+<li><p><strong>sensors</strong> (<em>dict</em>) – sensors</p></li>
 <li><p><strong>structural_models</strong> (<em>dict</em>) – structural models.</p></li>
-<li><p><strong>structural_model_list</strong> (<em>dict</em>) – list of structural model.</p></li>
 </ul>
 </dd>
 </dl>
@@ -225,23 +227,31 @@
 <dl class="py method">
 <dt id="basic_sensor_modeler.interface.Interface.__call__">
 <code class="sig-name descname">__call__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#basic_sensor_modeler.interface.Interface.__call__" title="Permalink to this definition">¶</a></dt>
-<dd><p>get sensor structural model connection</p>
+<dd><p>get sensor and sensor structural model connection</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p><dl>
-<dt>sensor structural model connection and sensor.</dt><dd><dl class="simple">
-<dt>sensor_structural_model_connection (pandas.DataFrame, optional):</dt><dd><p>sensor structural model connection for locational sensor.</p>
+<dd class="field-odd"><p><p>containing followings.</p>
+<blockquote>
+<div><dl class="simple">
+<dt>dict: information of the sensor, following.</dt><dd><dl class="simple">
+<dt>sensor_name (dict):</dt><dd><p>’locational’ (bool): True if the sensor is locational.
+‘directional’ (bool): True if the sensor is directional.
+‘sensor’ (pandas.DataFrame): information of each sensor point.</p>
 </dd>
 </dl>
-<p>structural_model_name (str, optional): name of structural model for locational sensor.
-sensor (pandas.DataFrame, optional): sensor. If you load existing sensor, this key does not exist.
-sensor_type (str, optional): type of he sensor. If you load existing sensor, this key does not exist.</p>
+</dd>
+<dt>dict: connection between sensor and structural model, following.</dt><dd><dl class="simple">
+<dt>(sensor_name,  structural model name) (pandas.DataFrame):</dt><dd><p>structural model connection for locational sensor.
+if the sensor is not locational, return None.</p>
 </dd>
 </dl>
+</dd>
+</dl>
+</div></blockquote>
 </p>
 </dd>
 <dt class="field-even">Return type</dt>
-<dd class="field-even"><p>dict</p>
+<dd class="field-even"><p>tuple</p>
 </dd>
 </dl>
 </dd></dl>
@@ -257,11 +267,6 @@ sensor_type (str, optional): type of he sensor. If you load existing sensor, thi
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>model class</p>
 <dl class="py attribute">
-<dt id="basic_sensor_modeler.model.Model.SENSOR_TYPES">
-<code class="sig-name descname">SENSOR_TYPES</code><em class="property"> = ('nonlocational-nondirectional', 'nonlocational-directional', 'locational-nondirectional', 'locational-directional')</em><a class="headerlink" href="#basic_sensor_modeler.model.Model.SENSOR_TYPES" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
 <dt id="basic_sensor_modeler.model.Model.LOCATIONAL_COLUMN_NAMES">
 <code class="sig-name descname">LOCATIONAL_COLUMN_NAMES</code><em class="property"> = ('x', 'y', 'z')</em><a class="headerlink" href="#basic_sensor_modeler.model.Model.LOCATIONAL_COLUMN_NAMES" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
@@ -269,6 +274,16 @@ sensor_type (str, optional): type of he sensor. If you load existing sensor, thi
 <dl class="py attribute">
 <dt id="basic_sensor_modeler.model.Model.DIRECTIONAL_COLUMN_NAMES">
 <code class="sig-name descname">DIRECTIONAL_COLUMN_NAMES</code><em class="property"> = ('direction_x', 'direction_y', 'direction_z')</em><a class="headerlink" href="#basic_sensor_modeler.model.Model.DIRECTIONAL_COLUMN_NAMES" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="basic_sensor_modeler.model.Model.MODEL_COMPONENT_NAMES">
+<code class="sig-name descname">MODEL_COMPONENT_NAMES</code><em class="property"> = {'fe': 'fe_node', 'graph': 'graph_node', 'point_id': 'point_cloud'}</em><a class="headerlink" href="#basic_sensor_modeler.model.Model.MODEL_COMPONENT_NAMES" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="basic_sensor_modeler.model.Model.MODEL_COMPONENT_KEYS">
+<code class="sig-name descname">MODEL_COMPONENT_KEYS</code><em class="property"> = {'fe': 'fe_node_id', 'graph': 'graph_node_id', 'point': 'point_id'}</em><a class="headerlink" href="#basic_sensor_modeler.model.Model.MODEL_COMPONENT_KEYS" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -298,13 +313,13 @@ point_num (int, optional): The number of points in lines.</p>
 
 <dl class="py method">
 <dt id="basic_sensor_modeler.model.Model.set_model">
-<code class="sig-name descname">set_model</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">structural_model</span></em>, <em class="sig-param"><span class="n">structural_model_type</span></em><span class="sig-paren">)</span><a class="headerlink" href="#basic_sensor_modeler.model.Model.set_model" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">set_model</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">sensor</span></em>, <em class="sig-param"><span class="n">structural_model</span></em><span class="sig-paren">)</span><a class="headerlink" href="#basic_sensor_modeler.model.Model.set_model" title="Permalink to this definition">¶</a></dt>
 <dd><p>set model</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>structural_model</strong> (<em>pandas.DataFrame</em>) – structural model.</p></li>
-<li><p><strong>structural_model_type</strong> (<em>str</em>) – structural model type.</p></li>
+<li><p><strong>sensor</strong> (<em>dict</em>) – sensor.</p></li>
+<li><p><strong>structural_model</strong> (<em>dict</em>) – structural model.</p></li>
 </ul>
 </dd>
 </dl>
@@ -359,7 +374,7 @@ sensor_type (str, optional): type of he sensor. If you load existing sensor, thi
   <div role="contentinfo">
     <p>
         
-        &copy; Copyright 2020, i-SAS SC
+        &copy; Copyright 2021, i-SAS SC
 
     </p>
   </div>

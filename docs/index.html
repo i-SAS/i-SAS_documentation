@@ -90,8 +90,9 @@
 <li class="toctree-l1"><a class="reference internal" href="SensorSimulator_index.html">Sensor Simulator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="SensorModeler_index.html">Sensor Modeler</a></li>
 <li class="toctree-l1"><a class="reference internal" href="StructuralModeler_index.html">Structural Modeler</a></li>
-<li class="toctree-l1"><a class="reference internal" href="StructuralAnalysisSolver_index.html">Structural Analysis Solver</a></li>
-<li class="toctree-l1"><a class="reference internal" href="GUI_index.html">GUI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="AnalysisSolver_index.html">Analysis Solver</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Visualizer_index.html">Visualizer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="GUIController_index.html">GUIController</a></li>
 </ul>
 
             
@@ -165,12 +166,16 @@ i-SAS consists of Interface and Subpackages.</p>
 <p class="caption"><span class="caption-text">Interface:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="iSAS.html">i-SAS_Interface</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="iSAS.html#module-iSAS.sensor_simulator">sensor_simulator</a></li>
-<li class="toctree-l2"><a class="reference internal" href="iSAS.html#module-iSAS.sensing_system">sensing_system</a></li>
-<li class="toctree-l2"><a class="reference internal" href="iSAS.html#module-iSAS.utils">utils</a></li>
-<li class="toctree-l2"><a class="reference internal" href="iSAS.html#module-iSAS.base_interface">base_interface</a></li>
-<li class="toctree-l2"><a class="reference internal" href="iSAS.html#module-iSAS.structural_analysis">structural_analysis</a></li>
-<li class="toctree-l2"><a class="reference internal" href="iSAS.html#module-iSAS.gui">gui</a></li>
+<li class="toctree-l2"><a class="reference internal" href="iSAS.html#module-isas.base">base</a></li>
+<li class="toctree-l2"><a class="reference internal" href="iSAS.html#module-isas.base_analysis">base_analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="iSAS.html#module-isas.base_sensing_system">base_sensing_system</a></li>
+<li class="toctree-l2"><a class="reference internal" href="iSAS.html#module-isas.batch_analysis">batch_analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="iSAS.html#module-isas.gui">gui</a></li>
+<li class="toctree-l2"><a class="reference internal" href="iSAS.html#module-isas.sensor_control">sensor_control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="iSAS.html#module-isas.sensor_simulation">sensor_simulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="iSAS.html#module-isas.stream_analysis">stream_analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="iSAS.html#module-isas.utils">utils</a></li>
+<li class="toctree-l2"><a class="reference internal" href="iSAS.html#module-isas.visualization">visualization</a></li>
 </ul>
 </li>
 </ul>
@@ -193,15 +198,27 @@ i-SAS consists of Interface and Subpackages.</p>
 <li class="toctree-l2"><a class="reference internal" href="finite_element_modeler.html">2. i-SAS_FiniteElementModeler</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="StructuralAnalysisSolver_index.html">Structural Analysis Solver</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="structural_analysis_solver.html">1. i-SAS_StructuralAnalysisSolver-template</a></li>
+<li class="toctree-l1"><a class="reference internal" href="AnalysisSolver_index.html">Analysis Solver</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="analysis_solver.html">1. i-SAS_AnalysisSolver-template</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ifem_matlab.html">2. i-SAS_iFEM-matlab</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rbf_interpolator.html">3. i-SAS_RBFInterpolator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ifem.html">4. i-SAS_iFEM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nastran_manager.html">5. i-SAS_NastranManager</a></li>
+<li class="toctree-l2"><a class="reference internal" href="directional_wave_spectra_estimator.html">6. i-SAS_DirectionalWaveSpectraEstimator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sensor_postprocessor.html">7. i-SAS_SensorPostprocessor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="response_kalman_filter.html">8. i-SAS_ResponseKalmanFilter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fem_utils.html">9. i-SAS_FEM_Utils</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="GUI_index.html">GUI</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="Visualizer_index.html">Visualizer</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="visualizer.html">1. i-SAS_Visualizer-template</a></li>
 <li class="toctree-l2"><a class="reference internal" href="basic_visualizer.html">2. i-SAS_BasicVisualizer</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ship_visualizer.html">3. i-SAS_ShipVisualizer</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="GUIController_index.html">GUIController</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="gui_controller.html">1. i-SAS_GUIController-template</a></li>
+<li class="toctree-l2"><a class="reference internal" href="basic_gui_controller.html">2. i-SAS_BasicGUIController</a></li>
 </ul>
 </li>
 </ul>
@@ -227,7 +244,7 @@ i-SAS consists of Interface and Subpackages.</p>
   <div role="contentinfo">
     <p>
         
-        &copy; Copyright 2020, i-SAS SC
+        &copy; Copyright 2021, i-SAS SC
 
     </p>
   </div>
