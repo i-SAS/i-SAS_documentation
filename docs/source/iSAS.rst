@@ -2,42 +2,34 @@
 i-SAS_Interface
 ==================================================
 
-sensor_simulator
+base
 --------------------------------------------------
 
-.. automodule:: iSAS.sensor_simulator
+.. automodule:: isas.base
    :members:
    :undoc-members:
    :show-inheritance:
 
-sensing_system
+base_analysis
 --------------------------------------------------
 
-.. automodule:: iSAS.sensing_system
+.. automodule:: isas.base_analysis
    :members:
    :undoc-members:
    :show-inheritance:
 
-utils
+base_sensing_system
 --------------------------------------------------
 
-.. automodule:: iSAS.utils
+.. automodule:: isas.base_sensing_system
    :members:
    :undoc-members:
    :show-inheritance:
 
-base_interface
+batch_analysis
 --------------------------------------------------
 
-.. automodule:: iSAS.base_interface
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-structural_analysis
---------------------------------------------------
-
-.. automodule:: iSAS.structural_analysis
+.. automodule:: isas.batch_analysis
    :members:
    :undoc-members:
    :show-inheritance:
@@ -45,7 +37,47 @@ structural_analysis
 gui
 --------------------------------------------------
 
-.. automodule:: iSAS.gui
+.. automodule:: isas.gui
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+sensor_control
+--------------------------------------------------
+
+.. automodule:: isas.sensor_control
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+sensor_simulation
+--------------------------------------------------
+
+.. automodule:: isas.sensor_simulation
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+stream_analysis
+--------------------------------------------------
+
+.. automodule:: isas.stream_analysis
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+utils
+--------------------------------------------------
+
+.. automodule:: isas.utils
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+visualization
+--------------------------------------------------
+
+.. automodule:: isas.visualization
    :members:
    :undoc-members:
    :show-inheritance:

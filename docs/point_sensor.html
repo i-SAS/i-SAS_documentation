@@ -99,8 +99,9 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="SensorModeler_index.html">Sensor Modeler</a></li>
 <li class="toctree-l1"><a class="reference internal" href="StructuralModeler_index.html">Structural Modeler</a></li>
-<li class="toctree-l1"><a class="reference internal" href="StructuralAnalysisSolver_index.html">Structural Analysis Solver</a></li>
-<li class="toctree-l1"><a class="reference internal" href="GUI_index.html">GUI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="AnalysisSolver_index.html">Analysis Solver</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Visualizer_index.html">Visualizer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="GUIController_index.html">GUIController</a></li>
 </ul>
 
             
@@ -174,7 +175,7 @@
 <span id="interface"></span><h2><span class="section-number">2.1. </span>interface<a class="headerlink" href="#module-point_sensor.interface" title="Permalink to this headline">¶</a></h2>
 <dl class="py class">
 <dt id="point_sensor.interface.Interface">
-<em class="property">class </em><code class="sig-prename descclassname">point_sensor.interface.</code><code class="sig-name descname">Interface</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">input_data_names</span></em>, <em class="sig-param"><span class="n">output_data_names</span></em>, <em class="sig-param"><span class="n">sensor_name</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#point_sensor.interface.Interface" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">point_sensor.interface.</code><code class="sig-name descname">Interface</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">instance_name</span></em>, <em class="sig-param"><span class="n">input_data_names</span></em>, <em class="sig-param"><span class="n">output_data_names</span></em>, <em class="sig-param"><span class="n">sensor_name</span></em>, <em class="sig-param"><span class="n">structural_model_name</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#point_sensor.interface.Interface" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>interface class</p>
 <dl class="py attribute">
@@ -194,14 +195,16 @@
 
 <dl class="py method">
 <dt id="point_sensor.interface.Interface.__init__">
-<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">input_data_names</span></em>, <em class="sig-param"><span class="n">output_data_names</span></em>, <em class="sig-param"><span class="n">sensor_name</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#point_sensor.interface.Interface.__init__" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">instance_name</span></em>, <em class="sig-param"><span class="n">input_data_names</span></em>, <em class="sig-param"><span class="n">output_data_names</span></em>, <em class="sig-param"><span class="n">sensor_name</span></em>, <em class="sig-param"><span class="n">structural_model_name</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#point_sensor.interface.Interface.__init__" title="Permalink to this definition">¶</a></dt>
 <dd><p>initialization of Interface class</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
+<li><p><strong>instance_name</strong> (<em>str</em>) – name of instance.</p></li>
 <li><p><strong>input_data_names</strong> (<em>list</em><em>[</em><em>str</em><em>]</em>) – names of input data.</p></li>
 <li><p><strong>output_data_names</strong> (<em>list</em><em>[</em><em>str</em><em>]</em>) – names of output data.</p></li>
 <li><p><strong>sensor_name</strong> (<em>str</em>) – sensor name.</p></li>
+<li><p><strong>structural_model_name</strong> (<em>str</em><em>, </em><em>optional</em>) – structural model name.</p></li>
 <li><p><strong>**kwargs</strong> – Arbitrary keyword arguments.</p></li>
 </ul>
 </dd>
@@ -211,7 +214,8 @@
 <dl class="py method">
 <dt id="point_sensor.interface.Interface.set_project">
 <code class="sig-name descname">set_project</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">project_name</span></em><span class="sig-paren">)</span><a class="headerlink" href="#point_sensor.interface.Interface.set_project" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
+<dd><p>set project</p>
+<dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>project_name</strong> (<em>str</em>) – project name.</p>
 </dd>
@@ -219,12 +223,30 @@
 </dd></dl>
 
 <dl class="py method">
-<dt id="point_sensor.interface.Interface.set_sensor">
-<code class="sig-name descname">set_sensor</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">sensors</span></em><span class="sig-paren">)</span><a class="headerlink" href="#point_sensor.interface.Interface.set_sensor" title="Permalink to this definition">¶</a></dt>
-<dd><p>set sensor</p>
+<dt id="point_sensor.interface.Interface.set_model">
+<code class="sig-name descname">set_model</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">output_metadata</span></em>, <em class="sig-param"><span class="n">sensors</span></em>, <em class="sig-param"><span class="n">structural_models</span></em>, <em class="sig-param"><span class="n">structural_model_connections</span></em>, <em class="sig-param"><span class="n">sensor_structural_model_connections</span></em><span class="sig-paren">)</span><a class="headerlink" href="#point_sensor.interface.Interface.set_model" title="Permalink to this definition">¶</a></dt>
+<dd><p>set model</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>sensors</strong> (<em>dict</em>) – sensor information.</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>output_metadata</strong> (<em>pd.DataFrame</em>) – output metadata.</p></li>
+<li><p><strong>sensors</strong> (<em>dict</em>) – sensors.</p></li>
+<li><p><strong>structural_models</strong> (<em>dict</em>) – structural models.</p></li>
+<li><p><strong>structural_model_connections</strong> (<em>dict</em>) – connections between data and structural model.</p></li>
+<li><p><strong>sensor_structural_model_connections</strong> (<em>dict</em>) – connections between sensor and structural model.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><p>containing followings</p>
+<blockquote>
+<div><p>dict: information on instance of this model.
+pandas.DataFrame: output metadata of this model.
+dict: connections between output data of this model and structural model.</p>
+</div></blockquote>
+</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>tuple</p>
 </dd>
 </dl>
 </dd></dl>
@@ -238,10 +260,15 @@
 <dd class="field-odd"><p><strong>input_data</strong> (<em>dict</em>) – input data to simulator.</p>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>measurement data simulated.</p>
+<dd class="field-even"><p><p>containing followings,</p>
+<blockquote>
+<div><p>dict: measurement data simulated.
+pandas.DataFrame: used timestamp. The length is the same as measurement data.</p>
+</div></blockquote>
+</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>dict</p>
+<dd class="field-odd"><p>tuple</p>
 </dd>
 </dl>
 </dd></dl>
@@ -259,27 +286,36 @@
 <span id="model"></span><h2><span class="section-number">2.2. </span>model<a class="headerlink" href="#module-point_sensor.model" title="Permalink to this headline">¶</a></h2>
 <dl class="py class">
 <dt id="point_sensor.model.Model">
-<em class="property">class </em><code class="sig-prename descclassname">point_sensor.model.</code><code class="sig-name descname">Model</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">cfg</span></em><span class="sig-paren">)</span><a class="headerlink" href="#point_sensor.model.Model" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">point_sensor.model.</code><code class="sig-name descname">Model</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">input_data_names</span></em>, <em class="sig-param"><span class="n">output_data_names</span></em>, <em class="sig-param"><span class="n">cfg</span></em><span class="sig-paren">)</span><a class="headerlink" href="#point_sensor.model.Model" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>model class</p>
 <dl class="py method">
 <dt id="point_sensor.model.Model.__init__">
-<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">cfg</span></em><span class="sig-paren">)</span><a class="headerlink" href="#point_sensor.model.Model.__init__" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">input_data_names</span></em>, <em class="sig-param"><span class="n">output_data_names</span></em>, <em class="sig-param"><span class="n">cfg</span></em><span class="sig-paren">)</span><a class="headerlink" href="#point_sensor.model.Model.__init__" title="Permalink to this definition">¶</a></dt>
 <dd><p>constructor</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>cfg</strong> (<em>dict</em>) – config.</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>input_data_names</strong> (<em>list</em><em>[</em><em>str</em><em>]</em>) – names of input data.</p></li>
+<li><p><strong>output_data_names</strong> (<em>list</em><em>[</em><em>str</em><em>]</em>) – names of output data.</p></li>
+<li><p><strong>cfg</strong> (<em>dict</em>) – config.</p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
-<dt id="point_sensor.model.Model.set_sensor">
-<code class="sig-name descname">set_sensor</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">sensor</span></em><span class="sig-paren">)</span><a class="headerlink" href="#point_sensor.model.Model.set_sensor" title="Permalink to this definition">¶</a></dt>
-<dd><p>set sensor</p>
+<dt id="point_sensor.model.Model.set_model">
+<code class="sig-name descname">set_model</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">output_metadata</span></em>, <em class="sig-param"><span class="n">sensors</span></em>, <em class="sig-param"><span class="n">structural_models</span></em>, <em class="sig-param"><span class="n">structural_model_connections</span></em><span class="sig-paren">)</span><a class="headerlink" href="#point_sensor.model.Model.set_model" title="Permalink to this definition">¶</a></dt>
+<dd><p>set model and calculate intermediate values</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>sensor</strong> (<em>pandas.DataFrame</em>) – sensor information.</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>output_metadata</strong> (<em>pd.DataFrame</em>) – output metadata.</p></li>
+<li><p><strong>sensors</strong> (<em>dict</em>) – sensors.</p></li>
+<li><p><strong>structural_models</strong> (<em>dict</em>) – structural models.</p></li>
+<li><p><strong>structural_model_connection</strong> (<em>dict</em>) – connections between data and structural model.</p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
@@ -290,13 +326,22 @@
 <dd><p>simulate measurement data added normally distributed noise to input_data</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>input_data</strong> (<em>list</em><em>[</em><em>numpy.ndarray</em><em>]</em>) – input data.</p>
+<dd class="field-odd"><p><strong>input_data</strong> (<em>list</em><em>[</em><em>pandas.DataFrame</em><em>]</em>) – time series data as input.</p>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>measurement data.</p>
+<dd class="field-even"><p><dl>
+<dt>containing followings,</dt><dd><p>list[pandas.DataFrame]: measurement data.
+list[dict]: used timestamp for each input data. Dict has two keys, ‘s’ as strating timestamp and</p>
+<blockquote>
+<div><p>’e’ as end time stamp, and the value is 1d-array of the timestamp used to caclulate output,
+whose length is the same as the length of output.</p>
+</div></blockquote>
+</dd>
+</dl>
+</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>list[numpy.ndarray]</p>
+<dd class="field-odd"><p>tuple</p>
 </dd>
 </dl>
 </dd></dl>
@@ -327,7 +372,7 @@
   <div role="contentinfo">
     <p>
         
-        &copy; Copyright 2020, i-SAS SC
+        &copy; Copyright 2021, i-SAS SC
 
     </p>
   </div>

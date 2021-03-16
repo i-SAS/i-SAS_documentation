@@ -85,12 +85,16 @@
               <p class="caption"><span class="caption-text">Interface:</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">i-SAS_Interface</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#module-iSAS.sensor_simulator">sensor_simulator</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#module-iSAS.sensing_system">sensing_system</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#module-iSAS.utils">utils</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#module-iSAS.base_interface">base_interface</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#module-iSAS.structural_analysis">structural_analysis</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#module-iSAS.gui">gui</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-isas.base">base</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-isas.base_analysis">base_analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-isas.base_sensing_system">base_sensing_system</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-isas.batch_analysis">batch_analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-isas.gui">gui</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-isas.sensor_control">sensor_control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-isas.sensor_simulation">sensor_simulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-isas.stream_analysis">stream_analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-isas.utils">utils</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-isas.visualization">visualization</a></li>
 </ul>
 </li>
 </ul>
@@ -99,8 +103,9 @@
 <li class="toctree-l1"><a class="reference internal" href="SensorSimulator_index.html">Sensor Simulator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="SensorModeler_index.html">Sensor Modeler</a></li>
 <li class="toctree-l1"><a class="reference internal" href="StructuralModeler_index.html">Structural Modeler</a></li>
-<li class="toctree-l1"><a class="reference internal" href="StructuralAnalysisSolver_index.html">Structural Analysis Solver</a></li>
-<li class="toctree-l1"><a class="reference internal" href="GUI_index.html">GUI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="AnalysisSolver_index.html">Analysis Solver</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Visualizer_index.html">Visualizer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="GUIController_index.html">GUIController</a></li>
 </ul>
 
             
@@ -168,144 +173,28 @@
             
   <div class="section" id="i-sas-interface">
 <h1>i-SAS_Interface<a class="headerlink" href="#i-sas-interface" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="module-iSAS.sensor_simulator">
-<span id="sensor-simulator"></span><h2>sensor_simulator<a class="headerlink" href="#module-iSAS.sensor_simulator" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-isas.base">
+<span id="base"></span><h2>base<a class="headerlink" href="#module-isas.base" title="Permalink to this headline">¶</a></h2>
 <dl class="py class">
-<dt id="iSAS.sensor_simulator.SensorSimulator">
-<em class="property">class </em><code class="sig-prename descclassname">iSAS.sensor_simulator.</code><code class="sig-name descname">SensorSimulator</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">project_name</span></em>, <em class="sig-param"><span class="n">datadrive</span><span class="o">=</span><span class="default_value">'/root/datadrive/'</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iSAS.sensor_simulator.SensorSimulator" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#iSAS.sensing_system.SensingSystem" title="iSAS.sensing_system.SensingSystem"><code class="xref py py-class docutils literal notranslate"><span class="pre">iSAS.sensing_system.SensingSystem</span></code></a></p>
-<p>interface for Sensor Simulator</p>
-<dl class="py method">
-<dt id="iSAS.sensor_simulator.SensorSimulator.__init__">
-<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">project_name</span></em>, <em class="sig-param"><span class="n">datadrive</span><span class="o">=</span><span class="default_value">'/root/datadrive/'</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iSAS.sensor_simulator.SensorSimulator.__init__" title="Permalink to this definition">¶</a></dt>
-<dd><p>initialization of SensorSimulator class</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>project_name</strong> (<em>str</em>) – project name</p></li>
-<li><p><strong>datadrive</strong> (<em>str</em><em>, </em><em>optional</em>) – Path to datadrive. The default, ‘/root/datadrive/’</p></li>
-<li><p><strong>**kwargs</strong> – Arbitrary keyword arguments.</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="iSAS.sensor_simulator.SensorSimulator.set_simulator">
-<code class="sig-name descname">set_simulator</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">simulator</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iSAS.sensor_simulator.SensorSimulator.set_simulator" title="Permalink to this definition">¶</a></dt>
-<dd><p>set simulator</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>simulator</strong> (<em>Subpackages</em><em> or </em><em>list</em><em>[</em><em>Subpackages</em><em>]</em>) – instance of i-SAS_SensorSimulator Subpackages.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="iSAS.sensor_simulator.SensorSimulator.__call__">
-<code class="sig-name descname">__call__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">input_data</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iSAS.sensor_simulator.SensorSimulator.__call__" title="Permalink to this definition">¶</a></dt>
-<dd><p>simulate measurement data</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>input_data</strong> (<em>dict</em>) – input data to simulator.</p></li>
-<li><p><strong>Returns</strong> – dict: results of simulator.</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="iSAS.sensor_simulator.SensorSimulator.exit">
-<code class="sig-name descname">exit</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iSAS.sensor_simulator.SensorSimulator.exit" title="Permalink to this definition">¶</a></dt>
-<dd><p>exit simulator</p>
-</dd></dl>
-
-</dd></dl>
-
-</div>
-<div class="section" id="module-iSAS.sensing_system">
-<span id="sensing-system"></span><h2>sensing_system<a class="headerlink" href="#module-iSAS.sensing_system" title="Permalink to this headline">¶</a></h2>
-<dl class="py class">
-<dt id="iSAS.sensing_system.SensingSystem">
-<em class="property">class </em><code class="sig-prename descclassname">iSAS.sensing_system.</code><code class="sig-name descname">SensingSystem</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">project_name</span></em>, <em class="sig-param"><span class="n">datadrive</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iSAS.sensing_system.SensingSystem" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#iSAS.base_interface.BaseInterface" title="iSAS.base_interface.BaseInterface"><code class="xref py py-class docutils literal notranslate"><span class="pre">iSAS.base_interface.BaseInterface</span></code></a></p>
-<dl class="py attribute">
-<dt id="iSAS.sensing_system.SensingSystem.interface_name">
-<code class="sig-name descname">interface_name</code><em class="property"> = 'sensing_system'</em><a class="headerlink" href="#iSAS.sensing_system.SensingSystem.interface_name" title="Permalink to this definition">¶</a></dt>
-<dd><p>Abstract Base Meta class of interface for Sensing System</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="iSAS.sensing_system.SensingSystem.__init__">
-<em class="property">abstract </em><code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">project_name</span></em>, <em class="sig-param"><span class="n">datadrive</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iSAS.sensing_system.SensingSystem.__init__" title="Permalink to this definition">¶</a></dt>
-<dd><p>initialization of SensingSystem class</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>project_name</strong> (<em>str</em>) – project name.</p></li>
-<li><p><strong>datadrive</strong> (<em>str</em>) – Path to datadrive.</p></li>
-<li><p><strong>**kwargs</strong> – Arbitrary keyword arguments.</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="iSAS.sensing_system.SensingSystem.set_model">
-<code class="sig-name descname">set_model</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">modeler</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iSAS.sensing_system.SensingSystem.set_model" title="Permalink to this definition">¶</a></dt>
-<dd><p>set model</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>modeler</strong> (<em>dict</em>) – dict whose key is model name and value is instance of i-SAS_StructuralModeler Subpackages.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="iSAS.sensing_system.SensingSystem.set_sensor">
-<code class="sig-name descname">set_sensor</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">modeler</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iSAS.sensing_system.SensingSystem.set_sensor" title="Permalink to this definition">¶</a></dt>
-<dd><p>set sensor</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>modeler</strong> (<em>dict</em>) – dict whose key is sensor name and value is
-list of instances of i-SAS_SensorModeler Subpackages.</p>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
-</div>
-<div class="section" id="module-iSAS.utils">
-<span id="utils"></span><h2>utils<a class="headerlink" href="#module-iSAS.utils" title="Permalink to this headline">¶</a></h2>
-</div>
-<div class="section" id="module-iSAS.base_interface">
-<span id="base-interface"></span><h2>base_interface<a class="headerlink" href="#module-iSAS.base_interface" title="Permalink to this headline">¶</a></h2>
-<dl class="py class">
-<dt id="iSAS.base_interface.BaseInterface">
-<em class="property">class </em><code class="sig-prename descclassname">iSAS.base_interface.</code><code class="sig-name descname">BaseInterface</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">project_name</span></em>, <em class="sig-param"><span class="n">datadrive</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iSAS.base_interface.BaseInterface" title="Permalink to this definition">¶</a></dt>
+<dt id="isas.base.Base">
+<em class="property">class </em><code class="sig-prename descclassname">isas.base.</code><code class="sig-name descname">Base</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">project_name</span></em>, <em class="sig-param"><span class="n">datadrive</span></em>, <em class="sig-param"><span class="n">data_system</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#isas.base.Base" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Abstaract Base Class for i-SAS Interface</p>
-<dl class="py attribute">
-<dt id="iSAS.base_interface.BaseInterface.time_series_count">
-<code class="sig-name descname">time_series_count</code><em class="property"> = {}</em><a class="headerlink" href="#iSAS.base_interface.BaseInterface.time_series_count" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt id="isas.base.Base.interface_name">
+<em class="property">abstract property </em><code class="sig-name descname">interface_name</code><a class="headerlink" href="#isas.base.Base.interface_name" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt id="iSAS.base_interface.BaseInterface.interface_name">
-<em class="property">abstract property </em><code class="sig-name descname">interface_name</code><a class="headerlink" href="#iSAS.base_interface.BaseInterface.interface_name" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt id="iSAS.base_interface.BaseInterface.__init__">
-<em class="property">abstract </em><code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">project_name</span></em>, <em class="sig-param"><span class="n">datadrive</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iSAS.base_interface.BaseInterface.__init__" title="Permalink to this definition">¶</a></dt>
+<dt id="isas.base.Base.__init__">
+<em class="property">abstract </em><code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">project_name</span></em>, <em class="sig-param"><span class="n">datadrive</span></em>, <em class="sig-param"><span class="n">data_system</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#isas.base.Base.__init__" title="Permalink to this definition">¶</a></dt>
 <dd><p>initialization of BaseInterface class</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>project_name</strong> (<em>str</em>) – project name.</p></li>
 <li><p><strong>datadrive</strong> (<em>str</em>) – Path to datadrive.</p></li>
+<li><p><strong>data_system</strong> (<em>str</em>) – data system to use. ‘file’ or ‘db’.</p></li>
 <li><p><strong>**kwargs</strong> – Arbitrary keyword arguments.</p></li>
 </ul>
 </dd>
@@ -313,20 +202,20 @@ list of instances of i-SAS_SensorModeler Subpackages.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="iSAS.base_interface.BaseInterface.__call__">
-<em class="property">abstract </em><code class="sig-name descname">__call__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iSAS.base_interface.BaseInterface.__call__" title="Permalink to this definition">¶</a></dt>
+<dt id="isas.base.Base.__call__">
+<em class="property">abstract </em><code class="sig-name descname">__call__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#isas.base.Base.__call__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Call self as a function.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="iSAS.base_interface.BaseInterface.exit">
-<em class="property">abstract </em><code class="sig-name descname">exit</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iSAS.base_interface.BaseInterface.exit" title="Permalink to this definition">¶</a></dt>
+<dt id="isas.base.Base.exit">
+<em class="property">abstract </em><code class="sig-name descname">exit</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#isas.base.Base.exit" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt id="iSAS.base_interface.BaseInterface.import_sensor_list">
-<code class="sig-name descname">import_sensor_list</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">from_</span><span class="o">=</span><span class="default_value">'file'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iSAS.base_interface.BaseInterface.import_sensor_list" title="Permalink to this definition">¶</a></dt>
-<dd><p>import sensor list</p>
+<dt id="isas.base.Base.import_output_metadata">
+<code class="sig-name descname">import_output_metadata</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">from_</span><span class="o">=</span><span class="default_value">'file'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#isas.base.Base.import_output_metadata" title="Permalink to this definition">¶</a></dt>
+<dd><p>import output metadata</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>from</strong> (<em>str</em><em>, </em><em>optional</em>) – import from this. ‘file’ or ‘db’. The default, ‘file’</p>
@@ -335,13 +224,27 @@ list of instances of i-SAS_SensorModeler Subpackages.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="iSAS.base_interface.BaseInterface.import_sensor">
-<code class="sig-name descname">import_sensor</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">sensor_name</span></em>, <em class="sig-param"><span class="n">from_</span><span class="o">=</span><span class="default_value">'file'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iSAS.base_interface.BaseInterface.import_sensor" title="Permalink to this definition">¶</a></dt>
+<dt id="isas.base.Base.import_instance">
+<code class="sig-name descname">import_instance</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">instance_name</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">from_</span><span class="o">=</span><span class="default_value">'file'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#isas.base.Base.import_instance" title="Permalink to this definition">¶</a></dt>
+<dd><p>import instances</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>instance_name</strong> (<em>str</em><em> or </em><em>list</em><em>[</em><em>str</em><em>]</em><em>, </em><em>optional</em>) – instance name.</p></li>
+<li><p><strong>from</strong> (<em>str</em><em>, </em><em>optional</em>) – import from this. ‘file’ or ‘db’. The default, ‘file’</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="isas.base.Base.import_sensor">
+<code class="sig-name descname">import_sensor</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">sensor_name</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">from_</span><span class="o">=</span><span class="default_value">'file'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#isas.base.Base.import_sensor" title="Permalink to this definition">¶</a></dt>
 <dd><p>import sensor</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>sensor_name</strong> (<em>str</em><em> or </em><em>list</em><em>[</em><em>str</em><em>]</em>) – sensor name.</p></li>
+<li><p><strong>sensor_name</strong> (<em>str</em><em> or </em><em>list</em><em>[</em><em>str</em><em>]</em><em>, </em><em>optional</em>) – sensor name.</p></li>
 <li><p><strong>from</strong> (<em>str</em><em>, </em><em>optional</em>) – import from this. ‘file’ or ‘db’. The default, ‘file’</p></li>
 </ul>
 </dd>
@@ -349,24 +252,13 @@ list of instances of i-SAS_SensorModeler Subpackages.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="iSAS.base_interface.BaseInterface.import_structural_model_list">
-<code class="sig-name descname">import_structural_model_list</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">from_</span><span class="o">=</span><span class="default_value">'file'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iSAS.base_interface.BaseInterface.import_structural_model_list" title="Permalink to this definition">¶</a></dt>
-<dd><p>import structural model list</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>from</strong> (<em>str</em><em>, </em><em>optional</em>) – import from this. ‘file’ or ‘db’. The default, ‘file’</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="iSAS.base_interface.BaseInterface.import_structural_model">
-<code class="sig-name descname">import_structural_model</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">structural_model_name</span></em>, <em class="sig-param"><span class="n">from_</span><span class="o">=</span><span class="default_value">'file'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iSAS.base_interface.BaseInterface.import_structural_model" title="Permalink to this definition">¶</a></dt>
+<dt id="isas.base.Base.import_structural_model">
+<code class="sig-name descname">import_structural_model</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">structural_model_name</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">from_</span><span class="o">=</span><span class="default_value">'file'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#isas.base.Base.import_structural_model" title="Permalink to this definition">¶</a></dt>
 <dd><p>import structural model</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>structural_model_name</strong> (<em>str</em><em> or </em><em>list</em><em>[</em><em>str</em><em>]</em>) – structural model name.</p></li>
+<li><p><strong>structural_model_name</strong> (<em>str</em><em> or </em><em>list</em><em>[</em><em>str</em><em>]</em><em>, </em><em>optional</em>) – structural model name.</p></li>
 <li><p><strong>from</strong> (<em>str</em><em>, </em><em>optional</em>) – import from this. ‘file’ or ‘db’. The default, ‘file’</p></li>
 </ul>
 </dd>
@@ -374,14 +266,14 @@ list of instances of i-SAS_SensorModeler Subpackages.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="iSAS.base_interface.BaseInterface.import_sensor_structural_model_connection">
-<code class="sig-name descname">import_sensor_structural_model_connection</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">sensor_name</span></em>, <em class="sig-param"><span class="n">structural_model_name</span></em>, <em class="sig-param"><span class="n">from_</span><span class="o">=</span><span class="default_value">'file'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iSAS.base_interface.BaseInterface.import_sensor_structural_model_connection" title="Permalink to this definition">¶</a></dt>
-<dd><p>import sensor structural model connection</p>
+<dt id="isas.base.Base.import_structural_model_connection">
+<code class="sig-name descname">import_structural_model_connection</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data_name</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">structural_model_name</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">from_</span><span class="o">=</span><span class="default_value">'file'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#isas.base.Base.import_structural_model_connection" title="Permalink to this definition">¶</a></dt>
+<dd><p>import structural model connection</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>sensor_name</strong> (<em>str</em><em> or </em><em>list</em><em>[</em><em>str</em><em>]</em>) – sensor name.</p></li>
-<li><p><strong>structural_model_name</strong> (<em>str</em><em> or </em><em>list</em><em>[</em><em>str</em><em>]</em>) – structural model name.</p></li>
+<li><p><strong>data_name</strong> (<em>str</em><em> or </em><em>list</em><em>[</em><em>str</em><em>]</em><em>, </em><em>optional</em>) – data name.</p></li>
+<li><p><strong>structural_model_name</strong> (<em>str</em><em> or </em><em>list</em><em>[</em><em>str</em><em>]</em><em>, </em><em>optional</em>) – structural model name.</p></li>
 <li><p><strong>from</strong> (<em>str</em><em>, </em><em>optional</em>) – import from this. ‘file’ or ‘db’. The default, ‘file’</p></li>
 </ul>
 </dd>
@@ -389,81 +281,91 @@ list of instances of i-SAS_SensorModeler Subpackages.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="iSAS.base_interface.BaseInterface.import_time_series">
-<code class="sig-name descname">import_time_series</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">system_name</span></em>, <em class="sig-param"><span class="n">data_name</span></em>, <em class="sig-param"><span class="n">from_</span><span class="o">=</span><span class="default_value">'file'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iSAS.base_interface.BaseInterface.import_time_series" title="Permalink to this definition">¶</a></dt>
+<dt id="isas.base.Base.import_time_series">
+<code class="sig-name descname">import_time_series</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data_name</span></em>, <em class="sig-param"><span class="n">from_</span><span class="o">=</span><span class="default_value">'file'</span></em>, <em class="sig-param"><span class="n">last_timestamp</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#isas.base.Base.import_time_series" title="Permalink to this definition">¶</a></dt>
 <dd><p>import time series</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>system_name</strong> (<em>str</em>) – system name. e.g. sensing_system</p></li>
 <li><p><strong>data_name</strong> (<em>str</em>) – data name.</p></li>
 <li><p><strong>from</strong> (<em>str</em><em>, </em><em>optional</em>) – import from this. ‘file’ or ‘db’. The default, ‘file’</p></li>
+<li><p><strong>last_timestamp</strong> (<em>int</em>) – timestamp of the last data. data with later timestamp is installed.</p></li>
 </ul>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
-<dt id="iSAS.base_interface.BaseInterface.export_sensor_list">
-<code class="sig-name descname">export_sensor_list</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">to</span><span class="o">=</span><span class="default_value">'file'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iSAS.base_interface.BaseInterface.export_sensor_list" title="Permalink to this definition">¶</a></dt>
-<dd><p>export sensor list</p>
+<dt id="isas.base.Base.export_output_metadata">
+<code class="sig-name descname">export_output_metadata</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">to</span><span class="o">=</span><span class="default_value">'file'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#isas.base.Base.export_output_metadata" title="Permalink to this definition">¶</a></dt>
+<dd><p>export output metadata</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>to</strong> (<em>str</em><em>, </em><em>optional</em>) – export from this. ‘file’ or ‘db’. The default, ‘file’</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>to</strong> (<em>str</em><em>, </em><em>optional</em>) – export from this. ‘file’ or ‘db’. The default, ‘file’</p></li>
+<li><p><strong>adding</strong> (<em>bool</em><em>, </em><em>optional</em>) – If True, add data at the end of the file.</p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
-<dt id="iSAS.base_interface.BaseInterface.export_sensor">
-<code class="sig-name descname">export_sensor</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">sensor_name</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">to</span><span class="o">=</span><span class="default_value">'file'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iSAS.base_interface.BaseInterface.export_sensor" title="Permalink to this definition">¶</a></dt>
+<dt id="isas.base.Base.export_instance">
+<code class="sig-name descname">export_instance</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">instance_name</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">to</span><span class="o">=</span><span class="default_value">'file'</span></em>, <em class="sig-param"><span class="n">adding</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#isas.base.Base.export_instance" title="Permalink to this definition">¶</a></dt>
+<dd><p>export instance</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>instance_name</strong> (<em>str</em><em> or </em><em>list</em><em>[</em><em>str</em><em>]</em><em>, </em><em>optional</em>) – instance name.</p></li>
+<li><p><strong>to</strong> (<em>str</em><em>, </em><em>optional</em>) – export from this. ‘file’ or ‘db’. The default, ‘file’</p></li>
+<li><p><strong>adding</strong> (<em>bool</em><em>, </em><em>optional</em>) – If True, add data at the end of the file.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="isas.base.Base.export_sensor">
+<code class="sig-name descname">export_sensor</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">sensor_name</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">to</span><span class="o">=</span><span class="default_value">'file'</span></em>, <em class="sig-param"><span class="n">adding</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#isas.base.Base.export_sensor" title="Permalink to this definition">¶</a></dt>
 <dd><p>export sensor</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>sensor_name</strong> (<em>str</em><em> or </em><em>list</em><em>[</em><em>str</em><em>]</em><em>, </em><em>optional</em>) – sensor name. If None, run for all sensors. The default, None</p></li>
+<li><p><strong>sensor_name</strong> (<em>str</em><em> or </em><em>list</em><em>[</em><em>str</em><em>]</em><em>, </em><em>optional</em>) – sensor name. If None, run about all sensors. The default, None</p></li>
 <li><p><strong>to</strong> (<em>str</em><em>, </em><em>optional</em>) – export from this. ‘file’ or ‘db’. The default, ‘file’</p></li>
+<li><p><strong>adding</strong> (<em>bool</em><em>, </em><em>optional</em>) – If True, add data at the end of the file.</p></li>
 </ul>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
-<dt id="iSAS.base_interface.BaseInterface.export_structural_model_list">
-<code class="sig-name descname">export_structural_model_list</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">to</span><span class="o">=</span><span class="default_value">'file'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iSAS.base_interface.BaseInterface.export_structural_model_list" title="Permalink to this definition">¶</a></dt>
-<dd><p>export structural model list</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>to</strong> (<em>str</em><em>, </em><em>optional</em>) – export from this. ‘file’ or ‘db’. The default, ‘file’</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="iSAS.base_interface.BaseInterface.export_structural_model">
-<code class="sig-name descname">export_structural_model</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">structural_model_name</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">to</span><span class="o">=</span><span class="default_value">'file'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iSAS.base_interface.BaseInterface.export_structural_model" title="Permalink to this definition">¶</a></dt>
+<dt id="isas.base.Base.export_structural_model">
+<code class="sig-name descname">export_structural_model</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">structural_model_name</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">to</span><span class="o">=</span><span class="default_value">'file'</span></em>, <em class="sig-param"><span class="n">adding</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#isas.base.Base.export_structural_model" title="Permalink to this definition">¶</a></dt>
 <dd><p>export structural model</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>structural_model_name</strong> (<em>str</em><em> or </em><em>list</em><em>[</em><em>str</em><em>]</em><em>, </em><em>optional</em>) – structural model name.
-If None, run for all structural_models. The default, None</p></li>
+If None, run about all structural_models. The default, None</p></li>
 <li><p><strong>to</strong> (<em>str</em><em>, </em><em>optional</em>) – export from this. ‘file’ or ‘db’. The default, ‘file’</p></li>
+<li><p><strong>adding</strong> (<em>bool</em><em>, </em><em>optional</em>) – If True, add data at the end of the file.</p></li>
 </ul>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
-<dt id="iSAS.base_interface.BaseInterface.export_sensor_structural_model_connection">
-<code class="sig-name descname">export_sensor_structural_model_connection</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">sensor_name</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">structural_model_name</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">to</span><span class="o">=</span><span class="default_value">'file'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iSAS.base_interface.BaseInterface.export_sensor_structural_model_connection" title="Permalink to this definition">¶</a></dt>
-<dd><p>export sensor structural model connection</p>
+<dt id="isas.base.Base.export_structural_model_connection">
+<code class="sig-name descname">export_structural_model_connection</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data_name</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">structural_model_name</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">to</span><span class="o">=</span><span class="default_value">'file'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#isas.base.Base.export_structural_model_connection" title="Permalink to this definition">¶</a></dt>
+<dd><p>export structural model connection</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>sensor_name</strong> (<em>str</em><em> or </em><em>list</em><em>[</em><em>str</em><em>]</em><em>, </em><em>optional</em>) – sensor name. If None, run for all sensors. The default, None</p></li>
+<li><p><strong>data_name</strong> (<em>str</em><em> or </em><em>list</em><em>[</em><em>str</em><em>]</em><em>, </em><em>optional</em>) – data name of analysis.
+If None, run about all sensors. The default, None</p></li>
 <li><p><strong>structural_model_name</strong> (<em>str</em><em> or </em><em>list</em><em>[</em><em>str</em><em>]</em><em>, </em><em>optional</em>) – structural model name.
-If None, run for all structural_models. The default, None</p></li>
+If None, run about all structural_models. The default, None</p></li>
 <li><p><strong>to</strong> (<em>str</em><em>, </em><em>optional</em>) – export from this. ‘file’ or ‘db’. The default, ‘file’</p></li>
 </ul>
 </dd>
@@ -471,16 +373,16 @@ If None, run for all structural_models. The default, None</p></li>
 </dd></dl>
 
 <dl class="py method">
-<dt id="iSAS.base_interface.BaseInterface.export_time_series">
-<code class="sig-name descname">export_time_series</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data</span></em>, <em class="sig-param"><span class="n">system_name</span></em>, <em class="sig-param"><span class="n">data_name</span></em>, <em class="sig-param"><span class="n">to</span><span class="o">=</span><span class="default_value">'file'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iSAS.base_interface.BaseInterface.export_time_series" title="Permalink to this definition">¶</a></dt>
+<dt id="isas.base.Base.export_time_series">
+<code class="sig-name descname">export_time_series</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data</span></em>, <em class="sig-param"><span class="n">data_name</span></em>, <em class="sig-param"><span class="n">to</span><span class="o">=</span><span class="default_value">'file'</span></em>, <em class="sig-param"><span class="n">used_timestamp</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#isas.base.Base.export_time_series" title="Permalink to this definition">¶</a></dt>
 <dd><p>export time series</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>data</strong> (<em>dict</em>) – data to be exported.</p></li>
-<li><p><strong>system_name</strong> (<em>str</em>) – system name. e.g. sensing_system</p></li>
 <li><p><strong>data_name</strong> (<em>str</em>) – data name.</p></li>
 <li><p><strong>to</strong> (<em>str</em><em>, </em><em>optional</em>) – export from this. ‘file’ or ‘db’. The default, ‘file’</p></li>
+<li><p><strong>used_timestamp</strong> (<em>pandas.DataFrame</em><em>, </em><em>optional</em>) – timestamp of the input data used to calulate data.</p></li>
 </ul>
 </dd>
 </dl>
@@ -489,26 +391,28 @@ If None, run for all structural_models. The default, None</p></li>
 </dd></dl>
 
 </div>
-<div class="section" id="module-iSAS.structural_analysis">
-<span id="structural-analysis"></span><h2>structural_analysis<a class="headerlink" href="#module-iSAS.structural_analysis" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-isas.base_analysis">
+<span id="base-analysis"></span><h2>base_analysis<a class="headerlink" href="#module-isas.base_analysis" title="Permalink to this headline">¶</a></h2>
 <dl class="py class">
-<dt id="iSAS.structural_analysis.StructuralAnalysis">
-<em class="property">class </em><code class="sig-prename descclassname">iSAS.structural_analysis.</code><code class="sig-name descname">StructuralAnalysis</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">project_name</span></em>, <em class="sig-param"><span class="n">datadrive</span><span class="o">=</span><span class="default_value">'/root/datadrive/'</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iSAS.structural_analysis.StructuralAnalysis" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#iSAS.base_interface.BaseInterface" title="iSAS.base_interface.BaseInterface"><code class="xref py py-class docutils literal notranslate"><span class="pre">iSAS.base_interface.BaseInterface</span></code></a></p>
+<dt id="isas.base_analysis.BaseAnalysis">
+<em class="property">class </em><code class="sig-prename descclassname">isas.base_analysis.</code><code class="sig-name descname">BaseAnalysis</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">project_name</span></em>, <em class="sig-param"><span class="n">datadrive</span><span class="o">=</span><span class="default_value">'/root/datadrive/'</span></em>, <em class="sig-param"><span class="n">data_system</span><span class="o">=</span><span class="default_value">'file'</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#isas.base_analysis.BaseAnalysis" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#isas.base.Base" title="isas.base.Base"><code class="xref py py-class docutils literal notranslate"><span class="pre">isas.base.Base</span></code></a></p>
 <dl class="py attribute">
-<dt id="iSAS.structural_analysis.StructuralAnalysis.interface_name">
-<code class="sig-name descname">interface_name</code><em class="property"> = 'structural_analysis'</em><a class="headerlink" href="#iSAS.structural_analysis.StructuralAnalysis.interface_name" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dt id="isas.base_analysis.BaseAnalysis.interface_name">
+<code class="sig-name descname">interface_name</code><em class="property"> = 'base_analysis'</em><a class="headerlink" href="#isas.base_analysis.BaseAnalysis.interface_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Abstract Base Meta class of interface for Analysis</p>
+</dd></dl>
 
 <dl class="py method">
-<dt id="iSAS.structural_analysis.StructuralAnalysis.__init__">
-<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">project_name</span></em>, <em class="sig-param"><span class="n">datadrive</span><span class="o">=</span><span class="default_value">'/root/datadrive/'</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iSAS.structural_analysis.StructuralAnalysis.__init__" title="Permalink to this definition">¶</a></dt>
+<dt id="isas.base_analysis.BaseAnalysis.__init__">
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">project_name</span></em>, <em class="sig-param"><span class="n">datadrive</span><span class="o">=</span><span class="default_value">'/root/datadrive/'</span></em>, <em class="sig-param"><span class="n">data_system</span><span class="o">=</span><span class="default_value">'file'</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#isas.base_analysis.BaseAnalysis.__init__" title="Permalink to this definition">¶</a></dt>
 <dd><p>initialization of StructuralAnalysis class</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>project_name</strong> (<em>str</em>) – project name.</p></li>
 <li><p><strong>datadrive</strong> (<em>str</em><em>, </em><em>optional</em>) – Path to datadrive. The default, ‘/root/datadrive/’</p></li>
+<li><p><strong>data_system</strong> (<em>str</em><em>, </em><em>optional</em>) – data system to use. ‘file’ or ‘db’. The default is ‘file’</p></li>
 <li><p><strong>**kwargs</strong> – Arbitrary keyword arguments.</p></li>
 </ul>
 </dd>
@@ -516,37 +420,124 @@ If None, run for all structural_models. The default, None</p></li>
 </dd></dl>
 
 <dl class="py method">
-<dt id="iSAS.structural_analysis.StructuralAnalysis.set_model">
-<code class="sig-name descname">set_model</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">modeler</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iSAS.structural_analysis.StructuralAnalysis.set_model" title="Permalink to this definition">¶</a></dt>
+<dt id="isas.base_analysis.BaseAnalysis.set_structural_model">
+<code class="sig-name descname">set_structural_model</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">structural_modeler</span></em><span class="sig-paren">)</span><a class="headerlink" href="#isas.base_analysis.BaseAnalysis.set_structural_model" title="Permalink to this definition">¶</a></dt>
 <dd><p>set model</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>modeler</strong> (<em>dict</em>) – dict whose key is model name and value is instance of i-SAS_StructuralModeler Subpackages.</p>
+<dd class="field-odd"><p><strong>structural_modeler</strong> (<em>list</em>) – instance of i-SAS_StructuralModeler Subpackages.</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
-<dt id="iSAS.structural_analysis.StructuralAnalysis.set_solver">
-<code class="sig-name descname">set_solver</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">solver</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iSAS.structural_analysis.StructuralAnalysis.set_solver" title="Permalink to this definition">¶</a></dt>
-<dd><p>set solver</p>
+<dt id="isas.base_analysis.BaseAnalysis.set_analysis_solver">
+<code class="sig-name descname">set_analysis_solver</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">streaming</span></em>, <em class="sig-param"><span class="n">analysis_solver</span></em>, <em class="sig-param"><span class="n">export_data_names</span></em><span class="sig-paren">)</span><a class="headerlink" href="#isas.base_analysis.BaseAnalysis.set_analysis_solver" title="Permalink to this definition">¶</a></dt>
+<dd><p>set analysis solver</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>solver</strong> (<em>Subpackages</em><em>, or </em><em>list</em><em>[</em><em>Subpackages</em><em>]</em>) – instance of i-SAS_Solver Subpackages.</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>streaming</strong> (<em>bool</em>) – flag for stream processing.</p></li>
+<li><p><strong>analysis_solver</strong> (<em>Subpackages</em><em>, or </em><em>list</em><em>[</em><em>Subpackages</em><em>]</em>) – instance of i-SAS_AnalysisSolver Subpackages.</p></li>
+<li><p><strong>export_data_names</strong> (<em>list</em><em>[</em><em>str</em><em>]</em>) – data names to be exported.</p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
-<dt id="iSAS.structural_analysis.StructuralAnalysis.__call__">
-<code class="sig-name descname">__call__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">input_data</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iSAS.structural_analysis.StructuralAnalysis.__call__" title="Permalink to this definition">¶</a></dt>
+<dt id="isas.base_analysis.BaseAnalysis.__call__">
+<em class="property">abstract </em><code class="sig-name descname">__call__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data</span></em><span class="sig-paren">)</span><a class="headerlink" href="#isas.base_analysis.BaseAnalysis.__call__" title="Permalink to this definition">¶</a></dt>
 <dd><p>solve structural analysis problem</p>
+<dl class="simple">
+<dt>Aegs:</dt><dd><p>data (dict): input data.</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>results of analysis solver.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="isas.base_analysis.BaseAnalysis.exit">
+<code class="sig-name descname">exit</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#isas.base_analysis.BaseAnalysis.exit" title="Permalink to this definition">¶</a></dt>
+<dd><p>exit solver</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-isas.base_sensing_system">
+<span id="base-sensing-system"></span><h2>base_sensing_system<a class="headerlink" href="#module-isas.base_sensing_system" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="isas.base_sensing_system.BaseSensingSystem">
+<em class="property">class </em><code class="sig-prename descclassname">isas.base_sensing_system.</code><code class="sig-name descname">BaseSensingSystem</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">project_name</span></em>, <em class="sig-param"><span class="n">datadrive</span></em>, <em class="sig-param"><span class="n">data_system</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#isas.base_sensing_system.BaseSensingSystem" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#isas.base.Base" title="isas.base.Base"><code class="xref py py-class docutils literal notranslate"><span class="pre">isas.base.Base</span></code></a></p>
+<dl class="py attribute">
+<dt id="isas.base_sensing_system.BaseSensingSystem.interface_name">
+<code class="sig-name descname">interface_name</code><em class="property"> = 'sensing_system'</em><a class="headerlink" href="#isas.base_sensing_system.BaseSensingSystem.interface_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Abstract Base Meta class of interface for Sensing System</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="isas.base_sensing_system.BaseSensingSystem.__init__">
+<em class="property">abstract </em><code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">project_name</span></em>, <em class="sig-param"><span class="n">datadrive</span></em>, <em class="sig-param"><span class="n">data_system</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#isas.base_sensing_system.BaseSensingSystem.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>initialization of SensingSystem class</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>input_data</strong> (<em>dict</em>) – input data to solver.</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>project_name</strong> (<em>str</em>) – project name.</p></li>
+<li><p><strong>datadrive</strong> (<em>str</em>) – Path to datadrive.</p></li>
+<li><p><strong>data_system</strong> (<em>str</em><em>, </em><em>optional</em>) – data system to use. ‘file’ or ‘db’.</p></li>
+<li><p><strong>**kwargs</strong> – Arbitrary keyword arguments.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="isas.base_sensing_system.BaseSensingSystem.set_sensor">
+<code class="sig-name descname">set_sensor</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">sensor_modeler</span></em><span class="sig-paren">)</span><a class="headerlink" href="#isas.base_sensing_system.BaseSensingSystem.set_sensor" title="Permalink to this definition">¶</a></dt>
+<dd><p>set sensor</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>sensor_modeler</strong> (<em>Subpackages</em><em>, or </em><em>list</em><em>[</em><em>Subpackages</em><em>]</em>) – instance of i-SAS_SensorModeler Subpackages.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="isas.base_sensing_system.BaseSensingSystem.set_postprocessor">
+<code class="sig-name descname">set_postprocessor</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">sensor_postprocessors</span></em>, <em class="sig-param"><span class="n">export_data_names</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#isas.base_sensing_system.BaseSensingSystem.set_postprocessor" title="Permalink to this definition">¶</a></dt>
+<dd><p>set sensor postprocessor</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sensor_postprocessors</strong> (<em>Subpackeges</em><em> or </em><em>list</em><em>[</em><em>Subpackeges</em><em>]</em>) – instance of i-SAS_SensorPostprocessor Subpackage.</p></li>
+<li><p><strong>export_data_names</strong> (<em>list</em><em>[</em><em>str</em><em>]</em><em>, </em><em>optional</em>) – data names to be exported.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="isas.base_sensing_system.BaseSensingSystem.__call__">
+<em class="property">abstract </em><code class="sig-name descname">__call__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data</span></em>, <em class="sig-param"><span class="n">used_timestamp</span><span class="o">=</span><span class="default_value">{}</span></em><span class="sig-paren">)</span><a class="headerlink" href="#isas.base_sensing_system.BaseSensingSystem.__call__" title="Permalink to this definition">¶</a></dt>
+<dd><p>postprocess sensor data</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<em>dict</em>) – input data to postprocess.</p></li>
+<li><p><strong>used_timestamp</strong> (<em>dict</em><em>, </em><em>optional</em>) – timestamp used.</p></li>
+</ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>results of solver.</p>
+<dd class="field-even"><p>results of postprocess.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p>dict</p>
@@ -554,36 +545,74 @@ If None, run for all structural_models. The default, None</p></li>
 </dl>
 </dd></dl>
 
+</dd></dl>
+
+</div>
+<div class="section" id="module-isas.batch_analysis">
+<span id="batch-analysis"></span><h2>batch_analysis<a class="headerlink" href="#module-isas.batch_analysis" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="isas.batch_analysis.BatchAnalysis">
+<em class="property">class </em><code class="sig-prename descclassname">isas.batch_analysis.</code><code class="sig-name descname">BatchAnalysis</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">project_name</span></em>, <em class="sig-param"><span class="n">datadrive</span><span class="o">=</span><span class="default_value">'/root/datadrive/'</span></em>, <em class="sig-param"><span class="n">data_system</span><span class="o">=</span><span class="default_value">'file'</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#isas.batch_analysis.BatchAnalysis" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#isas.base_analysis.BaseAnalysis" title="isas.base_analysis.BaseAnalysis"><code class="xref py py-class docutils literal notranslate"><span class="pre">isas.base_analysis.BaseAnalysis</span></code></a></p>
+<dl class="py attribute">
+<dt id="isas.batch_analysis.BatchAnalysis.interface_name">
+<code class="sig-name descname">interface_name</code><em class="property"> = 'batch_analysis'</em><a class="headerlink" href="#isas.batch_analysis.BatchAnalysis.interface_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>interface for AnalysisSolver</p>
+</dd></dl>
+
 <dl class="py method">
-<dt id="iSAS.structural_analysis.StructuralAnalysis.exit">
-<code class="sig-name descname">exit</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iSAS.structural_analysis.StructuralAnalysis.exit" title="Permalink to this definition">¶</a></dt>
-<dd><p>exit solver</p>
+<dt id="isas.batch_analysis.BatchAnalysis.set_analysis_solver">
+<code class="sig-name descname">set_analysis_solver</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">analysis_solver</span></em>, <em class="sig-param"><span class="n">export_data_names</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#isas.batch_analysis.BatchAnalysis.set_analysis_solver" title="Permalink to this definition">¶</a></dt>
+<dd><p>set analysis solver</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>analysis_solver</strong> (<em>Subpackages</em><em>, or </em><em>list</em><em>[</em><em>Subpackages</em><em>]</em>) – instance of i-SAS_AnalysisSolver Subpackages.</p></li>
+<li><p><strong>export_data_names</strong> (<em>list</em><em>[</em><em>str</em><em>]</em><em>, </em><em>optional</em>) – data names to be exported.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="isas.batch_analysis.BatchAnalysis.__call__">
+<code class="sig-name descname">__call__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#isas.batch_analysis.BatchAnalysis.__call__" title="Permalink to this definition">¶</a></dt>
+<dd><p>solve batch analysis problem</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>results of analysis solver.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>
 
 </div>
-<div class="section" id="module-iSAS.gui">
-<span id="gui"></span><h2>gui<a class="headerlink" href="#module-iSAS.gui" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-isas.gui">
+<span id="gui"></span><h2>gui<a class="headerlink" href="#module-isas.gui" title="Permalink to this headline">¶</a></h2>
 <dl class="py class">
-<dt id="iSAS.gui.GUI">
-<em class="property">class </em><code class="sig-prename descclassname">iSAS.gui.</code><code class="sig-name descname">GUI</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">project_name</span></em>, <em class="sig-param"><span class="n">mode</span><span class="o">=</span><span class="default_value">'gui'</span></em>, <em class="sig-param"><span class="n">datadrive</span><span class="o">=</span><span class="default_value">'/root/datadrive/'</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iSAS.gui.GUI" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#iSAS.base_interface.BaseInterface" title="iSAS.base_interface.BaseInterface"><code class="xref py py-class docutils literal notranslate"><span class="pre">iSAS.base_interface.BaseInterface</span></code></a></p>
+<dt id="isas.gui.GUI">
+<em class="property">class </em><code class="sig-prename descclassname">isas.gui.</code><code class="sig-name descname">GUI</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">project_name</span></em>, <em class="sig-param"><span class="n">datadrive</span><span class="o">=</span><span class="default_value">'/root/datadrive/'</span></em>, <em class="sig-param"><span class="n">data_system</span><span class="o">=</span><span class="default_value">'file'</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#isas.gui.GUI" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#isas.base.Base" title="isas.base.Base"><code class="xref py py-class docutils literal notranslate"><span class="pre">isas.base.Base</span></code></a></p>
 <dl class="py attribute">
-<dt id="iSAS.gui.GUI.interface_name">
-<code class="sig-name descname">interface_name</code><em class="property"> = 'gui'</em><a class="headerlink" href="#iSAS.gui.GUI.interface_name" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dt id="isas.gui.GUI.interface_name">
+<code class="sig-name descname">interface_name</code><em class="property"> = 'gui'</em><a class="headerlink" href="#isas.gui.GUI.interface_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>interface for Visualizer</p>
+</dd></dl>
 
 <dl class="py method">
-<dt id="iSAS.gui.GUI.__init__">
-<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">project_name</span></em>, <em class="sig-param"><span class="n">mode</span><span class="o">=</span><span class="default_value">'gui'</span></em>, <em class="sig-param"><span class="n">datadrive</span><span class="o">=</span><span class="default_value">'/root/datadrive/'</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iSAS.gui.GUI.__init__" title="Permalink to this definition">¶</a></dt>
-<dd><p>initialization of gui class</p>
+<dt id="isas.gui.GUI.__init__">
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">project_name</span></em>, <em class="sig-param"><span class="n">datadrive</span><span class="o">=</span><span class="default_value">'/root/datadrive/'</span></em>, <em class="sig-param"><span class="n">data_system</span><span class="o">=</span><span class="default_value">'file'</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#isas.gui.GUI.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>initialization of GUI class</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>project_name</strong> (<em>str</em>) – project name.</p></li>
-<li><p><strong>mode</strong> (<em>str</em>) – ‘gui’ will return gui window and ‘fig’ return matplotlib figure. The default, ‘gui’.</p></li>
 <li><p><strong>datadrive</strong> (<em>str</em><em>, </em><em>optional</em>) – Path to datadrive. The default, ‘/root/datadrive/’</p></li>
+<li><p><strong>data_system</strong> (<em>str</em><em>, </em><em>optional</em>) – data system to use. ‘file’ or ‘db’. The default is ‘file’</p></li>
 <li><p><strong>**kwargs</strong> – Arbitrary keyword arguments.</p></li>
 </ul>
 </dd>
@@ -591,20 +620,20 @@ If None, run for all structural_models. The default, None</p></li>
 </dd></dl>
 
 <dl class="py method">
-<dt id="iSAS.gui.GUI.set_content">
-<code class="sig-name descname">set_content</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">contents</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iSAS.gui.GUI.set_content" title="Permalink to this definition">¶</a></dt>
+<dt id="isas.gui.GUI.set_content">
+<code class="sig-name descname">set_content</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">contents</span></em><span class="sig-paren">)</span><a class="headerlink" href="#isas.gui.GUI.set_content" title="Permalink to this definition">¶</a></dt>
 <dd><p>set content</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>contents</strong> (<em>dict</em>) – key is tab name anf value is lists consist of instances of i-SAS_GUI Subpackages.</p>
+<dd class="field-odd"><p><strong>contents</strong> (<em>dict</em>) – key is tab name and value is lists consist of instances of i-SAS_GUI Subpackages.</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
-<dt id="iSAS.gui.GUI.start">
-<code class="sig-name descname">start</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">interval</span><span class="o">=</span><span class="default_value">1000</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iSAS.gui.GUI.start" title="Permalink to this definition">¶</a></dt>
-<dd><p>start updating gui window. This function will work only in ‘gui’ mode.</p>
+<dt id="isas.gui.GUI.__call__">
+<code class="sig-name descname">__call__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">interval</span><span class="o">=</span><span class="default_value">1000</span></em><span class="sig-paren">)</span><a class="headerlink" href="#isas.gui.GUI.__call__" title="Permalink to this definition">¶</a></dt>
+<dd><p>start updating gui window</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>interval</strong> (<em>int</em>) – interval time (msec) of update. The default, 1000.</p>
@@ -613,68 +642,71 @@ If None, run for all structural_models. The default, None</p></li>
 </dd></dl>
 
 <dl class="py method">
-<dt id="iSAS.gui.GUI.exit">
-<code class="sig-name descname">exit</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iSAS.gui.GUI.exit" title="Permalink to this definition">¶</a></dt>
+<dt id="isas.gui.GUI.exit">
+<code class="sig-name descname">exit</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#isas.gui.GUI.exit" title="Permalink to this definition">¶</a></dt>
 <dd><p>terminate gui window</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="iSAS.gui.GUI.__call__">
-<code class="sig-name descname">__call__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iSAS.gui.GUI.__call__" title="Permalink to this definition">¶</a></dt>
-<dd><p>create figures. This function will work only in ‘fig’ mode.</p>
 </dd></dl>
 
 </dd></dl>
 
 <dl class="py class">
-<dt id="iSAS.gui.GUIQt">
-<em class="property">class </em><code class="sig-prename descclassname">iSAS.gui.</code><code class="sig-name descname">GUIQt</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">project_name</span></em>, <em class="sig-param"><span class="n">cfg</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iSAS.gui.GUIQt" title="Permalink to this definition">¶</a></dt>
+<dt id="isas.gui.GUIQt">
+<em class="property">class </em><code class="sig-prename descclassname">isas.gui.</code><code class="sig-name descname">GUIQt</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">project_name</span></em>, <em class="sig-param"><span class="n">cfg</span></em>, <em class="sig-param"><span class="n">_load_data</span></em><span class="sig-paren">)</span><a class="headerlink" href="#isas.gui.GUIQt" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">PySide2.QtWidgets.QWidget</span></code></p>
 <p>gui class for gui by using Qt</p>
+<dl class="py attribute">
+<dt id="isas.gui.GUIQt.HEADER_WIDTH">
+<code class="sig-name descname">HEADER_WIDTH</code><em class="property"> = 200</em><a class="headerlink" href="#isas.gui.GUIQt.HEADER_WIDTH" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 <dl class="py method">
-<dt id="iSAS.gui.GUIQt.__init__">
-<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">project_name</span></em>, <em class="sig-param"><span class="n">cfg</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iSAS.gui.GUIQt.__init__" title="Permalink to this definition">¶</a></dt>
+<dt id="isas.gui.GUIQt.__init__">
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">project_name</span></em>, <em class="sig-param"><span class="n">cfg</span></em>, <em class="sig-param"><span class="n">_load_data</span></em><span class="sig-paren">)</span><a class="headerlink" href="#isas.gui.GUIQt.__init__" title="Permalink to this definition">¶</a></dt>
 <dd><p>initialization of GUI class</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>cfg</strong> (<em>dict</em>) – config dict.</p></li>
 <li><p><strong>project_name</strong> (<em>str</em>) – project name.</p></li>
-<li><p><strong>**kwargs</strong> – Arbitrary keyword arguments.</p></li>
+<li><p><strong>_load_data</strong> (<em>function</em>) – function to import time series data.</p></li>
 </ul>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
-<dt id="iSAS.gui.GUIQt.set_model">
-<code class="sig-name descname">set_model</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">models</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iSAS.gui.GUIQt.set_model" title="Permalink to this definition">¶</a></dt>
+<dt id="isas.gui.GUIQt.set_model">
+<code class="sig-name descname">set_model</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">structural_models</span></em><span class="sig-paren">)</span><a class="headerlink" href="#isas.gui.GUIQt.set_model" title="Permalink to this definition">¶</a></dt>
 <dd><p>set model</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>models</strong> (<em>dict</em>) – structural models</p>
+<dd class="field-odd"><p><strong>structural_models</strong> (<em>dict</em>) – structural models</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
-<dt id="iSAS.gui.GUIQt.set_content">
-<code class="sig-name descname">set_content</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">contents</span></em>, <em class="sig-param"><span class="n">instances</span></em>, <em class="sig-param"><span class="n">positions</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iSAS.gui.GUIQt.set_content" title="Permalink to this definition">¶</a></dt>
+<dt id="isas.gui.GUIQt.set_content">
+<code class="sig-name descname">set_content</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">tab_names</span></em>, <em class="sig-param"><span class="n">visualizers</span></em>, <em class="sig-param"><span class="n">visualizer_positions</span></em>, <em class="sig-param"><span class="n">controllers</span></em>, <em class="sig-param"><span class="n">controller_positions</span></em><span class="sig-paren">)</span><a class="headerlink" href="#isas.gui.GUIQt.set_content" title="Permalink to this definition">¶</a></dt>
 <dd><p>set content</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>contents</strong> (<em>dict</em>) – key is tab name anf value is lists consist of instances of i-SAS_GUI Subpackages.</p></li>
-<li><p><strong>instances</strong> (<em>list</em>) – list of visualizer class instances</p></li>
-<li><p><strong>positions</strong> (<em>list</em>) – positions of each figures</p></li>
+<li><p><strong>tab_names</strong> (<em>list</em><em>[</em><em>str</em><em>]</em>) – tab names.</p></li>
+<li><p><strong>visualizers</strong> (<em>dict</em>) – the key is tab name and the value is list of
+instances of visualizer of i-SAS_GUI Subpackages.</p></li>
+<li><p><strong>visualizer_positions</strong> (<em>dict</em>) – the key is tab name and the value is list of positions of visualizer.</p></li>
+<li><p><strong>controllers</strong> (<em>dict</em>) – the key is tab name and the value is list of
+instances of controller of i-SAS_GUI Subpackages.</p></li>
+<li><p><strong>controller_positions</strong> (<em>dict</em>) – the key is tab name and the value is list of positions of controller.</p></li>
 </ul>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
-<dt id="iSAS.gui.GUIQt.start">
-<code class="sig-name descname">start</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">interval</span><span class="o">=</span><span class="default_value">1000</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iSAS.gui.GUIQt.start" title="Permalink to this definition">¶</a></dt>
+<dt id="isas.gui.GUIQt.start">
+<code class="sig-name descname">start</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">interval</span><span class="o">=</span><span class="default_value">1000</span></em><span class="sig-paren">)</span><a class="headerlink" href="#isas.gui.GUIQt.start" title="Permalink to this definition">¶</a></dt>
 <dd><p>start updating</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -684,26 +716,271 @@ If None, run for all structural_models. The default, None</p></li>
 </dd></dl>
 
 <dl class="py method">
-<dt id="iSAS.gui.GUIQt.restart">
-<code class="sig-name descname">restart</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iSAS.gui.GUIQt.restart" title="Permalink to this definition">¶</a></dt>
+<dt id="isas.gui.GUIQt.restart">
+<code class="sig-name descname">restart</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#isas.gui.GUIQt.restart" title="Permalink to this definition">¶</a></dt>
 <dd><p>restart updating</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="iSAS.gui.GUIQt.stop">
-<code class="sig-name descname">stop</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iSAS.gui.GUIQt.stop" title="Permalink to this definition">¶</a></dt>
+<dt id="isas.gui.GUIQt.stop">
+<code class="sig-name descname">stop</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#isas.gui.GUIQt.stop" title="Permalink to this definition">¶</a></dt>
 <dd><p>stop updating</p>
 </dd></dl>
 
+<dl class="py attribute">
+<dt id="isas.gui.GUIQt.staticMetaObject">
+<code class="sig-name descname">staticMetaObject</code><em class="property"> = &lt;PySide2.QtCore.QMetaObject object&gt;</em><a class="headerlink" href="#isas.gui.GUIQt.staticMetaObject" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 <dl class="py method">
-<dt id="iSAS.gui.GUIQt.terminate">
-<code class="sig-name descname">terminate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iSAS.gui.GUIQt.terminate" title="Permalink to this definition">¶</a></dt>
+<dt id="isas.gui.GUIQt.terminate">
+<code class="sig-name descname">terminate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#isas.gui.GUIQt.terminate" title="Permalink to this definition">¶</a></dt>
 <dd><p>close window</p>
 </dd></dl>
 
+</dd></dl>
+
+</div>
+<div class="section" id="module-isas.sensor_control">
+<span id="sensor-control"></span><h2>sensor_control<a class="headerlink" href="#module-isas.sensor_control" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="isas.sensor_control.SensorControl">
+<em class="property">class </em><code class="sig-prename descclassname">isas.sensor_control.</code><code class="sig-name descname">SensorControl</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">project_name</span></em>, <em class="sig-param"><span class="n">datadrive</span><span class="o">=</span><span class="default_value">'/root/datadrive/'</span></em>, <em class="sig-param"><span class="n">data_system</span><span class="o">=</span><span class="default_value">'file'</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#isas.sensor_control.SensorControl" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#isas.base_sensing_system.BaseSensingSystem" title="isas.base_sensing_system.BaseSensingSystem"><code class="xref py py-class docutils literal notranslate"><span class="pre">isas.base_sensing_system.BaseSensingSystem</span></code></a></p>
 <dl class="py attribute">
-<dt id="iSAS.gui.GUIQt.staticMetaObject">
-<code class="sig-name descname">staticMetaObject</code><em class="property"> = &lt;PySide2.QtCore.QMetaObject object&gt;</em><a class="headerlink" href="#iSAS.gui.GUIQt.staticMetaObject" title="Permalink to this definition">¶</a></dt>
+<dt id="isas.sensor_control.SensorControl.interface_name">
+<code class="sig-name descname">interface_name</code><em class="property"> = 'sensor_control'</em><a class="headerlink" href="#isas.sensor_control.SensorControl.interface_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>interface for Sensor Controller</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="isas.sensor_control.SensorControl.__init__">
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">project_name</span></em>, <em class="sig-param"><span class="n">datadrive</span><span class="o">=</span><span class="default_value">'/root/datadrive/'</span></em>, <em class="sig-param"><span class="n">data_system</span><span class="o">=</span><span class="default_value">'file'</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#isas.sensor_control.SensorControl.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>initialization of SensorControl class</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>project_name</strong> (<em>str</em>) – project name</p></li>
+<li><p><strong>datadrive</strong> (<em>str</em><em>, </em><em>optional</em>) – Path to datadrive. The default, ‘/root/datadrive/’</p></li>
+<li><p><strong>data_system</strong> (<em>str</em><em>, </em><em>optional</em>) – data system to use. ‘file’ or ‘db’. The default is ‘file’</p></li>
+<li><p><strong>**kwargs</strong> – Arbitrary keyword arguments.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="isas.sensor_control.SensorControl.set_sensor_controller">
+<code class="sig-name descname">set_sensor_controller</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">sensor_controller</span></em>, <em class="sig-param"><span class="n">export_data_names</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#isas.sensor_control.SensorControl.set_sensor_controller" title="Permalink to this definition">¶</a></dt>
+<dd><p>set controller</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sensor_controller</strong> (<em>Subpackages</em><em> or </em><em>list</em><em>[</em><em>Subpackages</em><em>]</em>) – instance of i-SAS_SensorController Subpackages.</p></li>
+<li><p><strong>export_data_names</strong> (<em>list</em><em>[</em><em>str</em><em>]</em><em>, </em><em>optional</em>) – data names to be exported.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="isas.sensor_control.SensorControl.__call__">
+<code class="sig-name descname">__call__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#isas.sensor_control.SensorControl.__call__" title="Permalink to this definition">¶</a></dt>
+<dd><p>get measurement data</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>results of controller.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="isas.sensor_control.SensorControl.exit">
+<code class="sig-name descname">exit</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#isas.sensor_control.SensorControl.exit" title="Permalink to this definition">¶</a></dt>
+<dd><p>exit controller</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-isas.sensor_simulation">
+<span id="sensor-simulation"></span><h2>sensor_simulation<a class="headerlink" href="#module-isas.sensor_simulation" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="isas.sensor_simulation.SensorSimulation">
+<em class="property">class </em><code class="sig-prename descclassname">isas.sensor_simulation.</code><code class="sig-name descname">SensorSimulation</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">project_name</span></em>, <em class="sig-param"><span class="n">datadrive</span><span class="o">=</span><span class="default_value">'/root/datadrive/'</span></em>, <em class="sig-param"><span class="n">data_system</span><span class="o">=</span><span class="default_value">'file'</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#isas.sensor_simulation.SensorSimulation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#isas.base_sensing_system.BaseSensingSystem" title="isas.base_sensing_system.BaseSensingSystem"><code class="xref py py-class docutils literal notranslate"><span class="pre">isas.base_sensing_system.BaseSensingSystem</span></code></a></p>
+<dl class="py attribute">
+<dt id="isas.sensor_simulation.SensorSimulation.interface_name">
+<code class="sig-name descname">interface_name</code><em class="property"> = 'sensor_simulation'</em><a class="headerlink" href="#isas.sensor_simulation.SensorSimulation.interface_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>interface for Sensor Simulator</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="isas.sensor_simulation.SensorSimulation.__init__">
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">project_name</span></em>, <em class="sig-param"><span class="n">datadrive</span><span class="o">=</span><span class="default_value">'/root/datadrive/'</span></em>, <em class="sig-param"><span class="n">data_system</span><span class="o">=</span><span class="default_value">'file'</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#isas.sensor_simulation.SensorSimulation.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>initialization of SensorSimulation class</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>project_name</strong> (<em>str</em>) – project name</p></li>
+<li><p><strong>datadrive</strong> (<em>str</em><em>, </em><em>optional</em>) – Path to datadrive. The default, ‘/root/datadrive/’</p></li>
+<li><p><strong>data_system</strong> (<em>str</em><em>, </em><em>optional</em>) – data system to use. ‘file’ or ‘db’. The default is ‘file’</p></li>
+<li><p><strong>**kwargs</strong> – Arbitrary keyword arguments.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="isas.sensor_simulation.SensorSimulation.set_sensor_simulator">
+<code class="sig-name descname">set_sensor_simulator</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">sensor_simulator</span></em>, <em class="sig-param"><span class="n">export_data_names</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#isas.sensor_simulation.SensorSimulation.set_sensor_simulator" title="Permalink to this definition">¶</a></dt>
+<dd><p>set simulator</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sensor_simulator</strong> (<em>Subpackages</em><em> or </em><em>list</em><em>[</em><em>Subpackages</em><em>]</em>) – instance of i-SAS_SensorSimulator Subpackages.</p></li>
+<li><p><strong>export_data_names</strong> (<em>list</em><em>[</em><em>str</em><em>]</em><em>, </em><em>optional</em>) – data names to be exported.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="isas.sensor_simulation.SensorSimulation.__call__">
+<code class="sig-name descname">__call__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#isas.sensor_simulation.SensorSimulation.__call__" title="Permalink to this definition">¶</a></dt>
+<dd><p>simulate measurement data</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>results of simulator.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="isas.sensor_simulation.SensorSimulation.exit">
+<code class="sig-name descname">exit</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#isas.sensor_simulation.SensorSimulation.exit" title="Permalink to this definition">¶</a></dt>
+<dd><p>exit simulator</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-isas.stream_analysis">
+<span id="stream-analysis"></span><h2>stream_analysis<a class="headerlink" href="#module-isas.stream_analysis" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="isas.stream_analysis.StreamAnalysis">
+<em class="property">class </em><code class="sig-prename descclassname">isas.stream_analysis.</code><code class="sig-name descname">StreamAnalysis</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">project_name</span></em>, <em class="sig-param"><span class="n">datadrive</span><span class="o">=</span><span class="default_value">'/root/datadrive/'</span></em>, <em class="sig-param"><span class="n">data_system</span><span class="o">=</span><span class="default_value">'file'</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#isas.stream_analysis.StreamAnalysis" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#isas.base_analysis.BaseAnalysis" title="isas.base_analysis.BaseAnalysis"><code class="xref py py-class docutils literal notranslate"><span class="pre">isas.base_analysis.BaseAnalysis</span></code></a></p>
+<dl class="py attribute">
+<dt id="isas.stream_analysis.StreamAnalysis.interface_name">
+<code class="sig-name descname">interface_name</code><em class="property"> = 'stream_analysis'</em><a class="headerlink" href="#isas.stream_analysis.StreamAnalysis.interface_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>interface for AnalysisSolver</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="isas.stream_analysis.StreamAnalysis.__init__">
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">project_name</span></em>, <em class="sig-param"><span class="n">datadrive</span><span class="o">=</span><span class="default_value">'/root/datadrive/'</span></em>, <em class="sig-param"><span class="n">data_system</span><span class="o">=</span><span class="default_value">'file'</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#isas.stream_analysis.StreamAnalysis.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>initialization of StreamAnalysis class</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>project_name</strong> (<em>str</em>) – project name.</p></li>
+<li><p><strong>datadrive</strong> (<em>str</em><em>, </em><em>optional</em>) – Path to datadrive. The default, ‘/root/datadrive/’</p></li>
+<li><p><strong>data_system</strong> (<em>str</em><em>, </em><em>optional</em>) – data system to use. ‘file’ or ‘db’. The default is ‘file’</p></li>
+<li><p><strong>**kwargs</strong> – Arbitrary keyword arguments.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="isas.stream_analysis.StreamAnalysis.set_analysis_solver">
+<code class="sig-name descname">set_analysis_solver</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">analysis_solver</span></em>, <em class="sig-param"><span class="n">export_data_names</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#isas.stream_analysis.StreamAnalysis.set_analysis_solver" title="Permalink to this definition">¶</a></dt>
+<dd><p>set analysis solver</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>analysis_solver</strong> (<em>Subpackages</em><em>, or </em><em>list</em><em>[</em><em>Subpackages</em><em>]</em>) – instance of i-SAS_AnalysisSolver Subpackages.</p></li>
+<li><p><strong>export_data_names</strong> (<em>list</em><em>[</em><em>str</em><em>]</em><em>, </em><em>optional</em>) – data names to be exported.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="isas.stream_analysis.StreamAnalysis.__call__">
+<code class="sig-name descname">__call__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#isas.stream_analysis.StreamAnalysis.__call__" title="Permalink to this definition">¶</a></dt>
+<dd><p>solve stream analysis problem</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>results of analysis solver.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-isas.utils">
+<span id="utils"></span><h2>utils<a class="headerlink" href="#module-isas.utils" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-isas.visualization">
+<span id="visualization"></span><h2>visualization<a class="headerlink" href="#module-isas.visualization" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="isas.visualization.Visualization">
+<em class="property">class </em><code class="sig-prename descclassname">isas.visualization.</code><code class="sig-name descname">Visualization</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">project_name</span></em>, <em class="sig-param"><span class="n">datadrive</span><span class="o">=</span><span class="default_value">'/root/datadrive/'</span></em>, <em class="sig-param"><span class="n">data_system</span><span class="o">=</span><span class="default_value">'file'</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#isas.visualization.Visualization" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#isas.base.Base" title="isas.base.Base"><code class="xref py py-class docutils literal notranslate"><span class="pre">isas.base.Base</span></code></a></p>
+<dl class="py attribute">
+<dt id="isas.visualization.Visualization.interface_name">
+<code class="sig-name descname">interface_name</code><em class="property"> = 'visualization'</em><a class="headerlink" href="#isas.visualization.Visualization.interface_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>interface for Visualizer</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="isas.visualization.Visualization.__init__">
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">project_name</span></em>, <em class="sig-param"><span class="n">datadrive</span><span class="o">=</span><span class="default_value">'/root/datadrive/'</span></em>, <em class="sig-param"><span class="n">data_system</span><span class="o">=</span><span class="default_value">'file'</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#isas.visualization.Visualization.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>initialization of Visualization class</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>project_name</strong> (<em>str</em>) – project name.</p></li>
+<li><p><strong>datadrive</strong> (<em>str</em><em>, </em><em>optional</em>) – Path to datadrive. The default, ‘/root/datadrive/’</p></li>
+<li><p><strong>data_system</strong> (<em>str</em><em>, </em><em>optional</em>) – data system to use. ‘file’ or ‘db’. The default is ‘file’</p></li>
+<li><p><strong>**kwargs</strong> – Arbitrary keyword arguments.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="isas.visualization.Visualization.set_visualizer">
+<code class="sig-name descname">set_visualizer</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">visualizer</span></em><span class="sig-paren">)</span><a class="headerlink" href="#isas.visualization.Visualization.set_visualizer" title="Permalink to this definition">¶</a></dt>
+<dd><p>set visualizer</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>visualizer</strong> (<em>Subpackages</em><em>, or </em><em>list</em><em>[</em><em>Subpackages</em><em>]</em>) – instances of i-SAS_Visualizer Subpackages.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="isas.visualization.Visualization.__call__">
+<code class="sig-name descname">__call__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">variables</span><span class="o">=</span><span class="default_value">{}</span></em><span class="sig-paren">)</span><a class="headerlink" href="#isas.visualization.Visualization.__call__" title="Permalink to this definition">¶</a></dt>
+<dd><p>visualize</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="isas.visualization.Visualization.exit">
+<code class="sig-name descname">exit</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#isas.visualization.Visualization.exit" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -732,7 +1009,7 @@ If None, run for all structural_models. The default, None</p></li>
   <div role="contentinfo">
     <p>
         
-        &copy; Copyright 2020, i-SAS SC
+        &copy; Copyright 2021, i-SAS SC
 
     </p>
   </div>

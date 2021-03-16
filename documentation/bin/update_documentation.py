@@ -60,7 +60,8 @@ def main():
         print(repository_name)
         # git clone
         repository_path_ = f'https://{username}:{password}@{repository_path[8:]}'
-        tag_name = 'v0.0.1'
+        # tag_name = 'v0.0.1'
+        tag_name = 'develop'
         subprocess.run(['git', 'clone', '-b', tag_name, '--depth', '1', repository_path_])
 
         # add document name to index.rst
@@ -74,6 +75,8 @@ def main():
                 script_folder = input(f'Please input script folder name. The candidates are {folders}.\n>>>')
                 if os.path.isdir(f'{TMP_PATH}/{repository_name}/{script_folder}'):
                     break
+                elif script_folder == 'skip':
+                    continue
                 else:
                     print(f'folder named {script_folder} is not exist.')
         else:

@@ -8,5 +8,7 @@ GUI
    :numbered:
 
    visualizer
+   basic_gui_controller
    basic_visualizer
    ship_visualizer
+   gui_controller

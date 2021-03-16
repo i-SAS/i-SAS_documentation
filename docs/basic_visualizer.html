@@ -91,8 +91,8 @@
 <li class="toctree-l1"><a class="reference internal" href="SensorSimulator_index.html">Sensor Simulator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="SensorModeler_index.html">Sensor Modeler</a></li>
 <li class="toctree-l1"><a class="reference internal" href="StructuralModeler_index.html">Structural Modeler</a></li>
-<li class="toctree-l1"><a class="reference internal" href="StructuralAnalysisSolver_index.html">Structural Analysis Solver</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="GUI_index.html">GUI</a><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="AnalysisSolver_index.html">Analysis Solver</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="Visualizer_index.html">Visualizer</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="visualizer.html">1. i-SAS_Visualizer-template</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">2. i-SAS_BasicVisualizer</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#module-basic_visualizer.interface">2.1. interface</a></li>
@@ -102,6 +102,7 @@
 <li class="toctree-l2"><a class="reference internal" href="ship_visualizer.html">3. i-SAS_ShipVisualizer</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="GUIController_index.html">GUIController</a></li>
 </ul>
 
             
@@ -148,7 +149,7 @@
     
       <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
         
-          <li><a href="GUI_index.html">GUI</a> &raquo;</li>
+          <li><a href="Visualizer_index.html">Visualizer</a> &raquo;</li>
         
       <li><span class="section-number">2. </span>i-SAS_BasicVisualizer</li>
     
@@ -175,25 +176,47 @@
 <span id="interface"></span><h2><span class="section-number">2.1. </span>interface<a class="headerlink" href="#module-basic_visualizer.interface" title="Permalink to this headline">¶</a></h2>
 <dl class="py class">
 <dt id="basic_visualizer.interface.Interface">
-<em class="property">class </em><code class="sig-prename descclassname">basic_visualizer.interface.</code><code class="sig-name descname">Interface</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">fig_name</span></em>, <em class="sig-param"><span class="n">size_ratio</span></em>, <em class="sig-param"><span class="n">data_names</span></em>, <em class="sig-param"><span class="n">model_name</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#basic_visualizer.interface.Interface" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">basic_visualizer.interface.</code><code class="sig-name descname">Interface</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">fig_name</span></em>, <em class="sig-param"><span class="n">size_ratio</span></em>, <em class="sig-param"><span class="n">input_names</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">variable_names</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">structural_model_name</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#basic_visualizer.interface.Interface" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>interface class</p>
+<dl class="py attribute">
+<dt id="basic_visualizer.interface.Interface.GRID_NUM">
+<code class="sig-name descname">GRID_NUM</code><em class="property"> = 12</em><a class="headerlink" href="#basic_visualizer.interface.Interface.GRID_NUM" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="basic_visualizer.interface.Interface.DPI">
+<code class="sig-name descname">DPI</code><em class="property"> = 100</em><a class="headerlink" href="#basic_visualizer.interface.Interface.DPI" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 <dl class="py attribute">
 <dt id="basic_visualizer.interface.Interface.package_name">
 <code class="sig-name descname">package_name</code><em class="property"> = 'basic_visualizer'</em><a class="headerlink" href="#basic_visualizer.interface.Interface.package_name" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
+<dl class="py attribute">
+<dt id="basic_visualizer.interface.Interface.content_type">
+<code class="sig-name descname">content_type</code><em class="property"> = 'visualizer'</em><a class="headerlink" href="#basic_visualizer.interface.Interface.content_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 <dl class="py method">
 <dt id="basic_visualizer.interface.Interface.__init__">
-<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">fig_name</span></em>, <em class="sig-param"><span class="n">size_ratio</span></em>, <em class="sig-param"><span class="n">data_names</span></em>, <em class="sig-param"><span class="n">model_name</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#basic_visualizer.interface.Interface.__init__" title="Permalink to this definition">¶</a></dt>
-<dd><p>initialization.</p>
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">fig_name</span></em>, <em class="sig-param"><span class="n">size_ratio</span></em>, <em class="sig-param"><span class="n">input_names</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">variable_names</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">structural_model_name</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#basic_visualizer.interface.Interface.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>initialization.
+:param fig_name: figure name.
+:type fig_name: str
+:param size_ratio: figure size ratio. (1 &lt;= int &lt;= 12)
+:type size_ratio: tuple(int, int)
+:param input_names: dict whose keys are names of input quantity and</p>
+<blockquote>
+<div><p>values are names of input data.</p>
+</div></blockquote>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>fig_name</strong> (<em>str</em>) – figure name.</p></li>
-<li><p><strong>size_ratio</strong> (<em>tuple</em><em>(</em><em>int</em><em>, </em><em>int</em><em>)</em>) – figure size ratio.</p></li>
-<li><p><strong>data_names</strong> (<em>dict</em>) – names of data which are used to create figure</p></li>
-<li><p><strong>model_name</strong> (<em>str</em>) – structural model name</p></li>
+<li><p><strong>variable_names</strong> (<em>dict</em><em>, </em><em>optional</em>) – dict whose keys are names of used quantity and
+values are names of variables.</p></li>
+<li><p><strong>structural_model_name</strong> (<em>str</em><em>, </em><em>optional</em>) – structural model name</p></li>
 <li><p><strong>**kwargs</strong> – Arbitrary keyword arguments.</p></li>
 </ul>
 </dd>
@@ -213,40 +236,37 @@
 
 <dl class="py method">
 <dt id="basic_visualizer.interface.Interface.set_model">
-<code class="sig-name descname">set_model</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">models</span></em><span class="sig-paren">)</span><a class="headerlink" href="#basic_visualizer.interface.Interface.set_model" title="Permalink to this definition">¶</a></dt>
-<dd><p>set model</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>models</strong> (<em>dict</em>) – dict of structural model</p>
-</dd>
-</dl>
+<code class="sig-name descname">set_model</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">structural_models</span></em><span class="sig-paren">)</span><a class="headerlink" href="#basic_visualizer.interface.Interface.set_model" title="Permalink to this definition">¶</a></dt>
+<dd><p>set model
+:param structural_models: structural models.
+:type structural_models: dict</p>
 </dd></dl>
 
 <dl class="py method">
 <dt id="basic_visualizer.interface.Interface.setup">
 <code class="sig-name descname">setup</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">window_width</span></em><span class="sig-paren">)</span><a class="headerlink" href="#basic_visualizer.interface.Interface.setup" title="Permalink to this definition">¶</a></dt>
-<dd><p>create figure canvas in gui mode</p>
+<dd><p>create figure canvas in gui mode
+:param window_width: window width (px)
+:type window_width: int</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>window_width</strong> (<em>int</em>) – window width (px)</p>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>figure canvas</p>
 </dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>figure canvas</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>FigureCanvasQTAgg</p>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>FigureCanvasQTAgg</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt id="basic_visualizer.interface.Interface.update">
-<code class="sig-name descname">update</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data</span></em>, <em class="sig-param"><span class="n">count</span></em><span class="sig-paren">)</span><a class="headerlink" href="#basic_visualizer.interface.Interface.update" title="Permalink to this definition">¶</a></dt>
-<dd><p>update figure in gui mode</p>
+<code class="sig-name descname">update</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data</span></em>, <em class="sig-param"><span class="n">variables</span></em>, <em class="sig-param"><span class="n">count</span></em><span class="sig-paren">)</span><a class="headerlink" href="#basic_visualizer.interface.Interface.update" title="Permalink to this definition">¶</a></dt>
+<dd><p>update figure in gui</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>data</strong> (<em>dict</em>) – calculated data</p></li>
+<li><p><strong>variables</strong> (<em>dict</em>) – variables for interactive gui.</p></li>
 <li><p><strong>count</strong> (<em>int</em>) – iteration count</p></li>
 </ul>
 </dd>
@@ -255,13 +275,14 @@
 
 <dl class="py method">
 <dt id="basic_visualizer.interface.Interface.__call__">
-<code class="sig-name descname">__call__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">window_width</span></em>, <em class="sig-param"><span class="n">data</span></em><span class="sig-paren">)</span><a class="headerlink" href="#basic_visualizer.interface.Interface.__call__" title="Permalink to this definition">¶</a></dt>
-<dd><p>create figure in fig mode</p>
+<code class="sig-name descname">__call__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">window_width</span></em>, <em class="sig-param"><span class="n">data</span></em>, <em class="sig-param"><span class="n">variables</span></em><span class="sig-paren">)</span><a class="headerlink" href="#basic_visualizer.interface.Interface.__call__" title="Permalink to this definition">¶</a></dt>
+<dd><p>create figure in visualization</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>window_width</strong> (<em>int</em>) – window width (px)</p></li>
 <li><p><strong>data</strong> (<em>dict</em>) – calculated data</p></li>
+<li><p><strong>variables</strong> (<em>dict</em>) – variables for interactive gui.</p></li>
 </ul>
 </dd>
 </dl>
@@ -278,23 +299,18 @@
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>model class</p>
 <dl class="py attribute">
-<dt id="basic_visualizer.model.Model.img_dir_path">
-<code class="sig-name descname">img_dir_path</code><em class="property"> = '/root/datadrive/gui/data'</em><a class="headerlink" href="#basic_visualizer.model.Model.img_dir_path" title="Permalink to this definition">¶</a></dt>
+<dt id="basic_visualizer.model.Model.IMG_DIR">
+<code class="sig-name descname">IMG_DIR</code><em class="property"> = PosixPath('/root/datadrive/gui/basic_visualizer/tmp')</em><a class="headerlink" href="#basic_visualizer.model.Model.IMG_DIR" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt id="basic_visualizer.model.Model.structural_model">
-<code class="sig-name descname">structural_model</code><em class="property"> = {}</em><a class="headerlink" href="#basic_visualizer.model.Model.structural_model" title="Permalink to this definition">¶</a></dt>
+<dt id="basic_visualizer.model.Model.common_data">
+<code class="sig-name descname">common_data</code><em class="property"> = {}</em><a class="headerlink" href="#basic_visualizer.model.Model.common_data" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt id="basic_visualizer.model.Model.data">
-<code class="sig-name descname">data</code><em class="property"> = {}</em><a class="headerlink" href="#basic_visualizer.model.Model.data" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt id="basic_visualizer.model.Model.count">
-<code class="sig-name descname">count</code><em class="property"> = {}</em><a class="headerlink" href="#basic_visualizer.model.Model.count" title="Permalink to this definition">¶</a></dt>
+<dt id="basic_visualizer.model.Model.update_count">
+<code class="sig-name descname">update_count</code><em class="property"> = {}</em><a class="headerlink" href="#basic_visualizer.model.Model.update_count" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -313,28 +329,26 @@
 
 <dl class="py method">
 <dt id="basic_visualizer.model.Model.set_model">
-<code class="sig-name descname">set_model</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">structural_model</span></em>, <em class="sig-param"><span class="n">model_name</span></em><span class="sig-paren">)</span><a class="headerlink" href="#basic_visualizer.model.Model.set_model" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">set_model</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">structural_models</span></em><span class="sig-paren">)</span><a class="headerlink" href="#basic_visualizer.model.Model.set_model" title="Permalink to this definition">¶</a></dt>
 <dd><p>set model</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>structural_model</strong> (<em>dict</em>) – structural model</p></li>
-<li><p><strong>model_name</strong> (<em>str</em>) – structural model name</p></li>
-</ul>
+<dd class="field-odd"><p><strong>structural_models</strong> (<em>dict</em>) – structural models.</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt id="basic_visualizer.model.Model.__call__">
-<code class="sig-name descname">__call__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">ax</span></em>, <em class="sig-param"><span class="n">data</span></em>, <em class="sig-param"><span class="n">count</span><span class="o">=</span><span class="default_value">nan</span></em><span class="sig-paren">)</span><a class="headerlink" href="#basic_visualizer.model.Model.__call__" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">__call__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">ax</span></em>, <em class="sig-param"><span class="n">data</span></em>, <em class="sig-param"><span class="n">variables</span></em>, <em class="sig-param"><span class="n">count</span><span class="o">=</span><span class="default_value">nan</span></em><span class="sig-paren">)</span><a class="headerlink" href="#basic_visualizer.model.Model.__call__" title="Permalink to this definition">¶</a></dt>
 <dd><p>draw figure</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>ax</strong> (<em>matplotlib.figure.axes</em>) – axes of matplotlib figure</p></li>
-<li><p><strong>data</strong> (<em>dict</em>) – calculated data</p></li>
-<li><p><strong>count</strong> (<em>int</em><em> or </em><em>float</em>) – the number of iterations</p></li>
+<li><p><strong>data</strong> (<em>dict</em><em>[</em><em>pd.DataFrame</em><em>]</em>) – calculated data</p></li>
+<li><p><strong>variables</strong> (<em>dict</em>) – variables for interactive gui.</p></li>
+<li><p><strong>count</strong> (<em>int</em><em> or </em><em>float</em><em>, </em><em>optional</em>) – the number of iterations</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -423,7 +437,7 @@
   <div role="contentinfo">
     <p>
         
-        &copy; Copyright 2020, i-SAS SC
+        &copy; Copyright 2021, i-SAS SC
 
     </p>
   </div>

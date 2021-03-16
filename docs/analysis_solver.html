@@ -1,0 +1,441 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>1. i-SAS_AnalysisSolver-template &mdash; i-SAS documentation v0.0.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="2. i-SAS_iFEM-matlab" href="ifem_matlab.html" />
+    <link rel="prev" title="Analysis Solver" href="AnalysisSolver_index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> i-SAS documentation
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Interface:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="iSAS.html">i-SAS_Interface</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Subpackages:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="SensorSimulator_index.html">Sensor Simulator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SensorModeler_index.html">Sensor Modeler</a></li>
+<li class="toctree-l1"><a class="reference internal" href="StructuralModeler_index.html">Structural Modeler</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="AnalysisSolver_index.html">Analysis Solver</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">1. i-SAS_AnalysisSolver-template</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#module-analysis_solver.interface">1.1. interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-analysis_solver.model">1.2. model</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ifem_matlab.html">2. i-SAS_iFEM-matlab</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rbf_interpolator.html">3. i-SAS_RBFInterpolator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ifem.html">4. i-SAS_iFEM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nastran_manager.html">5. i-SAS_NastranManager</a></li>
+<li class="toctree-l2"><a class="reference internal" href="directional_wave_spectra_estimator.html">6. i-SAS_DirectionalWaveSpectraEstimator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sensor_postprocessor.html">7. i-SAS_SensorPostprocessor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="response_kalman_filter.html">8. i-SAS_ResponseKalmanFilter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fem_utils.html">9. i-SAS_FEM_Utils</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Visualizer_index.html">Visualizer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="GUIController_index.html">GUIController</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">i-SAS documentation</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="AnalysisSolver_index.html">Analysis Solver</a> &raquo;</li>
+        
+      <li><span class="section-number">1. </span>i-SAS_AnalysisSolver-template</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/analysis_solver.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="i-sas-analysissolver-template">
+<h1><span class="section-number">1. </span>i-SAS_AnalysisSolver-template<a class="headerlink" href="#i-sas-analysissolver-template" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-analysis_solver.interface">
+<span id="interface"></span><h2><span class="section-number">1.1. </span>interface<a class="headerlink" href="#module-analysis_solver.interface" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="analysis_solver.interface.Interface">
+<em class="property">class </em><code class="sig-prename descclassname">analysis_solver.interface.</code><code class="sig-name descname">Interface</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">instance_name</span></em>, <em class="sig-param"><span class="n">input_names</span></em>, <em class="sig-param"><span class="n">output_names</span></em>, <em class="sig-param"><span class="n">structural_model_name</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#analysis_solver.interface.Interface" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>interface class of analysis solver</p>
+<dl class="py attribute">
+<dt id="analysis_solver.interface.Interface.package_name">
+<code class="sig-name descname">package_name</code><em class="property"> = 'analysis_solver'</em><a class="headerlink" href="#analysis_solver.interface.Interface.package_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="analysis_solver.interface.Interface.structural_model_required">
+<code class="sig-name descname">structural_model_required</code><em class="property"> = False</em><a class="headerlink" href="#analysis_solver.interface.Interface.structural_model_required" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="analysis_solver.interface.Interface.__init__">
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">instance_name</span></em>, <em class="sig-param"><span class="n">input_names</span></em>, <em class="sig-param"><span class="n">output_names</span></em>, <em class="sig-param"><span class="n">structural_model_name</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#analysis_solver.interface.Interface.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>initialization of interface class of analysis solver</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>instance_name</strong> (<em>str</em>) – instance name.</p></li>
+<li><p><strong>input_names</strong> (<em>dict</em>) – dict whose keys are names of input quantity and values are names of input data.</p></li>
+<li><p><strong>output_names</strong> (<em>dict</em>) – dict whose keys are names of output quantity and values are names of output data.</p></li>
+<li><p><strong>structural_model_name</strong> (<em>str</em><em>, </em><em>optional</em>) – structural model name.</p></li>
+<li><p><strong>**kwargs</strong> – Arbitrary keyword arguments.</p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">input_names</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;strain&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;rosette_strain_x&#39;</span><span class="p">,</span> <span class="s1">&#39;rosette_strain_y&#39;</span><span class="p">,</span> <span class="s1">&#39;rosette_strain_xy&#39;</span><span class="p">]}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">output_names</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;displacement&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;analysis_displacement_z&#39;</span><span class="p">],</span> <span class="s1">&#39;stress&#39;</span><span class="p">:[</span><span class="s1">&#39;analysis_stress_x&#39;</span><span class="p">]}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">interface</span> <span class="o">=</span> <span class="n">Interface</span><span class="p">(</span><span class="n">input_names</span><span class="p">,</span> <span class="n">output_names</span><span class="p">,</span> <span class="s1">&#39;beam&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt id="analysis_solver.interface.Interface.set_project">
+<code class="sig-name descname">set_project</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">project_name</span></em><span class="sig-paren">)</span><a class="headerlink" href="#analysis_solver.interface.Interface.set_project" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>project_name</strong> (<em>str</em>) – project name.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="analysis_solver.interface.Interface.set_model">
+<code class="sig-name descname">set_model</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">output_metadata</span></em>, <em class="sig-param"><span class="n">sensors</span></em>, <em class="sig-param"><span class="n">structural_models</span></em>, <em class="sig-param"><span class="n">structural_model_connections</span></em>, <em class="sig-param"><span class="n">streaming</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#analysis_solver.interface.Interface.set_model" title="Permalink to this definition">¶</a></dt>
+<dd><p>set structural model</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>output_metadata</strong> (<em>pd.DataFrame</em>) – output metadata.</p></li>
+<li><p><strong>sensors</strong> (<em>dict</em>) – sensors.</p></li>
+<li><p><strong>structural_models</strong> (<em>dict</em>) – structural models.</p></li>
+<li><p><strong>structural_model_connections</strong> (<em>dict</em>) – connections between data and structural model.</p></li>
+<li><p><strong>streaming</strong> (<em>bool</em><em>, </em><em>optional</em>) – if true, run as structural_analysis.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><p>containing followings</p>
+<blockquote>
+<div><p>dict: information on instance of this model.
+pandas.DataFrame: output metadata of this model.
+dict: connections between output data of this model and structural model.</p>
+</div></blockquote>
+</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>tuple</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="analysis_solver.interface.Interface.__call__">
+<code class="sig-name descname">__call__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">input_data</span></em><span class="sig-paren">)</span><a class="headerlink" href="#analysis_solver.interface.Interface.__call__" title="Permalink to this definition">¶</a></dt>
+<dd><p>calculate quantity of state</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>input_data</strong> (<em>dict</em>) – data calculated before</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>containing:</dt><dd><p>dict: analysis data.
+pandas.DataFrame: timestamp used. The length is the same as analysis data.</p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>tuple</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="analysis_solver.interface.Interface.exit">
+<code class="sig-name descname">exit</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#analysis_solver.interface.Interface.exit" title="Permalink to this definition">¶</a></dt>
+<dd><p>exit solver</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-analysis_solver.model">
+<span id="model"></span><h2><span class="section-number">1.2. </span>model<a class="headerlink" href="#module-analysis_solver.model" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="analysis_solver.model.Model">
+<em class="property">class </em><code class="sig-prename descclassname">analysis_solver.model.</code><code class="sig-name descname">Model</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">input_names</span></em>, <em class="sig-param"><span class="n">output_names</span></em>, <em class="sig-param"><span class="n">structural_model_name</span></em>, <em class="sig-param"><span class="n">cfg</span></em><span class="sig-paren">)</span><a class="headerlink" href="#analysis_solver.model.Model" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>model class</p>
+<dl class="py attribute">
+<dt id="analysis_solver.model.Model.coord_sys">
+<code class="sig-name descname">coord_sys</code><em class="property"> = {'new_strain': 'local'}</em><a class="headerlink" href="#analysis_solver.model.Model.coord_sys" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="analysis_solver.model.Model.__init__">
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">input_names</span></em>, <em class="sig-param"><span class="n">output_names</span></em>, <em class="sig-param"><span class="n">structural_model_name</span></em>, <em class="sig-param"><span class="n">cfg</span></em><span class="sig-paren">)</span><a class="headerlink" href="#analysis_solver.model.Model.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>constructor</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>input_names</strong> (<em>dict</em>) – dict whose keys are names of input quantity and values are names of input data.</p></li>
+<li><p><strong>output_names</strong> (<em>dict</em>) – dict whose keys are names of output quantity and values are names of output data.</p></li>
+<li><p><strong>structural_model_name</strong> (<em>str</em><em>, </em><em>optional</em>) – structural model name.</p></li>
+<li><p><strong>cfg</strong> (<em>dict</em>) – config.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="analysis_solver.model.Model.set_model">
+<code class="sig-name descname">set_model</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">output_metadata</span></em>, <em class="sig-param"><span class="n">sensors</span></em>, <em class="sig-param"><span class="n">structural_models</span></em>, <em class="sig-param"><span class="n">structural_model_connections</span></em>, <em class="sig-param"><span class="n">streaming</span></em><span class="sig-paren">)</span><a class="headerlink" href="#analysis_solver.model.Model.set_model" title="Permalink to this definition">¶</a></dt>
+<dd><p>set model and calculate intermediate values</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>output_metadata</strong> (<em>pd.DataFrame</em>) – output metadata.</p></li>
+<li><p><strong>sensors</strong> (<em>dict</em>) – sensors.</p></li>
+<li><p><strong>structural_models</strong> (<em>dict</em>) – structural models.</p></li>
+<li><p><strong>structural_model_connections</strong> (<em>dict</em>) – connections between data and structural model.</p></li>
+<li><p><strong>streaming</strong> (<em>bool</em>) – if true, run as structural_analysis.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="analysis_solver.model.Model.function">
+<code class="sig-name descname">function</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">input_data</span></em><span class="sig-paren">)</span><a class="headerlink" href="#analysis_solver.model.Model.function" title="Permalink to this definition">¶</a></dt>
+<dd><p>example function</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>input_data</strong> (<em>dict</em>) – input data.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>output data.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="analysis_solver.model.Model.__call__">
+<code class="sig-name descname">__call__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">input_data</span></em><span class="sig-paren">)</span><a class="headerlink" href="#analysis_solver.model.Model.__call__" title="Permalink to this definition">¶</a></dt>
+<dd><p>calculate analysis data from input using functions</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>input_data</strong> (<em>dict</em>) – input data.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>containing followings,</dt><dd><dl class="simple">
+<dt>dict: analysis data. the key is output_quantity_name, and the value is the list, which</dt><dd><p>has data value (the type is pandas.DataFrame) as element corresponding to its data name.</p>
+</dd>
+<dt>dict: used timestamp for each input data. Dict has two keys, ‘s’ as strating timestamp and</dt><dd><p>’e’ as end time stamp, and the value is 1d-array of the timestamp used to caclulate output,
+whose length is the same as the length of output.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>tuple</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="ifem_matlab.html" class="btn btn-neutral float-right" title="2. i-SAS_iFEM-matlab" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="AnalysisSolver_index.html" class="btn btn-neutral float-left" title="Analysis Solver" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2021, i-SAS SC
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
