@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>1. i-SAS_NMRISensorController &mdash; i-SAS documentation v0.0.1 documentation</title>
+  <title>1. i-SAS_SensorController-template &mdash; i-SAS documentation v0.0.1 documentation</title>
   
 
   
@@ -35,7 +35,9 @@
 
     
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" /> 
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="2. i-SAS_DataLogger" href="data_logger.html" />
+    <link rel="prev" title="Sensor Controller" href="SensorController_index.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -85,8 +87,18 @@
 <li class="toctree-l1"><a class="reference internal" href="iSAS.html">i-SAS_Interface</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Subpackages:</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="SensorSimulator_index.html">Sensor Simulator</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="SensorController_index.html">Sensor Controller</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">1. i-SAS_SensorController-template</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#module-sensor_controller.interface">1.1. interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-sensor_controller.model">1.2. model</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="data_logger.html">2. i-SAS_DataLogger</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nmri_sensor_controller.html">3. i-SAS_NMRISensorController</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="SensorModeler_index.html">Sensor Modeler</a></li>
 <li class="toctree-l1"><a class="reference internal" href="StructuralModeler_index.html">Structural Modeler</a></li>
 <li class="toctree-l1"><a class="reference internal" href="AnalysisSolver_index.html">Analysis Solver</a></li>
@@ -138,7 +150,9 @@
     
       <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li><span class="section-number">1. </span>i-SAS_NMRISensorController</li>
+          <li><a href="SensorController_index.html">Sensor Controller</a> &raquo;</li>
+        
+      <li><span class="section-number">1. </span>i-SAS_SensorController-template</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -157,13 +171,13 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="i-sas-nmrisensorcontroller">
-<h1><span class="section-number">1. </span>i-SAS_NMRISensorController<a class="headerlink" href="#i-sas-nmrisensorcontroller" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="i-sas-sensorcontroller-template">
+<h1><span class="section-number">1. </span>i-SAS_SensorController-template<a class="headerlink" href="#i-sas-sensorcontroller-template" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="module-sensor_controller.interface">
 <span id="interface"></span><h2><span class="section-number">1.1. </span>interface<a class="headerlink" href="#module-sensor_controller.interface" title="Permalink to this headline">¶</a></h2>
 <dl class="py class">
 <dt id="sensor_controller.interface.Interface">
-<em class="property">class </em><code class="sig-prename descclassname">sensor_controller.interface.</code><code class="sig-name descname">Interface</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">instance_name</span></em>, <em class="sig-param"><span class="n">output_data_names</span></em>, <em class="sig-param"><span class="n">sensor_name</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sensor_controller.interface.Interface" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">sensor_controller.interface.</code><code class="sig-name descname">Interface</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">instance_name</span></em>, <em class="sig-param"><span class="n">output_data_names</span></em>, <em class="sig-param"><span class="n">sensor_name</span></em>, <em class="sig-param"><span class="n">structural_model_names</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sensor_controller.interface.Interface" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>interface class</p>
 <dl class="py attribute">
@@ -178,7 +192,7 @@
 
 <dl class="py method">
 <dt id="sensor_controller.interface.Interface.__init__">
-<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">instance_name</span></em>, <em class="sig-param"><span class="n">output_data_names</span></em>, <em class="sig-param"><span class="n">sensor_name</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sensor_controller.interface.Interface.__init__" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">instance_name</span></em>, <em class="sig-param"><span class="n">output_data_names</span></em>, <em class="sig-param"><span class="n">sensor_name</span></em>, <em class="sig-param"><span class="n">structural_model_names</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sensor_controller.interface.Interface.__init__" title="Permalink to this definition">¶</a></dt>
 <dd><p>initialization of Interface class</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -186,6 +200,7 @@
 <li><p><strong>instance_name</strong> (<em>str</em>) – name of instance.</p></li>
 <li><p><strong>output_data_names</strong> (<em>list</em><em>[</em><em>str</em><em>]</em>) – names of output data.</p></li>
 <li><p><strong>sensor_name</strong> (<em>str</em>) – sensor name.</p></li>
+<li><p><strong>structural_model_names</strong> (<em>list</em><em>[</em><em>str</em><em>]</em><em>, </em><em>optional</em>) – structural model names.</p></li>
 <li><p><strong>**kwargs</strong> – Arbitrary keyword arguments.</p></li>
 </ul>
 </dd>
@@ -205,17 +220,27 @@
 
 <dl class="py method">
 <dt id="sensor_controller.interface.Interface.set_model">
-<code class="sig-name descname">set_model</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">sensors</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sensor_controller.interface.Interface.set_model" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">set_model</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">sensors</span></em>, <em class="sig-param"><span class="n">structural_model_connections</span></em>, <em class="sig-param"><span class="n">sensor_structural_model_connections</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sensor_controller.interface.Interface.set_model" title="Permalink to this definition">¶</a></dt>
 <dd><p>set model</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>sensors</strong> (<em>dict</em>) – sensor information.</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sensors</strong> (<em>dict</em>) – sensor information.</p></li>
+<li><p><strong>structural_model_connections</strong> (<em>dict</em>) – connections between data and structural model.</p></li>
+<li><p><strong>sensor_structural_model_connections</strong> (<em>dict</em>) – connections between sensor and structural model.</p></li>
+</ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>static data to be exported.</p>
+<dd class="field-even"><p><p>containing followings</p>
+<blockquote>
+<div><p>dict: information on instance of this model.
+pandas.DataFrame: output metadata of this model.
+dict: connections between output data of this model and structural model.</p>
+</div></blockquote>
+</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>dict</p>
+<dd class="field-odd"><p>tuple</p>
 </dd>
 </dl>
 </dd></dl>
@@ -304,6 +329,15 @@
            
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="data_logger.html" class="btn btn-neutral float-right" title="2. i-SAS_DataLogger" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="SensorController_index.html" class="btn btn-neutral float-left" title="Sensor Controller" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>

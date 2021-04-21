@@ -1,11 +1,11 @@
 ==================================================
-i-SAS_SensorController-template
+i-SAS_DataLogger
 ==================================================
 
 interface
 --------------------------------------------------
 
-.. automodule:: sensor_controller.interface
+.. automodule:: data_logger.interface
    :members:
    :undoc-members:
    :show-inheritance:
@@ -13,7 +13,7 @@ interface
 model
 --------------------------------------------------
 
-.. automodule:: sensor_controller.model
+.. automodule:: data_logger.model
    :members:
    :undoc-members:
    :show-inheritance:

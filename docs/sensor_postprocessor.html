@@ -89,6 +89,7 @@
 <p class="caption"><span class="caption-text">Subpackages:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="SensorSimulator_index.html">Sensor Simulator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SensorController_index.html">Sensor Controller</a></li>
 <li class="toctree-l1"><a class="reference internal" href="SensorModeler_index.html">Sensor Modeler</a></li>
 <li class="toctree-l1"><a class="reference internal" href="StructuralModeler_index.html">Structural Modeler</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="AnalysisSolver_index.html">Analysis Solver</a><ul class="current">
@@ -341,7 +342,7 @@ pandas.DataFrame: timestamp used. The length is the same as analysis data.</p>
 <dl class="py method">
 <dt id="sensor_postprocessor.model.Model.__call__">
 <code class="sig-name descname">__call__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">input_data</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sensor_postprocessor.model.Model.__call__" title="Permalink to this definition">¶</a></dt>
-<dd><p>calculate analysis data from input using functions</p>
+<dd><p>Calculate results from input data.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>input_data</strong> (<em>dict</em>) – input data.</p>
@@ -349,7 +350,7 @@ pandas.DataFrame: timestamp used. The length is the same as analysis data.</p>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p><dl class="simple">
 <dt>containing followings,</dt><dd><dl class="simple">
-<dt>dict: analysis data. the key is output_quantity_name, and the value is the list, which</dt><dd><p>has data value (the type is pandas.DataFrame) as element corresponding to its data name.</p>
+<dt>dict: calculated results. The key is output data name (str), and the value is results</dt><dd><p>(pandas.DataFrame).</p>
 </dd>
 <dt>dict: used timestamp for each input data. Dict has two keys, ‘s’ as strating timestamp and</dt><dd><p>’e’ as end time stamp, and the value is 1d-array of the timestamp used to caclulate output,
 whose length is the same as the length of output.</p>

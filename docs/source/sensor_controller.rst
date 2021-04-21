@@ -1,5 +1,5 @@
 ==================================================
-i-SAS_NMRISensorController
+i-SAS_SensorController-template
 ==================================================
 
 interface

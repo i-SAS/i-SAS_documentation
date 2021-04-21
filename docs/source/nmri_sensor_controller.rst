@@ -1,11 +1,11 @@
 ==================================================
-i-SAS_SensorController-template
+i-SAS_NMRISensorController
 ==================================================
 
 interface
 --------------------------------------------------
 
-.. automodule:: sensor_controller.interface
+.. automodule:: nmri_sensor_controller.interface
    :members:
    :undoc-members:
    :show-inheritance:
@@ -13,7 +13,7 @@ interface
 model
 --------------------------------------------------
 
-.. automodule:: sensor_controller.model
+.. automodule:: nmri_sensor_controller.model
    :members:
    :undoc-members:
    :show-inheritance:

@@ -15,6 +15,7 @@ i-SAS consists of Interface and Subpackages.
    :caption: Subpackages:
 
    SensorSimulator_index
+   SensorController_index
    SensorModeler_index
    StructuralModeler_index
    AnalysisSolver_index

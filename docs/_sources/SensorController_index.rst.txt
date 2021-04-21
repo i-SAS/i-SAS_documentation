@@ -8,5 +8,5 @@ Sensor Controller
    :numbered:
 
    sensor_controller
-   tank_sensor_controller
-   sensor_controller
+   data_logger
+   nmri_sensor_controller

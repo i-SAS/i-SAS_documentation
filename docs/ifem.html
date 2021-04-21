@@ -89,6 +89,7 @@
 <p class="caption"><span class="caption-text">Subpackages:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="SensorSimulator_index.html">Sensor Simulator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SensorController_index.html">Sensor Controller</a></li>
 <li class="toctree-l1"><a class="reference internal" href="SensorModeler_index.html">Sensor Modeler</a></li>
 <li class="toctree-l1"><a class="reference internal" href="StructuralModeler_index.html">Structural Modeler</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="AnalysisSolver_index.html">Analysis Solver</a><ul class="current">
@@ -355,7 +356,7 @@
 <dd><p>the value of the node degrees of freedom (dof). 2-D array of shape <code class="docutils literal notranslate"><span class="pre">(total_node_dof,</span> <span class="pre">1)</span></code></p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
-<dd class="field-odd"><p>csc_matrix</p>
+<dd class="field-odd"><p>csr_matrix</p>
 </dd>
 </dl>
 </dd></dl>
@@ -514,7 +515,7 @@ node_dof_elem (ndarray[np.int64]): node degrees of freedom (dof) per element.</p
 <dd class="field-even"><p>merged matrix. Row and column lengths are calculated based on type_name.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>merged_matrix (csr_matrix)</p>
+<dd class="field-odd"><p>merged_matrix (coo_matrix)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -735,20 +736,20 @@ dimensions of the same data type.
 <code class="sig-name descname">solve</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">k_matrix</span></em>, <em class="sig-param"><span class="n">f_vector</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ifem.base.Base.solve" title="Permalink to this definition">¶</a></dt>
 <dd><p>Solving the linear equation of Ku = F to find the value of u vector.
 :param k_matrix: Kmatrix or iKmatrix. 2-D array of shape <code class="docutils literal notranslate"><span class="pre">(total_node_dof,</span> <span class="pre">total_node_dof)</span></code>
-:type k_matrix: csr_matrix
+:type k_matrix: coo_matrix
 :param f_vector: force vector or iFvector. 2-D array of shape <code class="docutils literal notranslate"><span class="pre">(total_node_dof,</span> <span class="pre">1)</span></code>
-:type f_vector: csc_matrix</p>
+:type f_vector: csr_matrix</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p><dl class="simple">
 <dt>displacement of each degree of freedom of nodes.</dt><dd><p>2-D array of shape <code class="docutils literal notranslate"><span class="pre">(total_node_dof,</span> <span class="pre">1)</span></code></p>
 </dd>
 </dl>
-<p>f_vector (ndarray): force vector or iFvector. 2-D array of shape <code class="docutils literal notranslate"><span class="pre">(total_node_dof,</span> <span class="pre">1)</span></code></p>
+<p>f_vector (lil_matrix): force vector or iFvector. 2-D array of shape <code class="docutils literal notranslate"><span class="pre">(total_node_dof,</span> <span class="pre">1)</span></code></p>
 </p>
 </dd>
 <dt class="field-even">Return type</dt>
-<dd class="field-even"><p>u_vector (ndarray)</p>
+<dd class="field-even"><p>u_vector (csr_matrix)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -766,7 +767,43 @@ start_time_stamps (list[int]): start time stamps used in data
 end_time_stamps (list[int]): end time stamps used in data</p>
 </dd>
 <dt class="field-even">Return type</dt>
-<dd class="field-even"><p>time_data (dict)</p>
+<dd class="field-even"><p>time_data (list)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="ifem.base.Base.arrange_data_streaming">
+<code class="sig-name descname">arrange_data_streaming</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ifem.base.Base.arrange_data_streaming" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fetch the latest data and its time.
+:param data: data calculated before
+:type data: dict</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>the latest data
+start_time_stamps (list[int]): start time stamps used in data
+end_time_stamps (list[int]): end time stamps used in data</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>time_data (list)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="ifem.base.Base.arrange_data_batch">
+<code class="sig-name descname">arrange_data_batch</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ifem.base.Base.arrange_data_batch" title="Permalink to this definition">¶</a></dt>
+<dd><p>Arrange the data along the time resolution.
+:param data: data calculated before
+:type data: dict</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>the data along the time resolution
+start_time_stamps (list[int]): start time stamps used in data
+end_time_stamps (list[int]): end time stamps used in data</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>time_data (list)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -872,7 +909,7 @@ merge them.</p>
 <dd class="field-odd"><p>force vector. 2-D array of shape <code class="docutils literal notranslate"><span class="pre">(total_node_dof,</span> <span class="pre">1)</span></code></p>
 </dd>
 <dt class="field-even">Return type</dt>
-<dd class="field-even"><p>f_vector (csc_matrix)</p>
+<dd class="field-even"><p>f_vector (csr_matrix)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -888,7 +925,7 @@ merge them.</p>
 <dd class="field-odd"><p>force vector of surface loads. 2-D array of shape <code class="docutils literal notranslate"><span class="pre">(total_node_dof,</span> <span class="pre">1)</span></code></p>
 </dd>
 <dt class="field-even">Return type</dt>
-<dd class="field-even"><p>ft_vector (csc_matrix)</p>
+<dd class="field-even"><p>ft_vector (csr_matrix)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -904,7 +941,7 @@ merge them.</p>
 <dd class="field-odd"><p>force vector of body loads. 2-D array of shape <code class="docutils literal notranslate"><span class="pre">(total_node_dof,</span> <span class="pre">1)</span></code></p>
 </dd>
 <dt class="field-even">Return type</dt>
-<dd class="field-even"><p>fg_vector (csc_matrix)</p>
+<dd class="field-even"><p>fg_vector (csr_matrix)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -920,7 +957,7 @@ merge them.</p>
 <dd class="field-odd"><p>force vector of point loads. 2-D array of shape <code class="docutils literal notranslate"><span class="pre">(total_node_dof,</span> <span class="pre">1)</span></code></p>
 </dd>
 <dt class="field-even">Return type</dt>
-<dd class="field-even"><p>fp_vector (csc_matrix)</p>
+<dd class="field-even"><p>fp_vector (csr_matrix)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -950,7 +987,7 @@ merge them.</p>
 <code class="sig-name descname">calc_force_g</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ifem.fem.Fem.calc_force_g" title="Permalink to this definition">¶</a></dt>
 <dd><p>Compute a force vector with body loads on the elements.
 :returns: a force with body loads on the elements. 2-D array of shape <code class="docutils literal notranslate"><span class="pre">(total_elems</span> <span class="pre">*</span> <span class="pre">3,</span> <span class="pre">1)</span></code>
-:rtype: force_g (csc_matrix)</p>
+:rtype: force_g (csr_matrix)</p>
 </dd></dl>
 
 <dl class="py method">
@@ -964,7 +1001,7 @@ merge them.</p>
 <li><p><strong>sensors</strong> (<em>dict</em>) – sensors.</p></li>
 <li><p><strong>structural_models</strong> (<em>dict</em>) – structural models.</p></li>
 <li><p><strong>structural_model_connections</strong> (<em>dict</em>) – connections between data and structural model.</p></li>
-<li><p><strong>streaming</strong> (<em>bool</em>) – if true, run as structural_analysis.</p></li>
+<li><p><strong>streaming</strong> (<em>bool</em>) – if true, run with the latest data.</p></li>
 </ul>
 </dd>
 </dl>
@@ -1086,7 +1123,7 @@ as the length of output.</p>
 <dd class="field-odd"><p>strain values on elems. 2-D array of shape <code class="docutils literal notranslate"><span class="pre">(total_elems</span> <span class="pre">*</span> <span class="pre">6,</span> <span class="pre">1)</span></code></p>
 </dd>
 <dt class="field-even">Return type</dt>
-<dd class="field-even"><p>strain (csc_matrix)</p>
+<dd class="field-even"><p>strain (csr_matrix)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1100,11 +1137,11 @@ as the length of output.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p>separated strain values on elems. 1-D array of shape <code class="docutils literal notranslate"><span class="pre">(total_elems</span> <span class="pre">*</span> <span class="pre">3)</span></code>
-strain_sep_k (ndarray): separated strain values on elems. 1-D array of shape <code class="docutils literal notranslate"><span class="pre">(total_elems</span> <span class="pre">*</span> <span class="pre">3)</span></code>
-strain_sep_g (ndarray): separated strain values on elems. 1-D array of shape <code class="docutils literal notranslate"><span class="pre">(total_elems</span> <span class="pre">*</span> <span class="pre">2)</span></code></p>
+strain_sep_k (csr_matrix): separated strain values on elems. 1-D array of shape <code class="docutils literal notranslate"><span class="pre">(total_elems</span> <span class="pre">*</span> <span class="pre">3)</span></code>
+strain_sep_g (csr_matrix): separated strain values on elems. 1-D array of shape <code class="docutils literal notranslate"><span class="pre">(total_elems</span> <span class="pre">*</span> <span class="pre">2)</span></code></p>
 </dd>
 <dt class="field-even">Return type</dt>
-<dd class="field-even"><p>strain_sep_e (ndarray)</p>
+<dd class="field-even"><p>strain_sep_e (csr_matrix)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1139,7 +1176,7 @@ r3 (ndarray): r3 values of elems. 2-D array of shape <code class="docutils liter
 <li><p><strong>sensors</strong> (<em>dict</em>) – sensors.</p></li>
 <li><p><strong>structural_models</strong> (<em>dict</em>) – structural models.</p></li>
 <li><p><strong>structural_model_connections</strong> (<em>dict</em>) – connections between data and structural model.</p></li>
-<li><p><strong>streaming</strong> (<em>bool</em>) – if true, run as structural_analysis.</p></li>
+<li><p><strong>streaming</strong> (<em>bool</em>) – if true, run with the latest data.</p></li>
 </ul>
 </dd>
 </dl>

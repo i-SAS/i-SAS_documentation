@@ -66,14 +66,6 @@ stream_analysis
    :undoc-members:
    :show-inheritance:
 
-utils
---------------------------------------------------
-
-.. automodule:: isas.utils
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
 visualization
 --------------------------------------------------
 

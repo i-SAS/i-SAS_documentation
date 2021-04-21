@@ -1,32 +1,32 @@
 [Interface]
-https://github.com/i-SAS/i-SAS_Interface
+{name = "i-SAS_Interface", tag = "v0.1.1"}
 [SensorSimulator]
-https://github.com/i-SAS/i-SAS_SensorSimulator-template
-https://github.com/i-SAS/i-SAS_PointSensor
+{name = "i-SAS_SensorSimulator-template", tag = "v0.1.1"}
+{name = "i-SAS_PointSensor", tag = "v0.1.1"}
 [SensorController]
-https://github.com/i-SAS/i-SAS_SensorController-template
-https://github.com/i-SAS/i-SAS_TankSensorController
-https://github.com/i-SAS/i-SAS_NMRISensorController
+{name = "i-SAS_SensorController-template", tag = "v0.1.1"}
+{name = "i-SAS_DataLogger", branch = "develop"}
+{name = "i-SAS_NMRISensorController", branch = "develop"}
 [SensorModeler]
-https://github.com/i-SAS/i-SAS_SensorModeler-template
-https://github.com/i-SAS/i-SAS_BasicSensorModeler
+{name = "i-SAS_SensorModeler-template", tag = "v0.1.1"}
+{name = "i-SAS_BasicSensorModeler", tag = "v0.1.1"}
 [StructuralModeler]
-https://github.com/i-SAS/i-SAS_StructuralModeler-template
-https://github.com/i-SAS/i-SAS_FiniteElementModeler
+{name = "i-SAS_StructuralModeler-template", tag = "v0.1.1"}
+{name = "i-SAS_FiniteElementModeler", tag = "v0.1.1"}
 [AnalysisSolver]
-https://github.com/i-SAS/i-SAS_AnalysisSolver-template
-https://github.com/i-SAS/i-SAS_iFEM-matlab
-https://github.com/i-SAS/i-SAS_RBFInterpolator
-https://github.com/i-SAS/i-SAS_iFEM
-https://github.com/i-SAS/i-SAS_NastranManager
-https://github.com/i-SAS/i-SAS_DirectionalWaveSpectraEstimator
-https://github.com/i-SAS/i-SAS_SensorPostprocessor
-https://github.com/i-SAS/i-SAS_ResponseKalmanFilter
-https://github.com/i-SAS/i-SAS_FEM_Utils
+{name = "i-SAS_AnalysisSolver-template", tag = "v0.1.1"}
+{name = "i-SAS_iFEM-matlab", branch = "develop"}
+{name = "i-SAS_RBFInterpolator", tag = "v0.1.1"}
+{name = "i-SAS_iFEM", tag = "v0.1.1"}
+{name = "i-SAS_NastranManager", tag = "v0.1.1"}
+{name = "i-SAS_DirectionalWaveSpectraEstimator", branch = "develop"}
+{name = "i-SAS_SensorPostprocessor", tag = "v0.1.1"}
+{name = "i-SAS_ResponseKalmanFilter", tag = "v0.1.1"}
+{name = "i-SAS_FEM_Utils", tag = "v0.1.1"}
 [Visualizer]
-https://github.com/i-SAS/i-SAS_Visualizer-template
-https://github.com/i-SAS/i-SAS_BasicVisualizer
-https://github.com/i-SAS/i-SAS_ShipVisualizer
+{name = "i-SAS_Visualizer-template", tag = "v0.1.1"}
+{name = "i-SAS_BasicVisualizer", tag = "v0.1.1"}
+{name = "i-SAS_ShipVisualizer", tag = "v0.1.1"}
 [GUIController]
-https://github.com/i-SAS/i-SAS_GUIController-template
-https://github.com/i-SAS/i-SAS_BasicGUIController
+{name = "i-SAS_GUIController-template", tag = "v0.1.1"}
+{name = "i-SAS_BasicGUIController", tag = "v0.1.1"}

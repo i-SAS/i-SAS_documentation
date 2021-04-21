@@ -97,6 +97,7 @@
 <li class="toctree-l2"><a class="reference internal" href="point_sensor.html">2. i-SAS_PointSensor</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="SensorController_index.html">Sensor Controller</a></li>
 <li class="toctree-l1"><a class="reference internal" href="SensorModeler_index.html">Sensor Modeler</a></li>
 <li class="toctree-l1"><a class="reference internal" href="StructuralModeler_index.html">Structural Modeler</a></li>
 <li class="toctree-l1"><a class="reference internal" href="AnalysisSolver_index.html">Analysis Solver</a></li>
@@ -326,12 +327,12 @@ pandas.DataFrame: used timestamp. The length is the same as measurement data.</p
 <dd><p>simulate measurement data</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>input_data</strong> (<em>list</em><em>[</em><em>pandas.DataFrame</em><em>]</em>) – time series data as input.</p>
+<dd class="field-odd"><p><strong>input_data</strong> (<em>dict</em>) – input data. The key is input_data_name, and the value is pandas.DataFrame.</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p><dl>
-<dt>containing followings,</dt><dd><p>list[pandas.DataFrame]: measurement data.
-list[dict]: used timestamp for each input data. Dict has two keys, ‘s’ as strating timestamp and</p>
+<dt>containing followings,</dt><dd><p>dict: measurement data. The key is output_data_name, and the value is pandas.DataFrame.
+dict: used timestamp for each input data. Dict has two keys, ‘s’ as strating timestamp and</p>
 <blockquote>
 <div><p>’e’ as end time stamp, and the value is 1d-array of the timestamp used to caclulate output,
 whose length is the same as the length of output.</p>

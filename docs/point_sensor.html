@@ -36,7 +36,7 @@
     
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Sensor Modeler" href="SensorModeler_index.html" />
+    <link rel="next" title="Sensor Controller" href="SensorController_index.html" />
     <link rel="prev" title="1. i-SAS_SensorSimulator-template" href="sensor_simulator.html" /> 
 </head>
 
@@ -97,6 +97,7 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="SensorController_index.html">Sensor Controller</a></li>
 <li class="toctree-l1"><a class="reference internal" href="SensorModeler_index.html">Sensor Modeler</a></li>
 <li class="toctree-l1"><a class="reference internal" href="StructuralModeler_index.html">Structural Modeler</a></li>
 <li class="toctree-l1"><a class="reference internal" href="AnalysisSolver_index.html">Analysis Solver</a></li>
@@ -330,7 +331,7 @@ pandas.DataFrame: used timestamp. The length is the same as measurement data.</p
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p><dl>
-<dt>containing followings,</dt><dd><p>list[pandas.DataFrame]: measurement data.
+<dt>containing followings,</dt><dd><p>dict: measurement data. The key is output_data_name, and the value is pandas.DataFrame.
 list[dict]: used timestamp for each input data. Dict has two keys, ‘s’ as strating timestamp and</p>
 <blockquote>
 <div><p>’e’ as end time stamp, and the value is 1d-array of the timestamp used to caclulate output,
@@ -359,7 +360,7 @@ whose length is the same as the length of output.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="SensorModeler_index.html" class="btn btn-neutral float-right" title="Sensor Modeler" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="SensorController_index.html" class="btn btn-neutral float-right" title="Sensor Controller" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="sensor_simulator.html" class="btn btn-neutral float-left" title="1. i-SAS_SensorSimulator-template" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

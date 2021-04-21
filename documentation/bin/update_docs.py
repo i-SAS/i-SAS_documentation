@@ -1,4 +1,5 @@
 import os
+import re
 import shutil
 import subprocess
 from getpass import getpass
@@ -50,33 +51,33 @@ def main():
 
     username = input('Please input Username for "https://github.com":')
     password = getpass(f'Please input Password for "https://{username}@github.com":')
-    for repository_path in lines:
-        if repository_path[0] == '[' and repository_path[-1] == ']':
-            group = repository_path[1:-1]
+    for _repository in lines:
+        if _repository[0] == '[' and _repository[-1] == ']':
+            group = _repository[1:-1]
             continue
-        elif 'https' not in repository_path or '' == repository_path:
+        elif not all([_ in _repository for _ in ('{', '}')]) or '' == _repository:
             continue
-        repository_name = repository_path.rsplit('/', 1)[1]
-        print(repository_name)
+        _repository = [_ for _ in re.split('[{},=" ]', _repository) if _ != '']
+        repository_name = _repository[_repository.index('name')+1]
+        tag_or_branch = 'tag' if 'tag' in _repository else 'branch' if 'branch' in _repository else None
+        tag_or_branch = _repository[_repository.index(tag_or_branch)+1] if tag_or_branch is not None else 'master'
+        print(f'>>> {repository_name} / {tag_or_branch}')
         # git clone
-        repository_path_ = f'https://{username}:{password}@{repository_path[8:]}'
-        # tag_name = 'v0.0.1'
-        tag_name = 'develop'
-        subprocess.run(['git', 'clone', '-b', tag_name, '--depth', '1', repository_path_])
+        _repository_ = f'https://{username}:{password}@github.com/i-SAS/{repository_name}'
+        subprocess.run(['git', 'clone', '-b', tag_or_branch, '--depth', '1', _repository_])
 
         # add document name to index.rst
         folders = glob(f'{TMP_PATH}/{repository_name}/**/')
-        folders = [_.rsplit('/', 2)[1] for _ in folders if _.rsplit('/', 2)[1] not in ('docs', 'cfg', 'tests')]
+        _exceptions = ('docs', 'cfg', 'tests', 'bin', 'test')
+        folders = [_.rsplit('/', 2)[1] for _ in folders if _.rsplit('/', 2)[1] not in _exceptions]
         if repository_name == 'i-SAS_iFEM-matlab':
             folders = ['ifem_matlab']
         if len(folders) != 1:
             print(f'Could not specified script folder of {repository_name}.')
             for i in range(100):
                 script_folder = input(f'Please input script folder name. The candidates are {folders}.\n>>>')
-                if os.path.isdir(f'{TMP_PATH}/{repository_name}/{script_folder}'):
+                if os.path.isdir(f'{TMP_PATH}/{repository_name}/{script_folder}') or script_folder == 'skip':
                     break
-                elif script_folder == 'skip':
-                    continue
                 else:
                     print(f'folder named {script_folder} is not exist.')
         else:

@@ -89,6 +89,7 @@
 <p class="caption"><span class="caption-text">Subpackages:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="SensorSimulator_index.html">Sensor Simulator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SensorController_index.html">Sensor Controller</a></li>
 <li class="toctree-l1"><a class="reference internal" href="SensorModeler_index.html">Sensor Modeler</a></li>
 <li class="toctree-l1"><a class="reference internal" href="StructuralModeler_index.html">Structural Modeler</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="AnalysisSolver_index.html">Analysis Solver</a><ul class="current">
@@ -192,7 +193,7 @@
 
 <dl class="py attribute">
 <dt id="response_kalman_filter.interface.Interface.structural_model_required">
-<code class="sig-name descname">structural_model_required</code><em class="property"> = False</em><a class="headerlink" href="#response_kalman_filter.interface.Interface.structural_model_required" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">structural_model_required</code><em class="property"> = True</em><a class="headerlink" href="#response_kalman_filter.interface.Interface.structural_model_required" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -211,10 +212,17 @@
 </dd>
 </dl>
 <p class="rubric">Example</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">input_names</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;strain&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;rosette_strain_x&#39;</span><span class="p">,</span> <span class="s1">&#39;rosette_strain_y&#39;</span><span class="p">,</span> <span class="s1">&#39;rosette_strain_xy&#39;</span><span class="p">]}</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">output_names</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;displacement&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;analysis_displacement_z&#39;</span><span class="p">],</span> <span class="s1">&#39;stress&#39;</span><span class="p">:[</span><span class="s1">&#39;analysis_stress_x&#39;</span><span class="p">]}</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">input_names</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;strain&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;rosette_strain_x&#39;</span><span class="p">]}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">output_names</span> <span class="o">=</span>                 <span class="p">{</span><span class="s1">&#39;mode_displacement&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;analysis_mode_displacement&#39;</span><span class="p">],</span>
+<span class="go">     &#39;mode_external_force&#39;: [&#39;analysis_mode_velocity&#39;],</span>
+<span class="go">     &#39;mode_acceleration&#39;: [&#39;analysis_mode_acceleration&#39;],}</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">interface</span> <span class="o">=</span> <span class="n">Interface</span><span class="p">(</span><span class="n">input_names</span><span class="p">,</span> <span class="n">output_names</span><span class="p">,</span> <span class="s1">&#39;beam&#39;</span><span class="p">)</span>
 </pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>the suffix corresponding to used mode name and number will add to output data name.
+(e.g. ‘analysis_mode_displacement’ → ‘analysis_mode_displacement_vertical_1’)</p>
 </div>
 </dd></dl>
 
@@ -230,24 +238,29 @@
 
 <dl class="py method">
 <dt id="response_kalman_filter.interface.Interface.set_model">
-<code class="sig-name descname">set_model</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">sensing_output_metadata</span></em>, <em class="sig-param"><span class="n">analysis_output_metadata</span></em>, <em class="sig-param"><span class="n">structural_models</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">sensor_structural_model_connections</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">analysis_structural_model_connections</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">streaming</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#response_kalman_filter.interface.Interface.set_model" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">set_model</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">output_metadata</span></em>, <em class="sig-param"><span class="n">sensors</span></em>, <em class="sig-param"><span class="n">structural_models</span></em>, <em class="sig-param"><span class="n">structural_model_connections</span></em>, <em class="sig-param"><span class="n">streaming</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#response_kalman_filter.interface.Interface.set_model" title="Permalink to this definition">¶</a></dt>
 <dd><p>set structural model</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>sensing_output_metadata</strong> (<em>pd.DataFrame</em>) – metadata of sensing output.</p></li>
-<li><p><strong>analysis_output_metadata</strong> (<em>pd.DataFrame</em>) – metadata of analysis output.</p></li>
-<li><p><strong>structural_models</strong> (<em>dict</em><em>, </em><em>optional</em>) – structural model.</p></li>
-<li><p><strong>sensor_structural_model_connections</strong> (<em>dict</em><em>, </em><em>optional</em>) – connections between sensor and structural model.</p></li>
-<li><p><strong>analysis_structural_model_connection</strong> (<em>dict</em><em>, </em><em>optional</em>) – connections between analysis and structural model.</p></li>
+<li><p><strong>output_metadata</strong> (<em>pd.DataFrame</em>) – output metadata.</p></li>
+<li><p><strong>sensors</strong> (<em>dict</em>) – sensors.</p></li>
+<li><p><strong>structural_models</strong> (<em>dict</em>) – structural models.</p></li>
+<li><p><strong>structural_model_connections</strong> (<em>dict</em>) – connections between data and structural model.</p></li>
 <li><p><strong>streaming</strong> (<em>bool</em><em>, </em><em>optional</em>) – if true, run as structural_analysis.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>static data to be exported.</p>
+<dd class="field-even"><p><p>containing followings</p>
+<blockquote>
+<div><p>dict: information on instance of this model.
+pandas.DataFrame: output metadata of this model.
+dict: connections between output data of this model and structural model.</p>
+</div></blockquote>
+</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>dict</p>
+<dd class="field-odd"><p>tuple</p>
 </dd>
 </dl>
 </dd></dl>
@@ -262,8 +275,8 @@
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p><dl class="simple">
-<dt>containing:</dt><dd><p>dict: analysis results.
-pandas.DataFrame: timestamp used. The length is the same as analysis results.</p>
+<dt>containing:</dt><dd><p>dict: analysis data.
+pandas.DataFrame: timestamp used. The length is the same as analysis data.</p>
 </dd>
 </dl>
 </p>
@@ -292,7 +305,7 @@ pandas.DataFrame: timestamp used. The length is the same as analysis results.</p
 <p>model class</p>
 <dl class="py attribute">
 <dt id="response_kalman_filter.model.Model.coord_sys">
-<code class="sig-name descname">coord_sys</code><em class="property"> = {'new_strain': 'local'}</em><a class="headerlink" href="#response_kalman_filter.model.Model.coord_sys" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">coord_sys</code><em class="property"> = {'mode_displacement': 'global', 'mode_external_force': 'global', 'mode_velocity': 'global'}</em><a class="headerlink" href="#response_kalman_filter.model.Model.coord_sys" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -313,16 +326,15 @@ pandas.DataFrame: timestamp used. The length is the same as analysis results.</p
 
 <dl class="py method">
 <dt id="response_kalman_filter.model.Model.set_model">
-<code class="sig-name descname">set_model</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">sensing_output_metadata</span></em>, <em class="sig-param"><span class="n">analysis_output_metadata</span></em>, <em class="sig-param"><span class="n">structural_models</span></em>, <em class="sig-param"><span class="n">sensor_structural_model_connections</span></em>, <em class="sig-param"><span class="n">analysis_structural_model_connections</span></em>, <em class="sig-param"><span class="n">streaming</span></em><span class="sig-paren">)</span><a class="headerlink" href="#response_kalman_filter.model.Model.set_model" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">set_model</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">output_metadata</span></em>, <em class="sig-param"><span class="n">sensors</span></em>, <em class="sig-param"><span class="n">structural_models</span></em>, <em class="sig-param"><span class="n">structural_model_connections</span></em>, <em class="sig-param"><span class="n">streaming</span></em><span class="sig-paren">)</span><a class="headerlink" href="#response_kalman_filter.model.Model.set_model" title="Permalink to this definition">¶</a></dt>
 <dd><p>set model and calculate intermediate values</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>sensing_output_metadata</strong> (<em>pd.DataFrame</em>) – metadata of sensing output.</p></li>
-<li><p><strong>analysis_output_metadata</strong> (<em>pd.DataFrame</em>) – metadata of analysis output.</p></li>
-<li><p><strong>structural_models</strong> (<em>dict</em>) – structural model.</p></li>
-<li><p><strong>sensor_structural_model_connections</strong> (<em>dict</em>) – connections between sensor and structural model.</p></li>
-<li><p><strong>analysis_structural_model_connection</strong> (<em>dict</em>) – connections between analysis and structural model.</p></li>
+<li><p><strong>output_metadata</strong> (<em>pd.DataFrame</em>) – output metadata.</p></li>
+<li><p><strong>sensors</strong> (<em>dict</em>) – sensors.</p></li>
+<li><p><strong>structural_models</strong> (<em>dict</em>) – structural models.</p></li>
+<li><p><strong>structural_model_connections</strong> (<em>dict</em>) – connections between data and structural model.</p></li>
 <li><p><strong>streaming</strong> (<em>bool</em>) – if true, run as structural_analysis.</p></li>
 </ul>
 </dd>
@@ -330,34 +342,31 @@ pandas.DataFrame: timestamp used. The length is the same as analysis results.</p
 </dd></dl>
 
 <dl class="py method">
-<dt id="response_kalman_filter.model.Model.function">
-<code class="sig-name descname">function</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">input_data</span></em><span class="sig-paren">)</span><a class="headerlink" href="#response_kalman_filter.model.Model.function" title="Permalink to this definition">¶</a></dt>
-<dd><p>example function</p>
+<dt id="response_kalman_filter.model.Model.calc_c_matrix">
+<code class="sig-name descname">calc_c_matrix</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#response_kalman_filter.model.Model.calc_c_matrix" title="Permalink to this definition">¶</a></dt>
+<dd><p>calculate C matrix</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>input_data</strong> (<em>dict</em>) – input data.</p>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>C matrix</p>
 </dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>output data.</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>dict</p>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>np.array</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt id="response_kalman_filter.model.Model.__call__">
-<code class="sig-name descname">__call__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data</span></em><span class="sig-paren">)</span><a class="headerlink" href="#response_kalman_filter.model.Model.__call__" title="Permalink to this definition">¶</a></dt>
-<dd><p>calculate results from input using functions</p>
+<code class="sig-name descname">__call__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">input_data</span></em><span class="sig-paren">)</span><a class="headerlink" href="#response_kalman_filter.model.Model.__call__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate results from input data.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>data</strong> (<em>dict</em>) – input data.</p>
+<dd class="field-odd"><p><strong>input_data</strong> (<em>dict</em>) – input data.</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p><dl class="simple">
 <dt>containing followings,</dt><dd><dl class="simple">
-<dt>dict: result data. the key is output_quantity_name, and the value is the list, which</dt><dd><p>has data value (the type is pandas.DataFrame) as element corresponding to its data name.</p>
+<dt>dict: calculated results. The key is output data name (str), and the value is results</dt><dd><p>(pandas.DataFrame).</p>
 </dd>
 <dt>dict: used timestamp for each input data. Dict has two keys, ‘s’ as strating timestamp and</dt><dd><p>’e’ as end time stamp, and the value is 1d-array of the timestamp used to caclulate output,
 whose length is the same as the length of output.</p>

@@ -42,6 +42,6 @@ Modify `pyproject.toml` and command
 
 #### Update Document
 ```
-# python documentation/bin/update_documentation.py
+# python documentation/bin/update_docs.py
 ```
 config files are in ('./docs/source/initial/').
